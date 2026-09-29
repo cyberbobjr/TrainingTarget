@@ -1,0 +1,56 @@
+[h1]Training Target — Schießstand & Trainingspuppe[/h1]
+
+[b]Build 42.21 · Einzelspieler & Mehrspieler[/b]
+
+In Knox County zählt jede Kugel... also lerne zielen, bevor die Horde an die Tür klopft. Baue einen Schießstand in deiner Basis: Papier-Zielscheiben, eine Zielscheibe mit Ständer, ein Dosengestell und eine Trainingspuppe für den Nahkampf.
+
+[h2]Auf einen Blick[/h2]
+
+[list]
+[*][b]Vier neue Möbelstücke[/b], von Hand in 3D modelliert: Papier-Zielscheibe für die Wand, Zielscheibe mit Ständer, Dosengestell und Trainingspuppe.
+[*][b]Trefferzonen[/b]: Volltreffer, innerer Ring oder äußerer Ring. Je besser dein Zielen, desto näher an der Mitte. Einschusslöcher zeigen, wo du getroffen hast.
+[*][b]Trainingsstatistik[/b]: Schüsse, Treffer, Trefferquote, Volltreffer und beste Serie.
+[*][b]Wartung[/b]: zerschossenes Zielblatt wechseln, Trainingspuppe reparieren, leere Blechdosen wieder auf das Gestell stellen.
+[*][b]Zielscheiben des Spiels[/b]: die militärischen Zielscheiben in der Spielwelt funktionieren ebenfalls.
+[*][b]Controller-Unterstützung[/b], [b]Mehrspieler[/b] und [b]Sandbox-Optionen[/b].
+[/list]
+
+[h2]Schießen[/h2]
+
+[list]
+[*]Stelle ein Ziel auf, geh mindestens 3 Kacheln zurück und schieß mit einer beliebigen Schusswaffe darauf.
+[*]Deine Trefferchance ergibt sich aus der Genauigkeit der Waffe und deiner Zielen-Stufe, abzüglich Entfernung und Bewegung. Schwierigere Ziele geben mehr Erfahrung: Zielscheibe mit Ständer x1,25, Dosen x1,5.
+[*]Pro Treffer gibt es eine feste Menge Erfahrung: die EP-Kurve des Spiels, Fertigkeitenbücher und Eigenschaften erledigen den Rest.
+[*]Ein Zielblatt ist nach 30 Treffern verbraucht. Rechtsklick auf das Ziel, [b]Zielblatt wechseln[/b], mit einem Blatt Papier und einem Stift.
+[*]Jede getroffene Dose fällt vom Gestell. [b]Leere Blechdosen auf das Gestell stellen[/b], um weiterzuschießen (bis zu 6).
+[/list]
+
+[h2]Nahkampf[/h2]
+
+Schlag mit einer Axt, einer Stumpfwaffe, einem Speer oder einer Klingenwaffe auf die [b]Trainingspuppe[/b], um die Fertigkeit dieser Waffe zu trainieren. Die Puppe geht nie kaputt, wird aber zerfetzt: nach 150 Schlägen [b]Trainingspuppe reparieren[/b] mit einem Hammer, einem Brett und 2 Nägeln.
+
+[h2]Herstellung (Tischlerei)[/h2]
+
+[list]
+[*][b]Papier-Zielscheibe[/b]: 1 Brett, 2 Nägel, 1 Blatt Papier, Hammer und Stift.
+[*][b]Zielscheibe mit Ständer[/b]: 3 Bretter, 4 Nägel, 1 Blatt Papier, Hammer, Säge und Stift.
+[*][b]Dosengestell[/b]: 3 Bretter, 4 Nägel, Hammer und Säge.
+[*][b]Trainingspuppe[/b]: 4 Bretter, 6 Nägel, 1 Laken, 4 Stofffetzen, Hammer und Säge.
+[/list]
+
+[h2]Mehrspieler[/h2]
+
+Der Server entscheidet über jeden Treffer, vergibt die Erfahrung und speichert die Trainingsstatistik jedes Spielers. Alle sehen dieselben Einschusslöcher, dieselben Dosen und denselben Verschleiß der Puppe.
+
+[h2]Sandbox-Optionen[/h2]
+
+Zielen- und Nahkampf-EP pro Treffer, minimale Schussdistanz, Trefferchance-Bonus, Haltbarkeit von Zielblatt und Trainingspuppe, Dosen auf dem Gestell, Nahkampftraining, Zielscheiben des Spiels, Trainingsende.
+
+[h2]Unterstütze das Projekt[/h2]
+
+Gefällt dir die Mod? Ein Kaffee hilft, neue Funktionen und Übersetzungen zu finanzieren.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
+
+[h2]Credits[/h2]
+
+Vollständige Neufassung für Build 42.21 von Training Target (Build 41), vom selben Autor. Modelle mit Blender erstellt. Quellcode unter MIT-Lizenz: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

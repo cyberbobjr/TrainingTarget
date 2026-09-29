@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "명중당 조준 경험치",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "과녁에 명중할 때마다 얻는 조준 경험치로, 과녁과 명중 구역 보너스(깡통 받침대 x1.5, 스탠드 과녁 x1.25, 정중앙 x1.5, 안쪽 고리 x1.25) 적용 전의 값입니다. 게임 기본 배율(기술 서적, 특성)은 그대로 적용됩니다.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "타격당 근접 경험치",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "훈련용 인형을 타격할 때마다 얻는 무기 기술 경험치입니다(도끼, 긴 둔기, 짧은 둔기, 창, 장검, 단검).",
+    "Sandbox_BatmanTT_MinShootingDistance": "최소 사격 거리",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "이 타일 수보다 가까운 곳에서 쏜 사격은 인정되지 않습니다.",
+    "Sandbox_BatmanTT_HitChanceBonus": "명중 확률 보너스",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "과녁 명중 확률에 더해지는 값(퍼센트)입니다. 음수로 하면 훈련이 더 어려워집니다.",
+    "Sandbox_BatmanTT_SheetDurability": "과녁 종이 내구도",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "과녁 종이를 교체하기 전까지 견디는 명중 횟수입니다.",
+    "Sandbox_BatmanTT_DummyDurability": "인형 내구도",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "훈련용 인형을 수리하기 전까지 견디는 타격 횟수입니다.",
+    "Sandbox_BatmanTT_MaxCans": "받침대 위 깡통",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "깡통 받침대에 올릴 수 있는 빈 깡통의 최대 개수입니다(1~6).",
+    "Sandbox_BatmanTT_MeleeTraining": "근접 훈련",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "훈련용 인형으로 무기 기술 경험치를 얻을 수 있습니다.",
+    "Sandbox_BatmanTT_VanillaTargets": "기본 게임 과녁",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "월드에서 발견되는 군용 사격 표적도 훈련에 사용할 수 있습니다.",
+    "Sandbox_BatmanTT_SessionTimeout": "훈련 종료 시간 (분)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "과녁에 사격하지 않은 채로 실제 시간으로 이만큼의 분이 지나면 사격 훈련이 끝납니다. 0: 끝나지 않음."
+}

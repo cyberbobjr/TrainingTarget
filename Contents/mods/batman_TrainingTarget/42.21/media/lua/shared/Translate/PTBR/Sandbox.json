@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "XP de Pontaria por acerto",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "Experiência de Pontaria para cada acerto em um alvo, antes dos bônus de alvo e de zona (suporte de latas x1,5, alvo em cavalete x1,25, na mosca x1,5, anel interno x1,25). Os multiplicadores do jogo (livros, traços) continuam valendo.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "XP de corpo a corpo por golpe",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "Experiência na habilidade da arma para cada golpe no manequim de treino (machados, contundentes, lanças, lâminas).",
+    "Sandbox_BatmanTT_MinShootingDistance": "Distância mínima de tiro",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "Tiros a menos desta quantidade de quadrados não contam.",
+    "Sandbox_BatmanTT_HitChanceBonus": "Bônus de chance de acerto",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "Somado à chance de acertar um alvo, em porcentagem (valores negativos deixam o treino mais difícil).",
+    "Sandbox_BatmanTT_SheetDurability": "Durabilidade da folha de alvo",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "Acertos que uma folha de alvo aguenta antes de precisar ser trocada.",
+    "Sandbox_BatmanTT_DummyDurability": "Durabilidade do manequim",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Golpes que o manequim de treino aguenta antes de precisar ser reparado.",
+    "Sandbox_BatmanTT_MaxCans": "Latas no suporte",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "Número máximo de latas vazias no suporte de latas (1 a 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "Treino corpo a corpo",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "O manequim de treino dá experiência na habilidade da arma.",
+    "Sandbox_BatmanTT_VanillaTargets": "Alvos do jogo",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "Os alvos de tiro militares encontrados no mundo também podem ser usados para treinar.",
+    "Sandbox_BatmanTT_SessionTimeout": "Fim da sessão (minutos)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "Uma sessão de tiro termina após esta quantidade de minutos reais sem atirar em um alvo. 0: nunca."
+}

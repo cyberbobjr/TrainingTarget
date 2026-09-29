@@ -1,0 +1,15 @@
+Thumbs.db
+desktop.ini
+.DS_Store
+__pycache__/
+*.bak
+*.tmp
+
+# Editable Blender copy, rebuilt by the recipe (the file keeps local paths from the Blender UI)
+*.blend
+*.blend1
+
+# Render outputs and local settings
+_cells/
+_styled/
+.env

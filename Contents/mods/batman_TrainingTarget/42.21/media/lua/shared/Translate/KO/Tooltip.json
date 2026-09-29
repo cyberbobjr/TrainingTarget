@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "종이 1장 (소모됨)",
+    "Tooltip_BatmanTT_NeedPen": "펜, 연필 또는 사인펜",
+    "Tooltip_BatmanTT_NeedHammer": "망치",
+    "Tooltip_BatmanTT_NeedPlank": "판자 1개 (소모됨)",
+    "Tooltip_BatmanTT_NeedNails": "못 %1개 (소모됨)",
+    "Tooltip_BatmanTT_NeedCans": "소지품의 빈 깡통: %1",
+    "Tooltip_BatmanTT_Stats": "사격: %1 <LINE> 명중: %2 (%3%%) <LINE> 정중앙: %4",
+    "Tooltip_BatmanTT_BestStreak": "최고 연속 명중: %1"
+}

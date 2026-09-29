@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "1 feuille de papier (consommée)",
+    "Tooltip_BatmanTT_NeedPen": "Stylo, crayon ou marqueur",
+    "Tooltip_BatmanTT_NeedHammer": "Marteau",
+    "Tooltip_BatmanTT_NeedPlank": "1 planche (consommée)",
+    "Tooltip_BatmanTT_NeedNails": "%1 clous (consommés)",
+    "Tooltip_BatmanTT_NeedCans": "Conserves vides dans l'inventaire : %1",
+    "Tooltip_BatmanTT_Stats": "Tirs : %1 <LINE> Touchés : %2 (%3 %%) <LINE> Dans le mille : %4",
+    "Tooltip_BatmanTT_BestStreak": "Meilleure série : %1"
+}

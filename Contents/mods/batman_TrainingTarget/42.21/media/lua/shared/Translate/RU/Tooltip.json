@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "1 бумажный лист (расходуется)",
+    "Tooltip_BatmanTT_NeedPen": "Ручка, карандаш или маркер",
+    "Tooltip_BatmanTT_NeedHammer": "Молоток",
+    "Tooltip_BatmanTT_NeedPlank": "1 доска (расходуется)",
+    "Tooltip_BatmanTT_NeedNails": "Гвозди: %1 (расходуются)",
+    "Tooltip_BatmanTT_NeedCans": "Пустые консервные банки в инвентаре: %1",
+    "Tooltip_BatmanTT_Stats": "Выстрелы: %1 <LINE> Попадания: %2 (%3%%) <LINE> В яблочко: %4",
+    "Tooltip_BatmanTT_BestStreak": "Лучшая серия: %1"
+}

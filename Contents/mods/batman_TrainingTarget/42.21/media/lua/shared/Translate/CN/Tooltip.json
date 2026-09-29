@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "纸张 x1 (消耗)",
+    "Tooltip_BatmanTT_NeedPen": "钢笔, 铅笔或马克笔",
+    "Tooltip_BatmanTT_NeedHammer": "锤子",
+    "Tooltip_BatmanTT_NeedPlank": "木板 x1 (消耗)",
+    "Tooltip_BatmanTT_NeedNails": "钉子 x%1 (消耗)",
+    "Tooltip_BatmanTT_NeedCans": "物品栏中的空锡罐: %1",
+    "Tooltip_BatmanTT_Stats": "射击: %1 <LINE> 命中: %2 (%3%%) <LINE> 靶心: %4",
+    "Tooltip_BatmanTT_BestStreak": "最佳连中: %1"
+}

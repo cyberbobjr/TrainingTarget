@@ -1,0 +1,26 @@
+module Base
+{
+    sound BatmanTT_PaperHit
+    {
+        category = Object,
+        loop = false,
+        clip
+        {
+            file = media/sound/batman_tt_paper_hit.ogg,
+            distanceMax = 20,
+            volume = 0.8,
+        }
+    }
+
+    sound BatmanTT_CanHit
+    {
+        category = Object,
+        loop = false,
+        clip
+        {
+            file = media/sound/batman_tt_can_hit.ogg,
+            distanceMax = 25,
+            volume = 0.8,
+        }
+    }
+}

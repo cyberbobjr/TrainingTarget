@@ -1,0 +1,87 @@
+module Base
+{
+    craftRecipe BatmanTT_MakePaperTarget
+    {
+        timedAction = Making,
+        time = 150,
+        category = Carpentry,
+        Tags = AnySurfaceCraft,
+        xpAward = Woodwork:5,
+        inputs
+        {
+            item 1 tags[base:hammer] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:pen] mode:keep,
+            item 1 [Base.Plank],
+            item 2 [Base.Nails],
+            item 1 [Base.SheetPaper2;Base.GraphPaper],
+        }
+        outputs
+        {
+            item 1 Base.Mov_BatmanTT_PaperTarget,
+        }
+    }
+
+    craftRecipe BatmanTT_MakeTargetStand
+    {
+        timedAction = Making,
+        time = 300,
+        category = Carpentry,
+        Tags = AnySurfaceCraft,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 tags[base:hammer] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:saw;base:smallsaw;base:crudesaw] mode:keep flags[MayDegradeLight],
+            item 1 tags[base:pen] mode:keep,
+            item 3 [Base.Plank],
+            item 4 [Base.Nails],
+            item 1 [Base.SheetPaper2;Base.GraphPaper],
+        }
+        outputs
+        {
+            item 1 Base.Mov_BatmanTT_TargetStand,
+        }
+    }
+
+    craftRecipe BatmanTT_MakeCanStand
+    {
+        timedAction = Making,
+        time = 250,
+        category = Carpentry,
+        Tags = AnySurfaceCraft,
+        xpAward = Woodwork:10,
+        inputs
+        {
+            item 1 tags[base:hammer] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:saw;base:smallsaw;base:crudesaw] mode:keep flags[MayDegradeLight],
+            item 3 [Base.Plank],
+            item 4 [Base.Nails],
+        }
+        outputs
+        {
+            item 1 Base.Mov_BatmanTT_CanStand,
+        }
+    }
+
+    craftRecipe BatmanTT_MakeDummy
+    {
+        timedAction = Making,
+        time = 400,
+        category = Carpentry,
+        Tags = AnySurfaceCraft,
+        xpAward = Woodwork:15,
+        inputs
+        {
+            item 1 tags[base:hammer] mode:keep flags[MayDegradeVeryLight],
+            item 1 tags[base:saw;base:smallsaw;base:crudesaw] mode:keep flags[MayDegradeLight],
+            item 4 [Base.Plank],
+            item 6 [Base.Nails],
+            item 1 [Base.Sheet],
+            item 4 [Base.RippedSheets;Base.RippedSheetsDirty],
+        }
+        outputs
+        {
+            item 1 Base.Mov_BatmanTT_Dummy,
+        }
+    }
+}

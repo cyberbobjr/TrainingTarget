@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "XP de Visée par touche",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "Expérience de Visée pour chaque cible touchée, avant les bonus de cible et de zone (support à conserves x1,5, cible sur pied x1,25, dans le mille x1,5, anneau intérieur x1,25). Les multiplicateurs du jeu (livres, traits) s'appliquent toujours.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "XP de mêlée par coup",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "Expérience de la compétence de l'arme pour chaque coup porté au mannequin (hache, contondant, lance, lames).",
+    "Sandbox_BatmanTT_MinShootingDistance": "Distance de tir minimale",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "Les tirs à moins de ce nombre de cases ne comptent pas.",
+    "Sandbox_BatmanTT_HitChanceBonus": "Bonus de chance de toucher",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "Ajouté à la chance de toucher une cible, en pour cent (une valeur négative rend l'entraînement plus difficile).",
+    "Sandbox_BatmanTT_SheetDurability": "Solidité de la feuille-cible",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "Nombre d'impacts qu'encaisse une feuille-cible avant de devoir être changée.",
+    "Sandbox_BatmanTT_DummyDurability": "Solidité du mannequin",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Nombre de coups qu'encaisse le mannequin avant de devoir être réparé.",
+    "Sandbox_BatmanTT_MaxCans": "Conserves sur le support",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "Nombre maximal de conserves vides sur le support (1 à 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "Entraînement à la mêlée",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "Le mannequin d'entraînement donne de l'expérience dans la compétence de l'arme.",
+    "Sandbox_BatmanTT_VanillaTargets": "Cibles du jeu",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "Les cibles de tir militaires présentes dans le monde servent aussi à l'entraînement.",
+    "Sandbox_BatmanTT_SessionTimeout": "Fin de séance (minutes)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "Une séance de tir se termine après ce nombre de minutes réelles sans tir sur une cible. 0 : jamais."
+}

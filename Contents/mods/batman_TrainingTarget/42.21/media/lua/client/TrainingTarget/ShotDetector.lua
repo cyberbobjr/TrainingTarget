@@ -1,0 +1,30 @@
+-- ============================================================================
+-- Training Target — détection du tir sur une cible (client et solo)
+--
+-- OnWeaponSwingHitPoint se déclenche à chaque tir sur le client ou en solo
+-- (CombatManager.attackCollisionCheck). Le serveur MP ne le déclenche que pour
+-- un tir qui touche un personnage : la cible est donc cherchée ici (Aim), puis
+-- envoyée au serveur, qui décide (commande « shot »).
+-- ============================================================================
+
+require "TrainingTarget/Aim"
+
+local function onWeaponSwingHitPoint(character, weapon)
+    if not instanceof(character, "IsoPlayer") or not character:isLocalPlayer() then
+        return
+    end
+    if not weapon or not instanceof(weapon, "HandWeapon") or not weapon:isAimedFirearm() then
+        return
+    end
+    local target, definition, facing = BatmanTT.Aim.findTarget(character, weapon)
+    if not target then
+        return
+    end
+    if isClient() then
+        sendClientCommand(character, BatmanTT.NET_MODULE, "shot", { pos = BatmanTT.encodePos(target) })
+        return
+    end
+    BatmanTT.tell(character, BatmanTT.Training.shoot(character, weapon, target, definition, facing))
+end
+
+Events.OnWeaponSwingHitPoint.Add(onWeaponSwingHitPoint)

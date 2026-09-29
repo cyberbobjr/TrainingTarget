@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "锡罐架",
+    "IGUI_BatmanTT_Hit": "命中!",
+    "IGUI_BatmanTT_Hit_Bullseye": "正中靶心!",
+    "IGUI_BatmanTT_Hit_Inner": "内环",
+    "IGUI_BatmanTT_Hit_Outer": "外环",
+    "IGUI_BatmanTT_Miss": "未命中",
+    "IGUI_BatmanTT_Stats": "命中 %1/%2 - %3%% - 连中 %4",
+    "IGUI_BatmanTT_TooClose": "离靶子太近了",
+    "IGUI_BatmanTT_SheetWorn": "靶纸已经被打烂了, 我该换一张",
+    "IGUI_BatmanTT_NoCans": "架子上没有锡罐了",
+    "IGUI_BatmanTT_DummyWorn": "假人已经破烂不堪, 我该修理一下",
+    "IGUI_BatmanTT_DummyBroke": "假人快散架了",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 经验 - 假人 %3%%",
+    "IGUI_BatmanTT_SheetReplaced": "换上了新靶纸",
+    "IGUI_BatmanTT_DummyRepaired": "假人已修好",
+    "IGUI_BatmanTT_SessionReset": "新的射击训练",
+    "IGUI_BatmanTT_State_Sheet": "靶纸: 命中 %1/%2",
+    "IGUI_BatmanTT_State_Cans": "锡罐: %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "状态: %1%%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "正在更换靶纸",
+    "IGUI_BatmanTT_Job_RepairDummy": "正在修理假人"
+}

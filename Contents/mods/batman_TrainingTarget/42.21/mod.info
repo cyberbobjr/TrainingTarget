@@ -1,0 +1,9 @@
+name=batman_Training Target
+id=batman_TrainingTarget
+description=Shooting targets, a can stand and a melee training dummy for Build 42.21, solo and multiplayer. Precision zones, session statistics, target maintenance, vanilla military targets, gamepad support and sandbox options.
+poster=poster.png
+icon=icon.png
+versionMin=42.21
+modversion=0.1.0
+pack=batman_training_01
+tiledef=batman_training_01 7173

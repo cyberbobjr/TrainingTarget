@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "1 hoja de papel (se consume)",
+    "Tooltip_BatmanTT_NeedPen": "Bolígrafo, lápiz o marcador",
+    "Tooltip_BatmanTT_NeedHammer": "Martillo",
+    "Tooltip_BatmanTT_NeedPlank": "1 tablón (se consume)",
+    "Tooltip_BatmanTT_NeedNails": "%1 clavos (se consumen)",
+    "Tooltip_BatmanTT_NeedCans": "Latas vacías en el inventario: %1",
+    "Tooltip_BatmanTT_Stats": "Disparos: %1 <LINE> Impactos: %2 (%3%%) <LINE> En el centro: %4",
+    "Tooltip_BatmanTT_BestStreak": "Mejor racha: %1"
+}

@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "每次命中的瞄准经验",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "每次命中靶子获得的瞄准经验, 在靶子和区域加成之前计算 (锡罐架 x1.5, 立式靶 x1.25, 靶心 x1.5, 内环 x1.25). 游戏自带的倍率 (技能书, 特质) 仍然生效.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "每次击打的近战经验",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "每次击打训练假人获得的武器技能经验 (斧头, 长棍, 短棍, 长矛, 长刀, 短刀).",
+    "Sandbox_BatmanTT_MinShootingDistance": "最小射击距离",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "距离小于此格数的射击不计入.",
+    "Sandbox_BatmanTT_HitChanceBonus": "命中率加成",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "加到命中靶子的几率上, 单位为百分比 (负值会让训练更难).",
+    "Sandbox_BatmanTT_SheetDurability": "靶纸耐久度",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "靶纸在需要更换之前能承受的命中次数.",
+    "Sandbox_BatmanTT_DummyDurability": "假人耐久度",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "训练假人在需要修理之前能承受的击打次数.",
+    "Sandbox_BatmanTT_MaxCans": "架子上的锡罐",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "锡罐架上空锡罐的最大数量 (1 到 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "近战训练",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "训练假人可以提供武器技能经验.",
+    "Sandbox_BatmanTT_VanillaTargets": "原版靶子",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "世界中找到的军用射击靶 (圆形靶, 人像靶) 也可以用来训练.",
+    "Sandbox_BatmanTT_SessionTimeout": "训练超时 (分钟)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "如果在这么多现实分钟内没有向靶子射击, 射击训练就会结束. 0: 永不结束."
+}

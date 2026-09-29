@@ -1,0 +1,61 @@
+VERSION = 1,
+
+option BatmanTT.AimingXpPerHit
+{
+    type = double, min = 0.0, max = 100.0, default = 2.0,
+    page = BatmanTT, translation = BatmanTT_AimingXpPerHit,
+}
+
+option BatmanTT.MeleeXpPerHit
+{
+    type = double, min = 0.0, max = 100.0, default = 1.5,
+    page = BatmanTT, translation = BatmanTT_MeleeXpPerHit,
+}
+
+option BatmanTT.MinShootingDistance
+{
+    type = integer, min = 1, max = 15, default = 3,
+    page = BatmanTT, translation = BatmanTT_MinShootingDistance,
+}
+
+option BatmanTT.HitChanceBonus
+{
+    type = integer, min = -50, max = 50, default = 0,
+    page = BatmanTT, translation = BatmanTT_HitChanceBonus,
+}
+
+option BatmanTT.SheetDurability
+{
+    type = integer, min = 1, max = 500, default = 30,
+    page = BatmanTT, translation = BatmanTT_SheetDurability,
+}
+
+option BatmanTT.DummyDurability
+{
+    type = integer, min = 1, max = 2000, default = 150,
+    page = BatmanTT, translation = BatmanTT_DummyDurability,
+}
+
+option BatmanTT.MaxCans
+{
+    type = integer, min = 1, max = 6, default = 6,
+    page = BatmanTT, translation = BatmanTT_MaxCans,
+}
+
+option BatmanTT.MeleeTraining
+{
+    type = boolean, default = true,
+    page = BatmanTT, translation = BatmanTT_MeleeTraining,
+}
+
+option BatmanTT.VanillaTargets
+{
+    type = boolean, default = true,
+    page = BatmanTT, translation = BatmanTT_VanillaTargets,
+}
+
+option BatmanTT.SessionTimeout
+{
+    type = integer, min = 0, max = 240, default = 10,
+    page = BatmanTT, translation = BatmanTT_SessionTimeout,
+}

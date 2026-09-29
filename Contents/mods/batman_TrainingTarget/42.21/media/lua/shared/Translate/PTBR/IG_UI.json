@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "Suporte de Latas",
+    "IGUI_BatmanTT_Hit": "Acertou!",
+    "IGUI_BatmanTT_Hit_Bullseye": "Na mosca!",
+    "IGUI_BatmanTT_Hit_Inner": "Anel interno",
+    "IGUI_BatmanTT_Hit_Outer": "Anel externo",
+    "IGUI_BatmanTT_Miss": "Errou",
+    "IGUI_BatmanTT_Stats": "%1/%2 acertos - %3%% - sequência %4",
+    "IGUI_BatmanTT_TooClose": "Estou perto demais do alvo",
+    "IGUI_BatmanTT_SheetWorn": "A folha está crivada de tiros, preciso trocá-la",
+    "IGUI_BatmanTT_NoCans": "Não há mais latas no suporte",
+    "IGUI_BatmanTT_DummyWorn": "O manequim está em frangalhos, preciso repará-lo",
+    "IGUI_BatmanTT_DummyBroke": "O manequim está se desfazendo",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 XP - manequim %3%%",
+    "IGUI_BatmanTT_SheetReplaced": "Nova folha de alvo",
+    "IGUI_BatmanTT_DummyRepaired": "Manequim reparado",
+    "IGUI_BatmanTT_SessionReset": "Nova sessão de tiro",
+    "IGUI_BatmanTT_State_Sheet": "Folha: %1/%2 acertos",
+    "IGUI_BatmanTT_State_Cans": "Latas: %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "Condição: %1%%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "Trocando a folha",
+    "IGUI_BatmanTT_Job_RepairDummy": "Reparando o manequim"
+}

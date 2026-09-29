@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "XP de Puntería por impacto",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "Experiencia de Puntería por cada impacto en una diana, antes de las bonificaciones de diana y de zona (soporte para latas x1,5, diana con soporte x1,25, en el centro x1,5, anillo interior x1,25). Los multiplicadores del juego (libros, atributos) se siguen aplicando.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "XP cuerpo a cuerpo por golpe",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "Experiencia en la habilidad del arma por cada golpe al maniquí de entrenamiento (hacha, contundente, lanza, hojas).",
+    "Sandbox_BatmanTT_MinShootingDistance": "Distancia de tiro mínima",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "Los disparos a menos de este número de casillas no cuentan.",
+    "Sandbox_BatmanTT_HitChanceBonus": "Bonificación a la probabilidad de impacto",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "Se suma a la probabilidad de impactar una diana, en porcentaje (los valores negativos hacen el entrenamiento más difícil).",
+    "Sandbox_BatmanTT_SheetDurability": "Resistencia de la hoja de diana",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "Impactos que aguanta una hoja de diana antes de tener que cambiarla.",
+    "Sandbox_BatmanTT_DummyDurability": "Resistencia del maniquí",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Golpes que aguanta el maniquí de entrenamiento antes de tener que repararlo.",
+    "Sandbox_BatmanTT_MaxCans": "Latas en el soporte",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "Número máximo de latas vacías en el soporte para latas (1 a 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "Entrenamiento cuerpo a cuerpo",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "El maniquí de entrenamiento da experiencia en la habilidad del arma.",
+    "Sandbox_BatmanTT_VanillaTargets": "Dianas del juego",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "Las dianas de tiro militares que se encuentran en el mundo también sirven para entrenar.",
+    "Sandbox_BatmanTT_SessionTimeout": "Fin de sesión (minutos)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "Una sesión de tiro termina tras este número de minutos reales sin disparar a una diana. 0: nunca."
+}

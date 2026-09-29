@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "Опыт навыка «Точность» за попадание",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "Опыт навыка «Точность» за каждое попадание в мишень до бонусов мишени и зоны (подставка для банок x1,5, мишень на стойке x1,25, в яблочко x1,5, внутреннее кольцо x1,25). Множители игры (обучающая литература, черты) по-прежнему действуют.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "Опыт ближнего боя за удар",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "Опыт навыка оружия за каждый удар по тренировочному манекену (Топоры, Длинное дробящее, Короткое дробящее, Копья, Длинное режущее, Короткое режущее).",
+    "Sandbox_BatmanTT_MinShootingDistance": "Минимальная дистанция стрельбы",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "Выстрелы с расстояния меньше этого числа клеток не засчитываются.",
+    "Sandbox_BatmanTT_HitChanceBonus": "Бонус к шансу попадания",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "Прибавляется к шансу попасть в мишень, в процентах (отрицательные значения усложняют тренировку).",
+    "Sandbox_BatmanTT_SheetDurability": "Прочность листа мишени",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "Сколько попаданий выдерживает лист мишени, прежде чем его придётся заменить.",
+    "Sandbox_BatmanTT_DummyDurability": "Прочность манекена",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Сколько ударов выдерживает тренировочный манекен, прежде чем его придётся починить.",
+    "Sandbox_BatmanTT_MaxCans": "Банки на подставке",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "Максимальное число пустых консервных банок на подставке для банок (от 1 до 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "Тренировка ближнего боя",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "Тренировочный манекен даёт опыт навыка оружия.",
+    "Sandbox_BatmanTT_VanillaTargets": "Мишени из игры",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "Военные стрелковые мишени, которые встречаются в мире (круглая и силуэтная), тоже годятся для тренировки.",
+    "Sandbox_BatmanTT_SessionTimeout": "Конец тренировки (минуты)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "Тренировка по стрельбе заканчивается, если столько реальных минут не было ни одного выстрела по мишени. 0: никогда."
+}

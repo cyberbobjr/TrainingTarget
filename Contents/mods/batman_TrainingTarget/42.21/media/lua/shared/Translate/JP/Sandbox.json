@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "命中ごとの射撃XP",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "的に命中するたびに得られる射撃の経験値です。的と命中位置によるボーナス(缶置き台 x1.5、スタンド式の的 x1.25、ど真ん中 x1.5、内側の輪 x1.25)の適用前の値です。ゲーム本来の倍率(スキルブック、特性)は引き続き適用されます。",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "打撃ごとの近接XP",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "訓練用ダミーへの一撃ごとに得られる武器スキルの経験値です(斧、大型鈍器、小型鈍器、槍、大型刃物、小型刃物)。",
+    "Sandbox_BatmanTT_MinShootingDistance": "最小射撃距離",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "このタイル数より近くからの射撃はカウントされません。",
+    "Sandbox_BatmanTT_HitChanceBonus": "命中率ボーナス",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "的への命中率に加算される値(パーセント)です。負の値にすると訓練が難しくなります。",
+    "Sandbox_BatmanTT_SheetDurability": "的の用紙の耐久度",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "的の用紙を交換するまでに耐えられる命中数です。",
+    "Sandbox_BatmanTT_DummyDurability": "ダミーの耐久度",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "訓練用ダミーを修理するまでに耐えられる打撃数です。",
+    "Sandbox_BatmanTT_MaxCans": "台に置ける缶",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "缶置き台に置ける缶詰(空)の最大数です(1〜6)。",
+    "Sandbox_BatmanTT_MeleeTraining": "近接訓練",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "訓練用ダミーで武器スキルの経験値を得られます。",
+    "Sandbox_BatmanTT_VanillaTargets": "ゲーム内の的",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "ワールドで見つかる軍用の射撃標的(円形の的、シルエットターゲット)も訓練に使えます。",
+    "Sandbox_BatmanTT_SessionTimeout": "セッション終了(分)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "的を撃たないまま現実時間でこの分数が過ぎると、射撃セッションが終了します。0: 終了しない。"
+}

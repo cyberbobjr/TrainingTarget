@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "缶置き台",
+    "IGUI_BatmanTT_Hit": "命中!",
+    "IGUI_BatmanTT_Hit_Bullseye": "ど真ん中!",
+    "IGUI_BatmanTT_Hit_Inner": "内側の輪",
+    "IGUI_BatmanTT_Hit_Outer": "外側の輪",
+    "IGUI_BatmanTT_Miss": "外れ",
+    "IGUI_BatmanTT_Stats": "命中 %1/%2 - %3%% - 連続 %4",
+    "IGUI_BatmanTT_TooClose": "的に近すぎる",
+    "IGUI_BatmanTT_SheetWorn": "的の用紙が穴だらけだ、交換しないと",
+    "IGUI_BatmanTT_NoCans": "台にもう缶が残っていない",
+    "IGUI_BatmanTT_DummyWorn": "ダミーがボロボロだ、修理しないと",
+    "IGUI_BatmanTT_DummyBroke": "ダミーが壊れかけている",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 XP - ダミー %3%%",
+    "IGUI_BatmanTT_SheetReplaced": "新しい的の用紙",
+    "IGUI_BatmanTT_DummyRepaired": "ダミーを修理した",
+    "IGUI_BatmanTT_SessionReset": "新しい射撃セッション",
+    "IGUI_BatmanTT_State_Sheet": "用紙: 命中 %1/%2",
+    "IGUI_BatmanTT_State_Cans": "缶: %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "状態: %1%%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "用紙を交換中",
+    "IGUI_BatmanTT_Job_RepairDummy": "ダミーを修理中"
+}

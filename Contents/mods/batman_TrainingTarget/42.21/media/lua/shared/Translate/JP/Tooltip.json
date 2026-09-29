@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "用紙 1枚(消費)",
+    "Tooltip_BatmanTT_NeedPen": "ボールペン、鉛筆、またはマーカー",
+    "Tooltip_BatmanTT_NeedHammer": "金づち",
+    "Tooltip_BatmanTT_NeedPlank": "木板 1枚(消費)",
+    "Tooltip_BatmanTT_NeedNails": "釘 %1本(消費)",
+    "Tooltip_BatmanTT_NeedCans": "所持している缶詰(空): %1",
+    "Tooltip_BatmanTT_Stats": "射撃数: %1 <LINE> 命中: %2 (%3%%) <LINE> ど真ん中: %4",
+    "Tooltip_BatmanTT_BestStreak": "最高連続命中: %1"
+}

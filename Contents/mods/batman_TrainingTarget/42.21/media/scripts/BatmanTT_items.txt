@@ -1,0 +1,41 @@
+module Base
+{
+    /* Meubles posables du tileset batman_training_01 (tiledef 7173). Nom affiché,
+       poids et icône viennent de la tuile (Moveable.ReadFromWorldSprite). */
+
+    item Mov_BatmanTT_PaperTarget
+    {
+        DisplayCategory = Furniture,
+        ItemType = base:moveable,
+        Icon = default,
+        Weight = 0.5,
+        WorldObjectSprite = batman_training_01_0,
+    }
+
+    item Mov_BatmanTT_TargetStand
+    {
+        DisplayCategory = Furniture,
+        ItemType = base:moveable,
+        Icon = default,
+        Weight = 0.5,
+        WorldObjectSprite = batman_training_01_2,
+    }
+
+    item Mov_BatmanTT_CanStand
+    {
+        DisplayCategory = Furniture,
+        ItemType = base:moveable,
+        Icon = default,
+        Weight = 0.5,
+        WorldObjectSprite = batman_training_01_8,
+    }
+
+    item Mov_BatmanTT_Dummy
+    {
+        DisplayCategory = Furniture,
+        ItemType = base:moveable,
+        Icon = default,
+        Weight = 0.5,
+        WorldObjectSprite = batman_training_01_12,
+    }
+}

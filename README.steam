@@ -1,0 +1,56 @@
+[h1]Training Target — Shooting Range & Training Dummy[/h1]
+
+[b]Build 42.21 · Singleplayer & Multiplayer[/b]
+
+Every bullet counts in Knox County... so learn to aim before the horde comes knocking. Build a shooting range in your base: paper targets, a target stand, a can stand and a melee training dummy.
+
+[h2]At a glance[/h2]
+
+[list]
+[*][b]Four new pieces of furniture[/b], hand-made in 3D: wall paper target, target stand, can stand and training dummy.
+[*][b]Precision zones[/b]: bullseye, inner ring or outer ring. The better your Aiming, the closer to the center. Holes show where you hit.
+[*][b]Session statistics[/b]: shots, hits, accuracy, bullseyes and best streak.
+[*][b]Maintenance[/b]: replace a shot-up sheet, repair the dummy, put empty cans back on the stand.
+[*][b]Vanilla targets[/b]: the military shooting targets found in the world work too.
+[*][b]Gamepad support[/b], [b]multiplayer[/b] and [b]sandbox options[/b].
+[/list]
+
+[h2]Shooting[/h2]
+
+[list]
+[*]Place a target, step back at least 3 tiles and shoot at it with any firearm.
+[*]Your chance to hit uses the weapon's accuracy and your Aiming level, minus distance and movement. Harder targets give more experience: target stand x1.25, cans x1.5.
+[*]Experience is a fixed amount per hit: the game's own XP curve, skill books and traits do the rest.
+[*]A paper sheet wears out after 30 hits. Right-click the target, [b]Replace the sheet[/b], with a sheet of paper and a pen.
+[*]Each can you hit falls off the stand. [b]Put empty cans on the stand[/b] to keep shooting (up to 6).
+[/list]
+
+[h2]Melee[/h2]
+
+Hit the [b]training dummy[/b] with an axe, a blunt weapon, a spear or a blade to train that weapon skill. The dummy never breaks, but gets torn up: after 150 blows, [b]Repair the dummy[/b] with a hammer, a plank and 2 nails.
+
+[h2]Crafting (Carpentry)[/h2]
+
+[list]
+[*][b]Paper Target[/b]: 1 plank, 2 nails, 1 sheet of paper, hammer and pen.
+[*][b]Target Stand[/b]: 3 planks, 4 nails, 1 sheet of paper, hammer, saw and pen.
+[*][b]Can Stand[/b]: 3 planks, 4 nails, hammer and saw.
+[*][b]Training Dummy[/b]: 4 planks, 6 nails, 1 sheet, 4 ripped sheets, hammer and saw.
+[/list]
+
+[h2]Multiplayer[/h2]
+
+The server decides every hit, gives the experience and keeps each player's session statistics. Everyone sees the same holes, cans and dummy wear.
+
+[h2]Sandbox options[/h2]
+
+Aiming and melee XP per hit, minimum shooting distance, hit chance bonus, sheet and dummy durability, cans on the stand, melee training, vanilla targets, session timeout.
+
+[h2]Support the project[/h2]
+
+Enjoying the mod? A coffee helps fund new features and translations.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
+
+[h2]Credits[/h2]
+
+Full rewrite for Build 42.21 of Training Target (Build 41) by the same author. Models made with Blender. Source code under the MIT license: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

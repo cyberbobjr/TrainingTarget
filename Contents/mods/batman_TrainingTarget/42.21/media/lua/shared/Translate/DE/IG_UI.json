@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "Dosengestell",
+    "IGUI_BatmanTT_Hit": "Treffer!",
+    "IGUI_BatmanTT_Hit_Bullseye": "Volltreffer!",
+    "IGUI_BatmanTT_Hit_Inner": "Innerer Ring",
+    "IGUI_BatmanTT_Hit_Outer": "Äußerer Ring",
+    "IGUI_BatmanTT_Miss": "Daneben",
+    "IGUI_BatmanTT_Stats": "%1/%2 Treffer - %3%% - Serie %4",
+    "IGUI_BatmanTT_TooClose": "Ich bin zu nah am Ziel",
+    "IGUI_BatmanTT_SheetWorn": "Das Zielblatt ist zerschossen, ich sollte es wechseln",
+    "IGUI_BatmanTT_NoCans": "Keine Dosen mehr auf dem Gestell",
+    "IGUI_BatmanTT_DummyWorn": "Die Trainingspuppe ist zerfetzt, ich sollte sie reparieren",
+    "IGUI_BatmanTT_DummyBroke": "Die Trainingspuppe fällt auseinander",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 EP - Puppe %3%%",
+    "IGUI_BatmanTT_SheetReplaced": "Neues Zielblatt",
+    "IGUI_BatmanTT_DummyRepaired": "Trainingspuppe repariert",
+    "IGUI_BatmanTT_SessionReset": "Neues Schießtraining",
+    "IGUI_BatmanTT_State_Sheet": "Zielblatt: %1/%2 Treffer",
+    "IGUI_BatmanTT_State_Cans": "Dosen: %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "Zustand: %1%%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "Zielblatt wechseln",
+    "IGUI_BatmanTT_Job_RepairDummy": "Trainingspuppe reparieren"
+}

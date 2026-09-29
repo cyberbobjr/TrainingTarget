@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "Can Stand",
+    "IGUI_BatmanTT_Hit": "Hit!",
+    "IGUI_BatmanTT_Hit_Bullseye": "Bullseye!",
+    "IGUI_BatmanTT_Hit_Inner": "Inner ring",
+    "IGUI_BatmanTT_Hit_Outer": "Outer ring",
+    "IGUI_BatmanTT_Miss": "Missed",
+    "IGUI_BatmanTT_Stats": "%1/%2 hits - %3%% - streak %4",
+    "IGUI_BatmanTT_TooClose": "Too close to the target",
+    "IGUI_BatmanTT_SheetWorn": "The target sheet is shot to pieces, I should replace it",
+    "IGUI_BatmanTT_NoCans": "No more cans on the stand",
+    "IGUI_BatmanTT_DummyWorn": "The dummy is in tatters, I should repair it",
+    "IGUI_BatmanTT_DummyBroke": "The dummy is falling apart",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 XP - dummy %3%%",
+    "IGUI_BatmanTT_SheetReplaced": "New target sheet",
+    "IGUI_BatmanTT_DummyRepaired": "Dummy repaired",
+    "IGUI_BatmanTT_SessionReset": "New shooting session",
+    "IGUI_BatmanTT_State_Sheet": "Sheet: %1/%2 hits",
+    "IGUI_BatmanTT_State_Cans": "Cans: %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "Condition: %1%%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "Replacing the sheet",
+    "IGUI_BatmanTT_Job_RepairDummy": "Repairing the dummy"
+}

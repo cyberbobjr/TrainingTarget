@@ -1,0 +1,10 @@
+{
+    "Tooltip_BatmanTT_NeedPaper": "1 sheet of paper (consumed)",
+    "Tooltip_BatmanTT_NeedPen": "Pen, pencil or marker",
+    "Tooltip_BatmanTT_NeedHammer": "Hammer",
+    "Tooltip_BatmanTT_NeedPlank": "1 plank (consumed)",
+    "Tooltip_BatmanTT_NeedNails": "%1 nails (consumed)",
+    "Tooltip_BatmanTT_NeedCans": "Empty cans in inventory: %1",
+    "Tooltip_BatmanTT_Stats": "Shots: %1 <LINE> Hits: %2 (%3%%) <LINE> Bullseyes: %4",
+    "Tooltip_BatmanTT_BestStreak": "Best streak: %1"
+}

@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "Zielen-EP pro Treffer",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "Zielen-Erfahrung für jeden Treffer auf ein Ziel, vor den Ziel- und Zonenboni (Dosengestell x1,5, Zielscheibe mit Ständer x1,25, Volltreffer x1,5, innerer Ring x1,25). Die Multiplikatoren des Spiels (Bücher, Eigenschaften) gelten weiterhin.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "Nahkampf-EP pro Schlag",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "Erfahrung in der Fertigkeit der Waffe für jeden Schlag auf die Trainingspuppe (Axt, Stumpfwaffe, Speer, Klingenwaffen).",
+    "Sandbox_BatmanTT_MinShootingDistance": "Minimale Schussdistanz",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "Schüsse aus weniger als so vielen Kacheln Entfernung zählen nicht.",
+    "Sandbox_BatmanTT_HitChanceBonus": "Trefferchance-Bonus",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "Wird zur Chance, ein Ziel zu treffen, addiert, in Prozent (negative Werte erschweren das Training).",
+    "Sandbox_BatmanTT_SheetDurability": "Haltbarkeit des Zielblatts",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "Treffer, die ein Zielblatt aushält, bevor es gewechselt werden muss.",
+    "Sandbox_BatmanTT_DummyDurability": "Haltbarkeit der Trainingspuppe",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Schläge, die die Trainingspuppe aushält, bevor sie repariert werden muss.",
+    "Sandbox_BatmanTT_MaxCans": "Dosen auf dem Gestell",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "Maximale Anzahl leerer Blechdosen auf dem Dosengestell (1 bis 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "Nahkampftraining",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "Die Trainingspuppe gibt Erfahrung in der Fertigkeit der Waffe.",
+    "Sandbox_BatmanTT_VanillaTargets": "Zielscheiben des Spiels",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "Die militärischen Zielscheiben in der Spielwelt können ebenfalls zum Training genutzt werden.",
+    "Sandbox_BatmanTT_SessionTimeout": "Trainingsende (Minuten)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "Ein Schießtraining endet nach so vielen echten Minuten ohne Schuss auf ein Ziel. 0: nie."
+}

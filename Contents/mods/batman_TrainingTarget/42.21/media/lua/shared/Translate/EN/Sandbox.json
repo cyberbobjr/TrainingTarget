@@ -1,0 +1,23 @@
+{
+    "Sandbox_BatmanTT": "Training Target",
+    "Sandbox_BatmanTT_AimingXpPerHit": "Aiming XP per hit",
+    "Sandbox_BatmanTT_AimingXpPerHit_tooltip": "Aiming experience for each target hit, before the target and zone bonuses (can stand x1.5, target stand x1.25, bullseye x1.5, inner ring x1.25). Vanilla multipliers (books, traits) still apply.",
+    "Sandbox_BatmanTT_MeleeXpPerHit": "Melee XP per hit",
+    "Sandbox_BatmanTT_MeleeXpPerHit_tooltip": "Weapon skill experience for each blow on the training dummy (axe, blunt, spear, blades).",
+    "Sandbox_BatmanTT_MinShootingDistance": "Minimum shooting distance",
+    "Sandbox_BatmanTT_MinShootingDistance_tooltip": "Shots from closer than this many tiles do not count.",
+    "Sandbox_BatmanTT_HitChanceBonus": "Hit chance bonus",
+    "Sandbox_BatmanTT_HitChanceBonus_tooltip": "Added to the chance of hitting a target, in percent (negative values make training harder).",
+    "Sandbox_BatmanTT_SheetDurability": "Target sheet durability",
+    "Sandbox_BatmanTT_SheetDurability_tooltip": "Hits a target sheet takes before it must be replaced.",
+    "Sandbox_BatmanTT_DummyDurability": "Dummy durability",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Blows the training dummy takes before it must be repaired.",
+    "Sandbox_BatmanTT_MaxCans": "Cans on the stand",
+    "Sandbox_BatmanTT_MaxCans_tooltip": "Maximum number of empty cans on the can stand (1 to 6).",
+    "Sandbox_BatmanTT_MeleeTraining": "Melee training",
+    "Sandbox_BatmanTT_MeleeTraining_tooltip": "The training dummy gives weapon skill experience.",
+    "Sandbox_BatmanTT_VanillaTargets": "Vanilla targets",
+    "Sandbox_BatmanTT_VanillaTargets_tooltip": "The military shooting targets found in the world can be used for training.",
+    "Sandbox_BatmanTT_SessionTimeout": "Session timeout (minutes)",
+    "Sandbox_BatmanTT_SessionTimeout_tooltip": "A shooting session ends after this many real minutes without a shot at a target. 0: never."
+}

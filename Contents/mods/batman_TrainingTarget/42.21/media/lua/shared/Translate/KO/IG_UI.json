@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "깡통 받침대",
+    "IGUI_BatmanTT_Hit": "명중!",
+    "IGUI_BatmanTT_Hit_Bullseye": "정중앙!",
+    "IGUI_BatmanTT_Hit_Inner": "안쪽 고리",
+    "IGUI_BatmanTT_Hit_Outer": "바깥쪽 고리",
+    "IGUI_BatmanTT_Miss": "빗나감",
+    "IGUI_BatmanTT_Stats": "명중 %1/%2 - %3%% - 연속 %4",
+    "IGUI_BatmanTT_TooClose": "과녁에 너무 가깝다",
+    "IGUI_BatmanTT_SheetWorn": "과녁 종이가 너덜너덜하다, 교체해야겠어",
+    "IGUI_BatmanTT_NoCans": "받침대에 깡통이 더 이상 없다",
+    "IGUI_BatmanTT_DummyWorn": "인형이 갈기갈기 찢어졌다, 수리해야겠어",
+    "IGUI_BatmanTT_DummyBroke": "인형이 부서지고 있다",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 경험치 - 인형 %3%%",
+    "IGUI_BatmanTT_SheetReplaced": "새 과녁 종이",
+    "IGUI_BatmanTT_DummyRepaired": "인형 수리 완료",
+    "IGUI_BatmanTT_SessionReset": "새 사격 훈련",
+    "IGUI_BatmanTT_State_Sheet": "종이: 명중 %1/%2",
+    "IGUI_BatmanTT_State_Cans": "깡통: %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "상태: %1%%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "과녁 종이 교체 중",
+    "IGUI_BatmanTT_Job_RepairDummy": "인형 수리 중"
+}

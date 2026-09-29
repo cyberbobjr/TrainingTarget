@@ -1,0 +1,56 @@
+[h1]Training Target — Estande de tiro e manequim de treino[/h1]
+
+[b]Build 42.21 · Um jogador e multijogador[/b]
+
+Cada bala conta no condado de Knox... então aprenda a mirar antes que a horda bata à sua porta. Monte um estande de tiro na sua base: alvos de papel, alvo em cavalete, suporte de latas e manequim de treino corpo a corpo.
+
+[h2]Resumo[/h2]
+
+[list]
+[*][b]Quatro móveis novos[/b], modelados à mão em 3D: alvo de papel de parede, alvo em cavalete, suporte de latas e manequim de treino.
+[*][b]Zonas de precisão[/b]: na mosca, anel interno ou anel externo. Quanto maior a sua Pontaria, mais perto do centro. Os furos mostram onde você acertou.
+[*][b]Estatísticas da sessão[/b]: tiros, acertos, precisão, tiros na mosca e melhor sequência.
+[*][b]Manutenção[/b]: trocar uma folha crivada de tiros, reparar o manequim, colocar latas vazias de volta no suporte.
+[*][b]Alvos do jogo[/b]: os alvos de tiro militares encontrados no mundo também funcionam.
+[*][b]Suporte a controle[/b], [b]multijogador[/b] e [b]opções de sandbox[/b].
+[/list]
+
+[h2]Tiro[/h2]
+
+[list]
+[*]Coloque um alvo, afaste-se pelo menos 3 quadrados e atire nele com qualquer arma de fogo.
+[*]A chance de acerto usa a precisão da arma e o seu nível de Pontaria, menos a distância e o movimento. Alvos mais difíceis dão mais experiência: alvo em cavalete x1,25, latas x1,5.
+[*]A experiência é fixa por acerto: a curva de XP do jogo, os livros de habilidades e os traços fazem o resto.
+[*]Uma folha de papel se desgasta após 30 acertos. Clique com o botão direito no alvo, [b]Trocar a Folha[/b], com uma folha de papel e uma caneta.
+[*]Cada lata atingida cai do suporte. [b]Colocar Latas Vazias no Suporte[/b] para continuar atirando (até 6).
+[/list]
+
+[h2]Corpo a corpo[/h2]
+
+Golpeie o [b]manequim de treino[/b] com um machado, uma arma contundente, uma lança ou uma lâmina para treinar essa habilidade. O manequim nunca quebra, mas fica em frangalhos: após 150 golpes, [b]Reparar o Manequim[/b] com um martelo, uma tábua e 2 pregos.
+
+[h2]Fabricação (Carpintaria)[/h2]
+
+[list]
+[*][b]Alvo de Papel[/b]: 1 tábua, 2 pregos, 1 folha de papel, martelo e caneta.
+[*][b]Alvo em Cavalete[/b]: 3 tábuas, 4 pregos, 1 folha de papel, martelo, serra e caneta.
+[*][b]Suporte de Latas[/b]: 3 tábuas, 4 pregos, martelo e serra.
+[*][b]Manequim de Treino[/b]: 4 tábuas, 6 pregos, 1 lençol, 4 panos, martelo e serra.
+[/list]
+
+[h2]Multijogador[/h2]
+
+O servidor decide cada acerto, concede a experiência e guarda as estatísticas de sessão de cada jogador. Todos veem os mesmos furos, as mesmas latas e o mesmo desgaste do manequim.
+
+[h2]Opções de sandbox[/h2]
+
+XP de Pontaria e de corpo a corpo por acerto, distância mínima de tiro, bônus de chance de acerto, durabilidade da folha e do manequim, latas no suporte, treino corpo a corpo, alvos do jogo, fim da sessão.
+
+[h2]Apoie o projeto[/h2]
+
+Curtiu o mod? Um café ajuda a financiar novos recursos e traduções.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
+
+[h2]Créditos[/h2]
+
+Reescrita completa para a Build 42.21 do Training Target (Build 41), pelo mesmo autor. Modelos feitos no Blender. Código-fonte sob a licença MIT: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

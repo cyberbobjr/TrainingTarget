@@ -1,0 +1,56 @@
+[h1]Training Target — Stand de tir et mannequin d'entraînement[/h1]
+
+[b]Build 42.21 · Solo et multijoueur[/b]
+
+Chaque balle compte dans le comté de Knox... alors apprenez à viser avant que la horde ne frappe à la porte. Montez un stand de tir dans votre base : cibles papier, cible sur pied, support à conserves et mannequin d'entraînement au corps à corps.
+
+[h2]En bref[/h2]
+
+[list]
+[*][b]Quatre nouveaux meubles[/b], modélisés à la main en 3D : cible papier murale, cible sur pied, support à conserves et mannequin d'entraînement.
+[*][b]Zones de précision[/b] : dans le mille, anneau intérieur ou anneau extérieur. Plus votre Visée est élevée, plus vous tirez près du centre. Les impacts restent visibles.
+[*][b]Statistiques de séance[/b] : tirs, touchés, précision, dans le mille et meilleure série.
+[*][b]Entretien[/b] : changer une feuille criblée, réparer le mannequin, reposer des conserves vides sur le support.
+[*][b]Cibles du jeu[/b] : les cibles de tir militaires présentes dans le monde fonctionnent aussi.
+[*][b]Manette[/b], [b]multijoueur[/b] et [b]options de bac à sable[/b].
+[/list]
+
+[h2]Tir[/h2]
+
+[list]
+[*]Posez une cible, reculez d'au moins 3 cases et tirez dessus avec n'importe quelle arme à feu.
+[*]La chance de toucher dépend de la précision de l'arme et de votre niveau de Visée, moins la distance et le mouvement. Les cibles plus difficiles rapportent plus d'expérience : cible sur pied x1,25, conserves x1,5.
+[*]L'expérience est fixe à chaque touche : la courbe d'XP du jeu, les livres de compétence et les traits font le reste.
+[*]Une feuille s'use après 30 impacts. Clic droit sur la cible, [b]Changer la feuille[/b], avec une feuille de papier et un stylo.
+[*]Chaque conserve touchée tombe du support. [b]Poser des conserves vides sur le support[/b] pour continuer à tirer (jusqu'à 6).
+[/list]
+
+[h2]Corps à corps[/h2]
+
+Frappez le [b]mannequin d'entraînement[/b] avec une hache, une arme contondante, une lance ou une arme tranchante pour entraîner la compétence de l'arme. Le mannequin ne casse jamais, mais il part en lambeaux : après 150 coups, [b]Réparer le mannequin[/b] avec un marteau, une planche et 2 clous.
+
+[h2]Fabrication (Menuiserie)[/h2]
+
+[list]
+[*][b]Cible papier[/b] : 1 planche, 2 clous, 1 feuille de papier, marteau et stylo.
+[*][b]Cible sur pied[/b] : 3 planches, 4 clous, 1 feuille de papier, marteau, scie et stylo.
+[*][b]Support à conserves[/b] : 3 planches, 4 clous, marteau et scie.
+[*][b]Mannequin d'entraînement[/b] : 4 planches, 6 clous, 1 drap, 4 tissus déchirés, marteau et scie.
+[/list]
+
+[h2]Multijoueur[/h2]
+
+Le serveur décide de chaque touche, donne l'expérience et conserve les statistiques de séance de chaque joueur. Tout le monde voit les mêmes impacts, les mêmes conserves et la même usure du mannequin.
+
+[h2]Options de bac à sable[/h2]
+
+XP de Visée et de mêlée par touche, distance de tir minimale, bonus de chance de toucher, solidité de la feuille et du mannequin, conserves sur le support, entraînement à la mêlée, cibles du jeu, fin de séance.
+
+[h2]Soutenir le projet[/h2]
+
+Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et des traductions.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
+
+[h2]Crédits[/h2]
+
+Réécriture complète pour la Build 42.21 de Training Target (Build 41), par le même auteur. Modèles réalisés avec Blender. Code source sous licence MIT : [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

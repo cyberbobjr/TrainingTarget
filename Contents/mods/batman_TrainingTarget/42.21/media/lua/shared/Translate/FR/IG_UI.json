@@ -1,0 +1,23 @@
+{
+    "IGUI_ContainerTitle_batmanTTCans": "Support à conserves",
+    "IGUI_BatmanTT_Hit": "Touché !",
+    "IGUI_BatmanTT_Hit_Bullseye": "Dans le mille !",
+    "IGUI_BatmanTT_Hit_Inner": "Anneau intérieur",
+    "IGUI_BatmanTT_Hit_Outer": "Anneau extérieur",
+    "IGUI_BatmanTT_Miss": "Raté",
+    "IGUI_BatmanTT_Stats": "%1/%2 touchés - %3 %% - série %4",
+    "IGUI_BatmanTT_TooClose": "Je suis trop près de la cible",
+    "IGUI_BatmanTT_SheetWorn": "La feuille est criblée, je devrais la changer",
+    "IGUI_BatmanTT_NoCans": "Il n'y a plus de conserves sur le support",
+    "IGUI_BatmanTT_DummyWorn": "Le mannequin est en lambeaux, je devrais le réparer",
+    "IGUI_BatmanTT_DummyBroke": "Le mannequin part en morceaux",
+    "IGUI_BatmanTT_DummyHit": "%1 +%2 XP - mannequin %3 %%",
+    "IGUI_BatmanTT_SheetReplaced": "Nouvelle feuille-cible",
+    "IGUI_BatmanTT_DummyRepaired": "Mannequin réparé",
+    "IGUI_BatmanTT_SessionReset": "Nouvelle séance de tir",
+    "IGUI_BatmanTT_State_Sheet": "Feuille : %1/%2 impacts",
+    "IGUI_BatmanTT_State_Cans": "Conserves : %1/%2",
+    "IGUI_BatmanTT_State_Dummy": "État : %1 %%",
+    "IGUI_BatmanTT_Job_ReplaceSheet": "Changement de la feuille",
+    "IGUI_BatmanTT_Job_RepairDummy": "Réparation du mannequin"
+}
