@@ -11,8 +11,12 @@ require "TrainingTarget/TargetRegistry"
 BatmanTT.Maintenance = {}
 local Maintenance = BatmanTT.Maintenance
 
---- Feuilles acceptées pour une nouvelle cible.
-Maintenance.PAPER_TYPES = { "Base.SheetPaper2", "Base.GraphPaper" }
+--- Feuilles acceptées pour une nouvelle cible : les papiers de la recette vanilla
+--- MakeFirecracker (aucun tag « papier » en 42.21), comme BatmanTT_recipes.txt.
+Maintenance.PAPER_TYPES = {
+    "Base.SheetPaper2", "Base.GraphPaper", "Base.Brochure", "Base.Flier", "Base.Paperwork",
+    "Base.LetterHandwritten", "Base.Doodle", "Base.DoodleKids", "Base.GenericMail",
+}
 Maintenance.REPAIR_PLANK = "Base.Plank"
 Maintenance.REPAIR_NAILS = "Base.Nails"
 Maintenance.REPAIR_NAIL_COUNT = 2

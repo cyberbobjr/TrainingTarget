@@ -1,5 +1,9 @@
 module Base
 {
+    /* Outils par tags (comme le vanilla) : marteau, scies, stylo. Planches, clous et
+       papiers n'ont pas de tag en 42.21 : listes d'objets, comme les recettes vanilla
+       (papier : liste de MakeFirecracker). Couverture du mannequin : tag base:sheet. */
+
     craftRecipe BatmanTT_MakePaperTarget
     {
         timedAction = Making,
@@ -13,7 +17,7 @@ module Base
             item 1 tags[base:pen] mode:keep,
             item 1 [Base.Plank],
             item 2 [Base.Nails],
-            item 1 [Base.SheetPaper2;Base.GraphPaper],
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Brochure;Base.Flier;Base.Paperwork;Base.LetterHandwritten;Base.Doodle;Base.DoodleKids;Base.GenericMail],
         }
         outputs
         {
@@ -35,7 +39,7 @@ module Base
             item 1 tags[base:pen] mode:keep,
             item 3 [Base.Plank],
             item 4 [Base.Nails],
-            item 1 [Base.SheetPaper2;Base.GraphPaper],
+            item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Brochure;Base.Flier;Base.Paperwork;Base.LetterHandwritten;Base.Doodle;Base.DoodleKids;Base.GenericMail],
         }
         outputs
         {
@@ -76,8 +80,8 @@ module Base
             item 1 tags[base:saw;base:smallsaw;base:crudesaw] mode:keep flags[MayDegradeLight],
             item 4 [Base.Plank],
             item 6 [Base.Nails],
-            item 1 [Base.Sheet],
-            item 4 [Base.RippedSheets;Base.RippedSheetsDirty],
+            item 1 tags[base:sheet],
+            item 10 [Base.HayTuft;Base.GrassTuft;Base.RippedSheets;Base.RippedSheetsDirty],
         }
         outputs
         {

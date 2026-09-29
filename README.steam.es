@@ -35,7 +35,7 @@ Golpea el [b]maniquí de entrenamiento[/b] con un hacha, un arma contundente, un
 [*][b]Diana de papel[/b]: 1 tablón, 2 clavos, 1 hoja de papel, martillo y bolígrafo.
 [*][b]Diana con soporte[/b]: 3 tablones, 4 clavos, 1 hoja de papel, martillo, sierra y bolígrafo.
 [*][b]Soporte para latas[/b]: 3 tablones, 4 clavos, martillo y sierra.
-[*][b]Maniquí de entrenamiento[/b]: 4 tablones, 6 clavos, 1 sábana, 4 retales de tela, martillo y sierra.
+[*][b]Maniquí de entrenamiento[/b]: 4 tablones, 6 clavos, 1 sábana, 10 de heno, hierba cortada o retales de tela, martillo y sierra.
 [/list]
 
 [h2]Multijugador[/h2]

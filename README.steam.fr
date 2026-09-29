@@ -35,7 +35,7 @@ Frappez le [b]mannequin d'entraînement[/b] avec une hache, une arme contondante
 [*][b]Cible papier[/b] : 1 planche, 2 clous, 1 feuille de papier, marteau et stylo.
 [*][b]Cible sur pied[/b] : 3 planches, 4 clous, 1 feuille de papier, marteau, scie et stylo.
 [*][b]Support à conserves[/b] : 3 planches, 4 clous, marteau et scie.
-[*][b]Mannequin d'entraînement[/b] : 4 planches, 6 clous, 1 drap, 4 tissus déchirés, marteau et scie.
+[*][b]Mannequin d'entraînement[/b] : 4 planches, 6 clous, 1 drap, 10 foin, herbe fauchée ou tissus déchirés, marteau et scie.
 [/list]
 
 [h2]Multijoueur[/h2]
