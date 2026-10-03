@@ -33,6 +33,24 @@ for _, t in ipairs({ "Base.Pistol", "Base.Bullets9mmBox", "Base.Axe", "Base.Hamm
 
 ## Points à confirmer en jeu
 
+### Régression 0.1.1 : menus et entretien
+
+Après un redémarrage complet, tester avec Training Target seul, puis avec Tank Water :
+
+- Cible papier et cible sur pied usées : clic droit sur le sprite, puis sur le sol de leur case.
+  Le sous-menu d'entraînement doit proposer « Changer la feuille ». Sans fournitures, l'option reste visible et grisée.
+- Feuille de papier + crayon, puis stylo : remplacement possible ; seule la feuille est consommée,
+  l'usure et les trous sont effacés. Tester aussi sur une cible militaire vanilla.
+- Support à conserves vide : le remplissage est proposé depuis le sol de sa case, les conserves apparaissent,
+  et le tir en retire une. Un support plein refuse le remplissage ; un objet sans conteneur donne une explication.
+- Deux cibles sur une case : la cible directement cliquée garde la priorité. Une case sans cible ne propose pas d'entretien.
+- En multijoueur, répéter le remplacement au crayon et le remplissage avec deux clients ; vérifier l'état chez le second
+  joueur et après reconnexion. Fournitures retirées avant la complétion : aucune feuille consommée, cible inchangée.
+- Pour Tank Water, noter l'action exacte et conserver les journaux client et serveur si une erreur, déconnexion ou
+  fermeture du jeu survient. Les simulations ne constituent pas une validation en jeu de cette coexistence.
+
+### Autres contrôles
+
 - Tir sur une case sans personnage : le client reçoit bien `OnWeaponSwingHitPoint` (déduit de `CombatManager.java:606`).
 - `AcceptItemFunction` sur un conteneur de tuile, côté serveur comme côté client.
 - Calques (`attachedAnimSprite`) transmis par `transmitUpdatedSpriteToClients` et leur profondeur.

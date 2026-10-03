@@ -63,7 +63,7 @@ function getMouseX() return World.mouse.x end
 function getMouseY() return World.mouse.y end
 WeaponCategory = { AXE = "Axe", BLUNT = "Blunt", SPEAR = "Spear", LONG_BLADE = "LongBlade",
                    SMALL_BLADE = "SmallBlade", SMALL_BLUNT = "SmallBlunt" }
-ItemTag = { EMPTY_CAN = "EmptyCan", PEN = "Pen", HAMMER = "Hammer" }
+ItemTag = { EMPTY_CAN = "EmptyCan", PEN = "Pen", WRITE = "Write", HAMMER = "Hammer" }
 
 function instanceof(object, class)
     return type(object) == "table" and object.classes ~= nil and object.classes[class] == true

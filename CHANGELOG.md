@@ -3,6 +3,12 @@
 Each `## <version> — <date>` section is published as the Steam Workshop change note
 (`.claude/tools/steam_workshop_publish.py`). The top version must match `modversion=` in `mod.info`.
 
+## 0.1.1 — 2026-10-03
+
+- Target maintenance and can refill menus now also appear when right-clicking another object on the target's tile.
+- Pencils and other vanilla writing tools can be used to craft targets and replace their sheets.
+- Can stands without a working container now show an unavailable refill option with an explanation.
+
 ## 0.1.0 — 2026-09-29
 
 - First release for Build 42.21: a full rewrite of Training Target (Build 41).

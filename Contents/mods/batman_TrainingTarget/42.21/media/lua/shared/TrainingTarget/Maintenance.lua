@@ -47,6 +47,15 @@ function Maintenance.findPaper(inventory)
     return nil
 end
 
+--- Même tag que l'écriture vanilla : stylos, crayons et marqueurs.
+function Maintenance.isWritingTool(item)
+    return item ~= nil and item:hasTag(ItemTag.WRITE)
+end
+
+function Maintenance.findWritingTool(inventory)
+    return inventory:getFirstTagRecurse(ItemTag.WRITE)
+end
+
 function Maintenance.findNails(inventory)
     local nails = inventory:getSomeTypeRecurse(Maintenance.REPAIR_NAILS, Maintenance.REPAIR_NAIL_COUNT)
     if nails:size() < Maintenance.REPAIR_NAIL_COUNT then

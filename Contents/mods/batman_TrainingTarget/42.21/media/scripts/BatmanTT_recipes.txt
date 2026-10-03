@@ -14,7 +14,7 @@ module Base
         inputs
         {
             item 1 tags[base:hammer] mode:keep flags[MayDegradeVeryLight],
-            item 1 tags[base:pen] mode:keep,
+            item 1 tags[base:write] mode:keep,
             item 1 [Base.Plank],
             item 2 [Base.Nails],
             item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Brochure;Base.Flier;Base.Paperwork;Base.LetterHandwritten;Base.Doodle;Base.DoodleKids;Base.GenericMail],
@@ -36,7 +36,7 @@ module Base
         {
             item 1 tags[base:hammer] mode:keep flags[MayDegradeVeryLight],
             item 1 tags[base:saw;base:smallsaw;base:crudesaw] mode:keep flags[MayDegradeLight],
-            item 1 tags[base:pen] mode:keep,
+            item 1 tags[base:write] mode:keep,
             item 3 [Base.Plank],
             item 4 [Base.Nails],
             item 1 [Base.SheetPaper2;Base.GraphPaper;Base.Brochure;Base.Flier;Base.Paperwork;Base.LetterHandwritten;Base.Doodle;Base.DoodleKids;Base.GenericMail],

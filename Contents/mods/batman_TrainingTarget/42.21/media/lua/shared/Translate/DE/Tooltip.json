@@ -5,6 +5,7 @@
     "Tooltip_BatmanTT_NeedPlank": "1 Brett (wird verbraucht)",
     "Tooltip_BatmanTT_NeedNails": "%1 Nägel (werden verbraucht)",
     "Tooltip_BatmanTT_NeedCans": "Leere Blechdosen im Inventar: %1",
+    "Tooltip_BatmanTT_StandUnavailable": "Dieser Ständer kann keine Dosen aufnehmen.",
     "Tooltip_BatmanTT_Stats": "Schüsse: %1 <LINE> Treffer: %2 (%3%%) <LINE> Volltreffer: %4",
     "Tooltip_BatmanTT_BestStreak": "Beste Serie: %1"
 }

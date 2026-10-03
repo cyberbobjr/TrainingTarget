@@ -5,6 +5,7 @@
     "Tooltip_BatmanTT_NeedPlank": "1 доска (расходуется)",
     "Tooltip_BatmanTT_NeedNails": "Гвозди: %1 (расходуются)",
     "Tooltip_BatmanTT_NeedCans": "Пустые консервные банки в инвентаре: %1",
+    "Tooltip_BatmanTT_StandUnavailable": "На эту подставку нельзя поставить банки.",
     "Tooltip_BatmanTT_Stats": "Выстрелы: %1 <LINE> Попадания: %2 (%3%%) <LINE> В яблочко: %4",
     "Tooltip_BatmanTT_BestStreak": "Лучшая серия: %1"
 }

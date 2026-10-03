@@ -47,7 +47,7 @@ end
 local function addReplaceSheet(menu, player, target, definition)
     local inventory = player:getInventory()
     local paper = Maintenance.findPaper(inventory)
-    local pen = inventory:getFirstTagRecurse(ItemTag.PEN)
+    local pen = Maintenance.findWritingTool(inventory)
     local option = menu:addOption(getText("ContextMenu_BatmanTT_ReplaceSheet"), player, ContextMenu.onReplaceSheet,
         target, paper, pen)
     addTooltip(option, requirementLine(paper ~= nil, getText("Tooltip_BatmanTT_NeedPaper"))
@@ -89,7 +89,11 @@ end
 
 function ContextMenu.onRefillCans(player, target)
     local container = CanStand.container(target)
-    if not container or not luautils.walkAdjObject(player, target, true) then
+    if not container then
+        HaloTextHelper.addText(player, getText("Tooltip_BatmanTT_StandUnavailable"))
+        return
+    end
+    if not luautils.walkAdjObject(player, target, true) then
         return
     end
     local space = BatmanTT.maxCans() - container:getItems():size()
@@ -101,10 +105,15 @@ function ContextMenu.onRefillCans(player, target)
 end
 
 local function addRefillCans(menu, player, target, definition)
+    local container = CanStand.container(target)
     local cans = player:getInventory():getCountTagRecurse(ItemTag.EMPTY_CAN)
     local option = menu:addOption(getText("ContextMenu_BatmanTT_RefillCans"), player, ContextMenu.onRefillCans, target)
-    addTooltip(option, requirementLine(cans > 0, getText("Tooltip_BatmanTT_NeedCans", tostring(cans))))
-    option.notAvailable = cans <= 0 or not definition.needsMaintenance(target)
+    local description = requirementLine(cans > 0, getText("Tooltip_BatmanTT_NeedCans", tostring(cans)))
+    if not container then
+        description = description .. requirementLine(false, getText("Tooltip_BatmanTT_StandUnavailable"))
+    end
+    addTooltip(option, description)
+    option.notAvailable = not container or cans <= 0 or not definition.needsMaintenance(target)
 end
 
 -- ----------------------------------------------------------------------------
@@ -146,12 +155,24 @@ local MAINTENANCE = {
     cans = addRefillCans,
 }
 
---- Première cible d'entraînement parmi les objets cliqués.
+--- Priorité à la cible cliquée, puis aux cibles des cases concernées.
+--- Le sélecteur peut fournir le sol ou un autre objet de la même case.
 local function findTarget(worldObjects)
     for _, object in ipairs(worldObjects) do
         local definition, facing = BatmanTT.targetOf(object)
         if definition then
             return object, definition, facing
+        end
+    end
+    local visited = {}
+    for _, object in ipairs(worldObjects) do
+        local square = object:getSquare()
+        if square and not visited[square] then
+            visited[square] = true
+            local target, definition, facing = BatmanTT.findTargetOnSquare(square)
+            if target then
+                return target, definition, facing
+            end
         end
     end
     return nil
@@ -166,6 +187,9 @@ local function onFillWorldObjectContextMenu(playerNum, context, worldObjects, te
         return ISWorldObjectContextMenu.setTest()
     end
     local player = getSpecificPlayer(playerNum)
+    if not player then
+        return
+    end
     local parent = context:addOption(getText("ContextMenu_BatmanTT_Training"), worldObjects, nil)
     local menu = ISContextMenu:getNew(context)
     context:addSubMenu(parent, menu)

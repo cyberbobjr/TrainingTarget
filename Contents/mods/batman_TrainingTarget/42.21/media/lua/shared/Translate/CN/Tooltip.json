@@ -5,6 +5,7 @@
     "Tooltip_BatmanTT_NeedPlank": "木板 x1 (消耗)",
     "Tooltip_BatmanTT_NeedNails": "钉子 x%1 (消耗)",
     "Tooltip_BatmanTT_NeedCans": "物品栏中的空锡罐: %1",
+    "Tooltip_BatmanTT_StandUnavailable": "这个支架无法放置空罐。",
     "Tooltip_BatmanTT_Stats": "射击: %1 <LINE> 命中: %2 (%3%%) <LINE> 靶心: %4",
     "Tooltip_BatmanTT_BestStreak": "最佳连中: %1"
 }

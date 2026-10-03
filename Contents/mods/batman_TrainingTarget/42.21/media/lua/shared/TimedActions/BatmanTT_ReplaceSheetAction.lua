@@ -1,7 +1,7 @@
 -- ============================================================================
 -- Training Target — changer la feuille d'une cible (papier, sur pied, vanilla)
 --
--- Une feuille (Maintenance.PAPER_TYPES) est consommée, le stylo (tag base:pen)
+-- Une feuille (Maintenance.PAPER_TYPES) est consommée, l'outil (tag base:write)
 -- sert à tracer les anneaux et reste. L'usure et les impacts disparaissent.
 -- Paramètres réseau : champs nommés comme les paramètres de new() ; `targetPos`
 -- vaut "x,y,z" et l'autorité y retrouve la cible (NetTimedAction).
@@ -26,7 +26,7 @@ local function validate(self)
     if not Maintenance.isPaper(self.paper) or not Maintenance.hasItem(character, self.paper) then
         return nil
     end
-    if not self.pen or not self.pen:hasTag(ItemTag.PEN) or not Maintenance.hasItem(character, self.pen) then
+    if not Maintenance.isWritingTool(self.pen) or not Maintenance.hasItem(character, self.pen) then
         return nil
     end
     return target, definition, facing
@@ -93,7 +93,7 @@ function BatmanTT_ReplaceSheetAction:getDuration()
     return DURATION
 end
 
---- targetPos : "x,y,z" de la cible ; paper : feuille ; pen : objet tag base:pen.
+--- targetPos : "x,y,z" de la cible ; paper : feuille ; pen : objet tag base:write.
 function BatmanTT_ReplaceSheetAction:new(character, targetPos, paper, pen)
     local o = ISBaseTimedAction.new(self, character)
     o.targetPos = type(targetPos) == "string" and targetPos or ""
