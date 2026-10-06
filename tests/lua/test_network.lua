@@ -203,4 +203,48 @@ function T.melee_swings_are_not_sent()
     assertEq(#clientSent, 0, "la mêlée passe par OnWeaponHitThumpable")
 end
 
+-- ---------------------------------------------------------------------------
+-- Client : arcs tirés en Lua (MandelaBowAndArrow / [SVRP] ClassicBows)
+-- ---------------------------------------------------------------------------
+
+local function loadBowMod(shootArrow)
+    MandelaBowAndArrow = { Client = { shootArrow = shootArrow } }
+    loadClient()
+    loadMod("client/TrainingTarget/Compat/ClassicBows.lua")
+    triggerEvent("OnGameStart")
+end
+
+function T.bow_arrow_on_a_target_is_sent_to_the_server()
+    local arrows = 0
+    loadBowMod(function() arrows = arrows + 1 end)
+    local player = clientShooter({ target = square })
+    MandelaBowAndArrow.Client.shootArrow(player, {}, nil)
+    assertEq(arrows, 1, "flèche de l'arc tirée")
+    assertEq(clientSent[1] and clientSent[1].args.pos, "10,10,0", "tir envoyé au serveur")
+end
+
+function T.bow_wrapper_is_installed_once_and_survives_errors()
+    local arrows = 0
+    loadBowMod(function() arrows = arrows + 1 end)
+    triggerEvent("OnGameStart")
+    local player = clientShooter({ target = square })
+    MandelaBowAndArrow.Client.shootArrow(player, {}, nil)
+    assertEq(arrows, 1, "une seule enveloppe")
+    assertEq(#clientSent, 1, "un seul tir envoyé")
+    local quiet = print
+    print = function() end
+    function player:getPrimaryHandItem() error("boom") end
+    MandelaBowAndArrow.Client.shootArrow(player, {}, nil)
+    print = quiet
+    assertEq(arrows, 2, "l'erreur ne remonte pas dans le tir de l'arc")
+end
+
+function T.bow_compat_is_inert_without_the_bow_mod()
+    MandelaBowAndArrow = nil
+    loadClient()
+    loadMod("client/TrainingTarget/Compat/ClassicBows.lua")
+    triggerEvent("OnGameStart")
+    assertEq(MandelaBowAndArrow, nil, "aucune table créée")
+end
+
 return T

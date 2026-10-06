@@ -58,4 +58,4 @@ description=[h2]Credits[/h2]
 description=
 description=Full rewrite for Build 42.21 of Training Target (Build 41) by the same author. Models made with Blender. Source code under the MIT license: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
 tags=Build 42;Multiplayer;Skills;Weapons;Models
-visibility=private
+visibility=public

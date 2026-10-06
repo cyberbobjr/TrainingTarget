@@ -3,6 +3,10 @@
 Each `## <version> — <date>` section is published as the Steam Workshop change note
 (`.claude/tools/steam_workshop_publish.py`). The top version must match `modversion=` in `mod.info`.
 
+## 0.1.2 — 2026-10-06
+
+- Compatibility with [SVRP] ClassicBows: shots from its bows and crossbows now count on training targets (hit chance, zones, statistics and Aiming XP, like a firearm).
+
 ## 0.1.1 — 2026-10-03
 
 - Target maintenance and can refill menus now also appear when right-clicking another object on the target's tile.

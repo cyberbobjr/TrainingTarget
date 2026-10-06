@@ -49,6 +49,17 @@ Après un redémarrage complet, tester avec Training Target seul, puis avec Tank
 - Pour Tank Water, noter l'action exacte et conserver les journaux client et serveur si une erreur, déconnexion ou
   fermeture du jeu survient. Les simulations ne constituent pas une validation en jeu de cette coexistence.
 
+### Compatibilité 0.1.2 : [SVRP] ClassicBows (3776949545, id `SVRPClassicBows`)
+
+Redémarrage complet, Training Target + ClassicBows actifs :
+
+- Arc chargé, cible papier à 5 cases : visée à la souris puis tir. La flèche part, la munition est consommée,
+  et Training Target affiche touché/manqué, les statistiques et l'XP de Visée.
+- Même essai à l'arbalète, puis à la manette (cible dans l'axe du regard).
+- Arc à vide, tir à côté de la cible, tir à moins de 3 cases : rien n'est compté ou « trop près ».
+- Multijoueur : le serveur juge le tir (résultat chez le tireur seulement) ; aucune erreur `[TrainingTarget] bow shot` dans les journaux.
+- Sans ClassicBows : armes à feu vanilla inchangées.
+
 ### Autres contrôles
 
 - Tir sur une case sans personnage : le client reçoit bien `OnWeaponSwingHitPoint` (déduit de `CombatManager.java:606`).

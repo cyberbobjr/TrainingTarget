@@ -27,9 +27,11 @@ Full rewrite for Build 42.21 of the Build 41 mod *Training Target* (Workshop 305
 | Maintenance helpers, timed actions | `shared/TrainingTarget/Maintenance.lua`, `shared/TimedActions/BatmanTT_*.lua` |
 | Server commands, melee event | `server/TrainingTarget/Server.lua` |
 | Shot detection (mouse, gamepad) | `client/TrainingTarget/ShotDetector.lua` |
+| Bows fired in Lua ([SVRP] ClassicBows) | `client/TrainingTarget/Compat/ClassicBows.lua` |
 | Feedback, context menu, can transfers | `client/TrainingTarget/*.lua` |
 
 - **Shots**: `OnWeaponSwingHitPoint` fires on the client (or solo) for every shot, but on a dedicated server only when a character is hit. The client finds the target and sends `shot { pos }`; the server re-checks weapon, range, side and target, then decides.
+- **Lua bows** ([SVRP] ClassicBows and other `MandelaBowAndArrow` bows): their `Hook.Attack` replaces the vanilla attack, so `OnWeaponSwingHitPoint` never fires. `MandelaBowAndArrow.Client.shootArrow` is wrapped at `OnGameStart` and each arrow is judged like a firearm shot; the arrow's flight is not tracked.
 - **Melee**: `OnWeaponHitThumpable` fires only on the authority, just before the vanilla damage. Training furniture keeps full health; the dummy's wear lives in its ModData.
 - **Can stand**: `AcceptItemFunction` restricts the container (not saved by the engine, set again on load). Multiplayer transfers are server-side Java transactions, so the client asks for a recount (`refreshCans`), done at once and again one second later.
 - **Adding a target type**: add `Targets/<Name>.lua` calling `BatmanTT.registerTarget{...}` (see `TargetRegistry.lua`).

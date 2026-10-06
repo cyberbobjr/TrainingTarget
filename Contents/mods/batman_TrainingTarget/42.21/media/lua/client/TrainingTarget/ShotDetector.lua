@@ -5,11 +5,17 @@
 -- (CombatManager.attackCollisionCheck). Le serveur MP ne le déclenche que pour
 -- un tir qui touche un personnage : la cible est donc cherchée ici (Aim), puis
 -- envoyée au serveur, qui décide (commande « shot »).
+-- Les armes qui tirent sans l'attaque vanilla (arcs en Lua) appellent
+-- ShotDetector.onShot elles-mêmes (voir Compat/).
 -- ============================================================================
 
 require "TrainingTarget/Aim"
 
-local function onWeaponSwingHitPoint(character, weapon)
+BatmanTT.ShotDetector = {}
+local ShotDetector = BatmanTT.ShotDetector
+
+--- Tir de `weapon` par `character` : cherche la cible visée et la fait juger.
+function ShotDetector.onShot(character, weapon)
     if not instanceof(character, "IsoPlayer") or not character:isLocalPlayer() then
         return
     end
@@ -27,4 +33,4 @@ local function onWeaponSwingHitPoint(character, weapon)
     BatmanTT.tell(character, BatmanTT.Training.shoot(character, weapon, target, definition, facing))
 end
 
-Events.OnWeaponSwingHitPoint.Add(onWeaponSwingHitPoint)
+Events.OnWeaponSwingHitPoint.Add(ShotDetector.onShot)
