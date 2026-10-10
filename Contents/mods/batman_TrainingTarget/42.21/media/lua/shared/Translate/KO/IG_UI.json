@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "깡통: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "상태: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "과녁 종이 교체 중",
-    "IGUI_BatmanTT_Job_RepairDummy": "인형 수리 중"
+    "IGUI_BatmanTT_Job_RepairDummy": "인형 수리 중",
+    "IGUI_BatmanTT_React_bullseyes_1": "세 발 연속 정중앙!",
+    "IGUI_BatmanTT_React_bullseyes_2": "또 정중앙이다.",
+    "IGUI_BatmanTT_React_bullseyes_3": "탄착군이 아주 좋군.",
+    "IGUI_BatmanTT_React_record_1": "지금까지 최고의 연속 명중이야!",
+    "IGUI_BatmanTT_React_record_2": "신기록이다. 침착하게.",
+    "IGUI_BatmanTT_React_record_3": "이렇게 잘 쏜 적은 처음이야.",
+    "IGUI_BatmanTT_React_streakLost_1": "젠장, 집중이 깨졌어...",
+    "IGUI_BatmanTT_React_streakLost_2": "숨 고르고. 집중하자.",
+    "IGUI_BatmanTT_React_streakLost_3": "연속 명중도 여기까지군."
 }

@@ -19,15 +19,16 @@ Cada bala cuenta en el condado de Knox... así que aprende a apuntar antes de qu
 
 [list]
 [*]Coloca una diana, aléjate al menos 3 casillas y dispárale con cualquier arma de fuego.
-[*]La probabilidad de impacto depende de la precisión del arma y de tu nivel de Puntería, menos la distancia y el movimiento. Las dianas más difíciles dan más experiencia: diana con soporte x1,25, latas x1,5.
+[*]La probabilidad de impacto sigue las reglas del propio juego, como contra un zombi: cuentan el tiempo apuntando, el alcance de la mira, el movimiento, la oscuridad, el clima, los estados de ánimo y el dolor. El círculo de puntería toma también los colores del zombi en las dianas de entrenamiento. Las dianas más difíciles dan más experiencia: diana con soporte x1,25, latas x1,5.
 [*]La experiencia es fija por impacto: la curva de XP del juego, los libros de habilidades y los atributos hacen el resto.
 [*]Una hoja de papel se desgasta tras 30 impactos. Clic derecho en la diana, [b]Cambiar la hoja[/b], con una hoja de papel y un bolígrafo.
 [*]Cada lata alcanzada cae del soporte. [b]Poner latas vacías en el soporte[/b] para seguir disparando (hasta 6).
+[*]Tu personaje reacciona en voz alta: tres impactos seguidos en el centro, una nueva mejor racha o una larga racha perdida por un fallo.
 [/list]
 
 [h2]Cuerpo a cuerpo[/h2]
 
-Golpea el [b]maniquí de entrenamiento[/b] con un hacha, un arma contundente, una lanza o un arma de hoja para entrenar esa habilidad. El maniquí nunca se rompe, pero acaba hecho jirones: tras 150 golpes, [b]Reparar el maniquí[/b] con un martillo, un tablón y 2 clavos.
+Golpea el [b]maniquí de entrenamiento[/b] con un hacha, un arma contundente, una lanza o un arma de hoja para entrenar esa habilidad. El maniquí nunca se rompe, pero acaba hecho jirones: tras el equivalente a 150 golpes de bate de béisbol (las armas pesadas como las hachas lo desgastan hasta 3 veces más rápido; los cuchillos, 5 veces más despacio), [b]Reparar el maniquí[/b] con un martillo, un tablón y 2 clavos.
 
 [h2]Fabricación (Carpintería)[/h2]
 

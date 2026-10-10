@@ -12,9 +12,23 @@ function T.setup()
     BatmanTT.Feedback = { show = function(_, result) table.insert(shots, result) end }
 end
 
-local function shoot(player)
+local function shoot(player, chance)
     local definition, facing = BatmanTT.targetOf(paper)
-    return BatmanTT.Training.shoot(player, weapon, paper, definition, facing)
+    return BatmanTT.Training.shoot(player, weapon, paper, definition, facing, chance or 50)
+end
+
+function T.shot_without_a_chance_is_ignored()
+    local definition, facing = BatmanTT.targetOf(paper)
+    local player = newPlayer({ x = 10.5, y = 16.5 })
+    assertEq(BatmanTT.Training.shoot(player, weapon, paper, definition, facing, nil), nil, "sans chance")
+    assertEq(BatmanTT.Training.shoot(player, weapon, paper, definition, facing, 0 / 0), nil, "NaN")
+end
+
+function T.roll_equal_to_the_chance_hits_like_vanilla()
+    World.rand = { 50, 0 }
+    assertEq(shoot(newPlayer({ x = 10.5, y = 16.5 }), 50).outcome, BatmanTT.Outcome.HIT, "tirage = chance")
+    World.rand = { 51 }
+    assertEq(shoot(newPlayer({ x = 10.5, y = 16.5, username = "b" }), 50).outcome, BatmanTT.Outcome.MISS, "tirage > chance")
 end
 
 function T.too_close_does_not_count()
@@ -101,7 +115,21 @@ function T.melee_on_dummy_gives_weapon_xp_and_keeps_it_intact()
     assertEq(dummy:getHealth() - axe:getDoorDamage(), 100, "santé intacte après les dégâts vanilla")
     assertEq(World.xp[1].perk, Perks.Axe, "compétence Hache")
     assertEq(World.xp[1].amount, 1.5, "XP fixe")
-    assertEq(BatmanTT.getWear(dummy), 1, "usure")
+    assertEq(BatmanTT.getWear(dummy), 3, "usure d'une hache : 30 / 5, bornée à 3")
+end
+
+--- Demande de l'utilisateur : l'usure du mannequin dépend de l'arme.
+function T.dummy_wear_depends_on_the_weapon()
+    local dummy = newObject("batman_training_01_12", square, { thumpable = true })
+    local definition, facing = BatmanTT.targetOf(dummy)
+    local knife = newWeapon({ ranged = false, doorDamage = 1, categories = { WeaponCategory.SMALL_BLADE } })
+    for _ = 1, 5 do
+        BatmanTT.Training.strike(newPlayer(), knife, dummy, definition, facing)
+    end
+    assertEq(BatmanTT.getWear(dummy), 1, "cinq coups de couteau = un coup de batte")
+    local bat = newWeapon({ ranged = false, doorDamage = 5, categories = { WeaponCategory.BLUNT } })
+    BatmanTT.Training.strike(newPlayer(), bat, dummy, definition, facing)
+    assertEq(BatmanTT.getWear(dummy), 2, "batte : un coup")
 end
 
 function T.every_melee_hit_reports_perk_xp_and_condition()
@@ -112,8 +140,28 @@ function T.every_melee_hit_reports_perk_xp_and_condition()
     local result = BatmanTT.Training.strike(newPlayer(), spear, dummy, definition, facing)
     assertEq(result.outcome, BatmanTT.Outcome.DUMMY_HIT, "coup signalé")
     assertEq(result.perk, "Spear", "compétence")
-    assertEq(result.condition, 75, "état restant")
+    assertEq(result.condition, 50, "état restant : usure 10 / 5 = 2 sur 4")
     assertEq(result.pos, "10,10,0", "position du mannequin")
+end
+
+function T.third_bullseye_in_a_row_makes_the_character_react()
+    local player = newPlayer({ x = 10.5, y = 16.5 })
+    local result
+    for _ = 1, 3 do
+        World.rand = { 0 }
+        World.randFloat = { 0 }
+        result = shoot(player, 100)
+    end
+    assertEq(result.zone, BatmanTT.Zone.BULLSEYE, "centre")
+    assertEq(result.reaction, BatmanTT.Reactions.Kind.BULLSEYES, "réaction choisie par l'autorité")
+    HaloTextHelper = { addText = function() end, addGoodText = function() end }
+    getWorld = function()
+        return { getFreeEmitter = function() return { playSound = function() end } end }
+    end
+    loadMod("client/TrainingTarget/Feedback.lua")
+    World.rand = { 2 }
+    BatmanTT.Feedback.show(player, result)
+    assertEq(player.said[1], "IGUI_BatmanTT_React_bullseyes_3", "phrase dite par le personnage")
 end
 
 function T.dummy_hit_feedback_flashes_the_dummy_and_shows_a_line()

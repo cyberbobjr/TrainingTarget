@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "Cans: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "Condition: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "Replacing the sheet",
-    "IGUI_BatmanTT_Job_RepairDummy": "Repairing the dummy"
+    "IGUI_BatmanTT_Job_RepairDummy": "Repairing the dummy",
+    "IGUI_BatmanTT_React_bullseyes_1": "Three dead center!",
+    "IGUI_BatmanTT_React_bullseyes_2": "Right in the bullseye. Again.",
+    "IGUI_BatmanTT_React_bullseyes_3": "Now that's a tight group.",
+    "IGUI_BatmanTT_React_record_1": "My best streak yet!",
+    "IGUI_BatmanTT_React_record_2": "New record. Keep it steady.",
+    "IGUI_BatmanTT_React_record_3": "Never shot this well.",
+    "IGUI_BatmanTT_React_streakLost_1": "Damn, lost my focus...",
+    "IGUI_BatmanTT_React_streakLost_2": "Breathe. Concentrate.",
+    "IGUI_BatmanTT_React_streakLost_3": "So much for that streak."
 }

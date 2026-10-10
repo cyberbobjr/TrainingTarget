@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "과녁 종이 내구도",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "과녁 종이를 교체하기 전까지 견디는 명중 횟수입니다.",
     "Sandbox_BatmanTT_DummyDurability": "인형 내구도",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "훈련용 인형을 수리하기 전까지 견디는 타격 횟수입니다.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "훈련용 인형을 수리하기 전까지 견디는 타격 횟수로, 야구 방망이 타격 기준입니다. 도끼 같은 무거운 무기는 최대 3배 빨리, 칼은 5배 느리게 닳게 합니다.",
     "Sandbox_BatmanTT_MaxCans": "받침대 위 깡통",
     "Sandbox_BatmanTT_MaxCans_tooltip": "깡통 받침대에 올릴 수 있는 빈 깡통의 최대 개수입니다(1~6).",
     "Sandbox_BatmanTT_MeleeTraining": "근접 훈련",

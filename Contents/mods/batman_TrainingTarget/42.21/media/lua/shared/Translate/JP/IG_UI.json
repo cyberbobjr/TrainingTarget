@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "缶: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "状態: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "用紙を交換中",
-    "IGUI_BatmanTT_Job_RepairDummy": "ダミーを修理中"
+    "IGUI_BatmanTT_Job_RepairDummy": "ダミーを修理中",
+    "IGUI_BatmanTT_React_bullseyes_1": "三発続けてど真ん中!",
+    "IGUI_BatmanTT_React_bullseyes_2": "また中心に命中。",
+    "IGUI_BatmanTT_React_bullseyes_3": "いいグルーピングだ。",
+    "IGUI_BatmanTT_React_record_1": "今までで最高の連続命中だ!",
+    "IGUI_BatmanTT_React_record_2": "新記録。落ち着いていこう。",
+    "IGUI_BatmanTT_React_record_3": "こんなに上手く撃てたのは初めてだ。",
+    "IGUI_BatmanTT_React_streakLost_1": "くそっ、集中が切れた…",
+    "IGUI_BatmanTT_React_streakLost_2": "息を整えて、集中だ。",
+    "IGUI_BatmanTT_React_streakLost_3": "連続命中もここまでか。"
 }

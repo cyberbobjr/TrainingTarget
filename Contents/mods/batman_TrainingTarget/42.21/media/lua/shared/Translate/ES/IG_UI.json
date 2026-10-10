@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "Latas: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "Estado: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "Cambiando la hoja",
-    "IGUI_BatmanTT_Job_RepairDummy": "Reparando el maniquí"
+    "IGUI_BatmanTT_Job_RepairDummy": "Reparando el maniquí",
+    "IGUI_BatmanTT_React_bullseyes_1": "¡Tres en pleno centro!",
+    "IGUI_BatmanTT_React_bullseyes_2": "Otra vez en el blanco.",
+    "IGUI_BatmanTT_React_bullseyes_3": "Eso sí que es una buena agrupación.",
+    "IGUI_BatmanTT_React_record_1": "¡Mi mejor racha!",
+    "IGUI_BatmanTT_React_record_2": "Nuevo récord. Con calma.",
+    "IGUI_BatmanTT_React_record_3": "Nunca había disparado tan bien.",
+    "IGUI_BatmanTT_React_streakLost_1": "Vaya, he perdido la concentración...",
+    "IGUI_BatmanTT_React_streakLost_2": "Respira. Concéntrate.",
+    "IGUI_BatmanTT_React_streakLost_3": "Adiós a la racha."
 }

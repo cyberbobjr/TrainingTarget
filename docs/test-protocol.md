@@ -60,6 +60,23 @@ Redémarrage complet, Training Target + ClassicBows actifs :
 - Multijoueur : le serveur juge le tir (résultat chez le tireur seulement) ; aucune erreur `[TrainingTarget] bow shot` dans les journaux.
 - Sans ClassicBows : armes à feu vanilla inchangées.
 
+### 0.2.0 : chance et réticule vanilla
+
+Redémarrage complet (scripts et Lua rechargés). Pistolet chargé, cible papier à 8 cases, de jour :
+
+- Visée tenue immobile : le cercle de visée passe du rouge au vert comme sur un zombie, et le réticule « cible valide » reste affiché.
+  Tirer aussitôt après un tir précédent (cercle plus rouge) puis après une visée posée (cercle vert) : les ratés suivent la couleur.
+- En marchant, de nuit sans lumière, ou paniqué (`getPlayer():getStats()` en debug) : le cercle rougit et les touchés diminuent.
+- Cercle de visée désactivé dans les options : aucun cercle dessiné par le mod. Manette : seul le réticule « cible valide » s'affiche.
+- Console Lua : `print(BatmanTT.HitContext.vanillaChance(getPlayer(), getPlayer():getPrimaryHandItem(), <cible>))`
+  donne une valeur entre 5 et 100, sans erreur.
+- Multijoueur : le tir est jugé par le serveur (résultat chez le tireur), aucune erreur `BatmanTT` côté serveur.
+- Réactions (option `HitChanceBonus = 50` pour aller vite) : 3 centres d'affilée → bulle au-dessus du personnage, dans la langue du jeu ;
+  une série qui dépasse un record d'au moins 3 → bulle « record » une seule fois ; un raté après 5 touchés → bulle de dépit.
+  En MP, la bulle n'apparaît que chez le tireur ; aucune clé brute `IGUI_BatmanTT_React_…` affichée.
+- Mannequin, option `DummyDurability = 10` : au couteau de cuisine, l'état baisse de 2 % par coup ; à la batte de baseball, de 10 % ;
+  à la hache, de 30 % (en lambeaux au 4e coup). Le sprite change aux mêmes seuils qu'avant ; la réparation remet à 100 %.
+
 ### Autres contrôles
 
 - Tir sur une case sans personnage : le client reçoit bien `OnWeaponSwingHitPoint` (déduit de `CombatManager.java:606`).

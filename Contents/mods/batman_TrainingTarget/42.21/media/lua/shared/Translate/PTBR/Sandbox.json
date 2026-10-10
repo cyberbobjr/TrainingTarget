@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "Durabilidade da folha de alvo",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "Acertos que uma folha de alvo aguenta antes de precisar ser trocada.",
     "Sandbox_BatmanTT_DummyDurability": "Durabilidade do manequim",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "Golpes que o manequim de treino aguenta antes de precisar ser reparado.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Golpes que o manequim de treino aguenta antes de precisar ser reparado, contados em golpes de taco de beisebol. Armas pesadas como machados o desgastam até 3 vezes mais rápido; facas, 5 vezes mais devagar.",
     "Sandbox_BatmanTT_MaxCans": "Latas no suporte",
     "Sandbox_BatmanTT_MaxCans_tooltip": "Número máximo de latas vazias no suporte de latas (1 a 6).",
     "Sandbox_BatmanTT_MeleeTraining": "Treino corpo a corpo",

@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "靶纸耐久度",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "靶纸在需要更换之前能承受的命中次数.",
     "Sandbox_BatmanTT_DummyDurability": "假人耐久度",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "训练假人在需要修理之前能承受的击打次数.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "训练假人在需要修理之前能承受的击打次数, 以棒球棍的击打计算. 斧头等重型武器的磨损最多快 3 倍, 刀具慢 5 倍.",
     "Sandbox_BatmanTT_MaxCans": "架子上的锡罐",
     "Sandbox_BatmanTT_MaxCans_tooltip": "锡罐架上空锡罐的最大数量 (1 到 6).",
     "Sandbox_BatmanTT_MeleeTraining": "近战训练",

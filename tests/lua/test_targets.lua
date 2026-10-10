@@ -133,6 +133,16 @@ function T.dummy_tiers_follow_wear()
     assertEq(Dummy.tierFor(150, 150), 3, "en lambeaux")
 end
 
+function T.dummy_wear_follows_door_damage_within_bounds()
+    local Dummy = BatmanTT.Dummy
+    assertEq(Dummy.wearFor(5), 1, "batte de baseball : référence")
+    assertEq(Dummy.wearFor(10), 2, "machette")
+    assertEq(Dummy.wearFor(1), 0.2, "couteau")
+    assertEq(Dummy.wearFor(0), 0.2, "arme sans dégâts aux meubles : minimum")
+    assertEq(Dummy.wearFor(35), 3, "hache : maximum")
+    assertEq(Dummy.wearFor(nil), 1, "sans arme : un coup")
+end
+
 function T.dummy_sprite_changes_with_wear_and_repair()
     SandboxVars.BatmanTT.DummyDurability = 3
     local object = newObject(sprite(13), square, { thumpable = true })

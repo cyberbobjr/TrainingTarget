@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "Resistencia de la hoja de diana",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "Impactos que aguanta una hoja de diana antes de tener que cambiarla.",
     "Sandbox_BatmanTT_DummyDurability": "Resistencia del maniquí",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "Golpes que aguanta el maniquí de entrenamiento antes de tener que repararlo.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Golpes que aguanta el maniquí de entrenamiento antes de tener que repararlo, contados en golpes de bate de béisbol. Las armas pesadas como las hachas lo desgastan hasta 3 veces más rápido; los cuchillos, 5 veces más despacio.",
     "Sandbox_BatmanTT_MaxCans": "Latas en el soporte",
     "Sandbox_BatmanTT_MaxCans_tooltip": "Número máximo de latas vacías en el soporte para latas (1 a 6).",
     "Sandbox_BatmanTT_MeleeTraining": "Entrenamiento cuerpo a cuerpo",

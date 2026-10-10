@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "的の用紙の耐久度",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "的の用紙を交換するまでに耐えられる命中数です。",
     "Sandbox_BatmanTT_DummyDurability": "ダミーの耐久度",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "訓練用ダミーを修理するまでに耐えられる打撃数です。",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "訓練用ダミーを修理するまでに耐えられる打撃数です(野球バットの打撃で数えます)。斧などの重い武器は最大3倍速く、ナイフは5倍遅く傷めます。",
     "Sandbox_BatmanTT_MaxCans": "台に置ける缶",
     "Sandbox_BatmanTT_MaxCans_tooltip": "缶置き台に置ける缶詰(空)の最大数です(1〜6)。",
     "Sandbox_BatmanTT_MeleeTraining": "近接訓練",

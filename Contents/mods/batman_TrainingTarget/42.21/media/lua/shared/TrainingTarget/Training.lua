@@ -1,9 +1,11 @@
 -- ============================================================================
 -- Training Target — service d'entraînement (autorité : solo ou serveur MP)
 --
--- * shoot  : tir d'arme à feu sur une cible. Le client détecte la cible
---            (ShotDetector) ; en MP, le serveur reçoit la commande « shot »,
---            revérifie arme, portée, côté et cible, puis décide ici.
+-- * shoot  : tir d'arme à feu sur une cible. Le client détecte la cible et
+--            relève la chance vanilla du tir (ShotDetector, HitContext) ; en
+--            MP, le serveur reçoit la commande « shot », revérifie arme,
+--            portée, côté et cible, puis décide ici. Comme pour un zombie, la
+--            chance vient du client du tireur (temps de visée, lumière).
 -- * strike : coup de mêlée. Le moteur appelle OnWeaponHitThumpable sur
 --            l'autorité seulement (IsoThumpable.WeaponHit), juste avant de
 --            retirer `getDoorDamage()` à la santé de l'objet.
@@ -13,7 +15,9 @@
 
 require "TrainingTarget/BatmanTT"
 require "TrainingTarget/HitResolver"
+require "TrainingTarget/HitContext"
 require "TrainingTarget/Session"
+require "TrainingTarget/Reactions"
 require "TrainingTarget/TargetRegistry"
 
 BatmanTT.Training = {}
@@ -68,8 +72,14 @@ function Training.canShoot(player, weapon, target, definition, facing)
     return not definition.canBeShotFrom or definition.canBeShotFrom(target, facing, player)
 end
 
---- Tir sur une cible. Renvoie le résultat à montrer au joueur, ou nil.
-function Training.shoot(player, weapon, target, definition, facing)
+--- Tir sur une cible, avec la chance vanilla relevée par le tireur
+--- (HitContext.vanillaChance). Renvoie le résultat à montrer au joueur, ou nil.
+function Training.shoot(player, weapon, target, definition, facing, vanillaChance)
+    vanillaChance = tonumber(vanillaChance)
+    -- Nombre exigé (NaN refusé) : la commande réseau vient du client.
+    if not vanillaChance or vanillaChance ~= vanillaChance then
+        return nil
+    end
     if not Training.canShoot(player, weapon, target, definition, facing) then
         return nil
     end
@@ -83,26 +93,26 @@ function Training.shoot(player, weapon, target, definition, facing)
     end
 
     local aiming = player:getPerkLevel(Perks.Aiming)
-    local chance = HitResolver.hitChance({
-        weaponHitChance = weapon:getHitChance(),
-        aimingModifier = weapon:getAimingPerkHitChanceModifier(),
-        aimingLevel = aiming,
-        distance = distance,
-        moving = player:isPlayerMoving(),
-        targetModifier = definition.hitModifier,
-        bonus = BatmanTT.option("HitChanceBonus"),
-    })
-    local hit = ZombRand(100) < chance
+    local chance = HitResolver.trainingChance(vanillaChance, definition.hitModifier,
+        BatmanTT.option("HitChanceBonus"), BatmanTT.HitContext.combatConfig())
+    -- Même tirage que contre un zombie (CombatManager : Rand.Next(100) <= chance).
+    local hit = ZombRand(100) <= chance
     local zone = nil
     if hit and definition.zones then
         zone = HitResolver.zoneFor(aiming, ZombRandFloat(0, 1))
     end
 
     local key = BatmanTT.playerKey(player)
-    local stats = Session.record(Training.stats(player), hit, zone, now())
+    local before = Training.stats(player)
+    local stats = Session.record(before, hit, zone, now())
     Session.store(key, stats)
 
-    local result = { outcome = hit and Outcome.HIT or Outcome.MISS, zone = zone, stats = stats }
+    local result = {
+        outcome = hit and Outcome.HIT or Outcome.MISS,
+        zone = zone,
+        stats = stats,
+        reaction = BatmanTT.Reactions.pick(before, stats),
+    }
     if not hit then
         return result
     end
@@ -164,7 +174,7 @@ function Training.strike(player, weapon, target, definition, facing)
     if blocked then
         return { outcome = blocked }
     end
-    local spriteChanged = definition.applyHit(target, facing)
+    local spriteChanged = definition.applyHit(target, facing, nil, weapon)
     BatmanTT.syncObject(target, spriteChanged)
     local xp = BatmanTT.option("MeleeXpPerHit")
     addXp(player, perk, xp)

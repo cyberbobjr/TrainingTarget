@@ -4,6 +4,6 @@ description=Shooting targets, a can stand and a melee training dummy for Build 4
 poster=poster.png
 icon=icon.png
 versionMin=42.21
-modversion=0.1.2
+modversion=0.2.0
 pack=batman_training_01
 tiledef=batman_training_01 7173

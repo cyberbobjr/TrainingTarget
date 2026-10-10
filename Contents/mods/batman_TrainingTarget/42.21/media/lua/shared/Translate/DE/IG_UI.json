@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "Dosen: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "Zustand: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "Zielblatt wechseln",
-    "IGUI_BatmanTT_Job_RepairDummy": "Trainingspuppe reparieren"
+    "IGUI_BatmanTT_Job_RepairDummy": "Trainingspuppe reparieren",
+    "IGUI_BatmanTT_React_bullseyes_1": "Dreimal ins Schwarze!",
+    "IGUI_BatmanTT_React_bullseyes_2": "Schon wieder ins Zentrum.",
+    "IGUI_BatmanTT_React_bullseyes_3": "Das ist mal ein enges Trefferbild.",
+    "IGUI_BatmanTT_React_record_1": "Meine beste Serie bisher!",
+    "IGUI_BatmanTT_React_record_2": "Neuer Rekord. Schön ruhig bleiben.",
+    "IGUI_BatmanTT_React_record_3": "So gut habe ich noch nie geschossen.",
+    "IGUI_BatmanTT_React_streakLost_1": "Mist, die Konzentration ist weg...",
+    "IGUI_BatmanTT_React_streakLost_2": "Atmen. Konzentrieren.",
+    "IGUI_BatmanTT_React_streakLost_3": "Das war's mit der Serie."
 }

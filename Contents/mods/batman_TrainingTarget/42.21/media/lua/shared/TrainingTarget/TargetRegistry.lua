@@ -9,7 +9,8 @@
 --   isEnabled()   facultatif : type désactivé par une option sandbox
 --   canBeShotFrom(object, facing, character)  facultatif : côté du tireur
 --   blockReason(object, facing)  raison (Outcome) qui empêche l'entraînement
---   applyHit(object, facing, zone) autorité : état après un coup réussi
+--   applyHit(object, facing, zone, weapon) autorité : état après un coup
+--                 réussi (zone : tir ; weapon : arme de mêlée)
 --   xpFactor, hitModifier, zones, sound  paramètres du tir
 -- Ajouter un type de cible = un nouveau fichier Targets/X.lua, sans toucher
 -- au reste du mod.

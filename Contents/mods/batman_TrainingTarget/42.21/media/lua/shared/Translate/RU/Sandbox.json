@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "Прочность листа мишени",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "Сколько попаданий выдерживает лист мишени, прежде чем его придётся заменить.",
     "Sandbox_BatmanTT_DummyDurability": "Прочность манекена",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "Сколько ударов выдерживает тренировочный манекен, прежде чем его придётся починить.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Сколько ударов выдерживает тренировочный манекен, прежде чем его придётся починить, в ударах бейсбольной битой. Тяжёлое оружие, например топоры, изнашивает его до 3 раз быстрее, ножи — в 5 раз медленнее.",
     "Sandbox_BatmanTT_MaxCans": "Банки на подставке",
     "Sandbox_BatmanTT_MaxCans_tooltip": "Максимальное число пустых консервных банок на подставке для банок (от 1 до 6).",
     "Sandbox_BatmanTT_MeleeTraining": "Тренировка ближнего боя",

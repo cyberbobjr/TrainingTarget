@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "Банки: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "Состояние: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "Замена листа",
-    "IGUI_BatmanTT_Job_RepairDummy": "Починка манекена"
+    "IGUI_BatmanTT_Job_RepairDummy": "Починка манекена",
+    "IGUI_BatmanTT_React_bullseyes_1": "Три в самый центр!",
+    "IGUI_BatmanTT_React_bullseyes_2": "Опять в яблочко.",
+    "IGUI_BatmanTT_React_bullseyes_3": "Вот это кучность.",
+    "IGUI_BatmanTT_React_record_1": "Моя лучшая серия!",
+    "IGUI_BatmanTT_React_record_2": "Новый рекорд. Спокойно.",
+    "IGUI_BatmanTT_React_record_3": "Лучшая стрельба в моей жизни.",
+    "IGUI_BatmanTT_React_streakLost_1": "Чёрт, концентрация пропала...",
+    "IGUI_BatmanTT_React_streakLost_2": "Дыши. Сосредоточься.",
+    "IGUI_BatmanTT_React_streakLost_3": "Вот и вся серия."
 }

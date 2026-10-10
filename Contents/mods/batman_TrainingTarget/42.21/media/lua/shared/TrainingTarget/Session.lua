@@ -17,18 +17,23 @@ local MS_PER_MINUTE = 60000
 local sessions = {}
 
 function Session.empty()
-    return { shots = 0, hits = 0, bullseyes = 0, streak = 0, best = 0, last = 0 }
+    return { shots = 0, hits = 0, bullseyes = 0, streak = 0, best = 0, bullseyeStreak = 0, previousBest = 0, last = 0 }
 end
 
 --- Statistiques après un tir (touché ou non), sans modifier `stats`.
 function Session.record(stats, hit, zone, now)
     local streak = hit and stats.streak + 1 or 0
+    local bullseye = hit and zone == BatmanTT.Zone.BULLSEYE
     return {
         shots = stats.shots + 1,
         hits = stats.hits + (hit and 1 or 0),
-        bullseyes = stats.bullseyes + ((hit and zone == BatmanTT.Zone.BULLSEYE) and 1 or 0),
+        bullseyes = stats.bullseyes + (bullseye and 1 or 0),
         streak = streak,
         best = math.max(stats.best, streak),
+        -- Centres d'affilée (remis à zéro par un raté ou un coup hors du centre).
+        bullseyeStreak = bullseye and (stats.bullseyeStreak or 0) + 1 or 0,
+        -- Meilleure série d'avant la série en cours (record à battre).
+        previousBest = streak <= 1 and stats.best or (stats.previousBest or 0),
         last = now,
     }
 end

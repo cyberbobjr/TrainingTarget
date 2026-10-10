@@ -8,32 +8,56 @@ function T.setup()
     R = BatmanTT.HitResolver
 end
 
-function T.hit_chance_follows_vanilla_base_and_aiming()
-    local chance = R.hitChance({ weaponHitChance = 50, aimingModifier = 5, aimingLevel = 4, distance = 4 })
-    assertEq(chance, 70, "50 + 5 x 4")
+--- Tir au centre de la portée du viseur (5 à 15 cases), sans pénalité.
+local function shot(overrides)
+    local p = { weaponHitChance = 50, aimingModifier = 5, aimingLevel = 4, minSight = 5, maxSight = 15, distance = 10 }
+    for k, v in pairs(overrides or {}) do
+        p[k] = v
+    end
+    return p
 end
 
-function T.hit_chance_loses_two_percent_per_tile_beyond_comfort()
-    local near = R.hitChance({ weaponHitChance = 60, distance = R.COMFORT_DISTANCE })
-    local far = R.hitChance({ weaponHitChance = 60, distance = R.COMFORT_DISTANCE + 10 })
-    assertEq(near - far, 10 * R.DISTANCE_PENALTY, "pénalité de distance")
+function T.vanilla_chance_at_optimal_range()
+    -- 50 + 5 x 4, + 15 au centre de la portée du viseur (CombatManager.getDistanceModifier).
+    assertEq(R.vanillaChance(shot()), 85, "portée optimale")
 end
 
-function T.hit_chance_is_clamped()
-    assertEq(R.hitChance({ weaponHitChance = 500, aimingModifier = 50, aimingLevel = 10 }), R.MAX_CHANCE, "plafond")
-    assertEq(R.hitChance({ weaponHitChance = 10, distance = 100, moving = true, targetModifier = -15 }), R.MIN_CHANCE, "plancher")
+function T.aiming_delay_lowers_the_chance()
+    -- Délai 10 au centre de la portée : 10 x 0,75 = 7,5, tronqué comme en Java.
+    assertEq(R.vanillaChance(shot({ aimingDelay = 10 })), 77, "temps de visée")
 end
 
---- Régression B41 : la chance ne devient plus certaine dès Visée 2.
-function T.hit_chance_is_not_certain_at_low_aiming()
-    local chance = R.hitChance({ weaponHitChance = 45, aimingModifier = 5, aimingLevel = 2, distance = 8 })
-    assertTrue(chance < 60, "chance raisonnable au niveau 2 : " .. chance)
+function T.moodles_lower_the_chance()
+    -- Panique 2 à 10 cases : 2 x (4 + 10 x 0,5) = 18.
+    assertEq(R.vanillaChance(shot({ moodles = { panic = 2 } })), 67, "panique")
+    assertEq(R.vanillaChance(shot({ moodles = { panic = 2 }, moodleMultiplier = 0 })), 85, "option sandbox à 0")
 end
 
-function T.moving_and_target_modifiers_apply()
-    local base = R.hitChance({ weaponHitChance = 60 })
-    assertEq(R.hitChance({ weaponHitChance = 60, moving = true }), base - R.MOVING_PENALTY, "déplacement")
-    assertEq(R.hitChance({ weaponHitChance = 60, targetModifier = -15, bonus = 5 }), base - 10, "cible et bonus")
+function T.darkness_lowers_the_chance_except_thermal_sights()
+    assertEq(R.vanillaChance(shot({ weather = { light = 0 } })), 35, "obscurité : -50")
+    assertEq(R.vanillaChance(shot({ weather = { light = 0, thermal = true } })), 85, "viseur thermique")
+end
+
+function T.vanilla_chance_is_clamped()
+    assertEq(R.vanillaChance(shot({ marksman = true })), 100, "Tireur d'élite : plafond vanilla")
+    assertEq(R.vanillaChance(shot({ weaponHitChance = 10, distance = 40 })), 5, "très loin : plancher vanilla")
+end
+
+function T.point_blank_raises_the_chance()
+    assertTrue(R.vanillaChance(shot({ distance = 2 })) > R.vanillaChance(shot()), "bout portant")
+end
+
+function T.training_chance_adds_target_and_bonus_within_vanilla_bounds()
+    assertEq(R.trainingChance(85, -15, 5), 75, "cible et bonus")
+    assertEq(R.trainingChance(3, 0, 0), 5, "plancher")
+    assertEq(R.trainingChance(99, 0, 10), 100, "plafond")
+end
+
+function T.aim_color_follows_the_vanilla_gradient()
+    local bad, good = { 1, 0, 0 }, { 0, 1, 0 }
+    assertEq(R.aimColor(0, bad, good)[1], 1, "chance nulle : mauvaise couleur")
+    assertEq(R.aimColor(70, bad, good)[2], 0.5, "70 % : à mi-chemin")
+    assertEq(R.aimColor(100, bad, good)[2], 1, "100 % : bonne couleur")
 end
 
 function T.bullseye_grows_with_aiming()
@@ -67,6 +91,55 @@ function T.session_record_returns_new_table()
     assertEq(stats.hits, 2, "touchés")
     assertEq(stats.streak, 0, "série remise à zéro")
     assertEq(stats.best, 2, "meilleure série")
+end
+
+function T.session_counts_bullseyes_in_a_row()
+    local Session = BatmanTT.Session
+    local stats = Session.record(Session.empty(), true, BatmanTT.Zone.BULLSEYE, 1)
+    stats = Session.record(stats, true, BatmanTT.Zone.BULLSEYE, 2)
+    assertEq(stats.bullseyeStreak, 2, "deux centres")
+    assertEq(Session.record(stats, true, BatmanTT.Zone.INNER, 3).bullseyeStreak, 0, "hors du centre")
+    assertEq(Session.record(stats, false, nil, 3).bullseyeStreak, 0, "raté")
+end
+
+--- Statistiques après une suite de tirs : "B" centre, "I" anneau, "M" raté.
+local function play(shots, stats)
+    stats = stats or BatmanTT.Session.empty()
+    local zones = { B = BatmanTT.Zone.BULLSEYE, I = BatmanTT.Zone.INNER }
+    for i = 1, #shots do
+        local c = string.sub(shots, i, i)
+        stats = BatmanTT.Session.record(stats, c ~= "M", zones[c], i)
+    end
+    return stats
+end
+
+local function reactionAfter(shots, last)
+    local before = play(shots)
+    return BatmanTT.Reactions.pick(before, play(last, before))
+end
+
+function T.reaction_on_three_bullseyes_in_a_row()
+    local Kind = BatmanTT.Reactions.Kind
+    assertEq(reactionAfter("BB", "B"), Kind.BULLSEYES, "trois centres")
+    assertEq(reactionAfter("BBB", "B"), nil, "quatrième : rien")
+    assertEq(reactionAfter("BBBBB", "B"), Kind.BULLSEYES, "six centres")
+    assertEq(reactionAfter("BIB", "B"), nil, "série de centres coupée")
+end
+
+function T.reaction_on_a_new_streak_record()
+    local Kind = BatmanTT.Reactions.Kind
+    assertEq(reactionAfter("IIIM", "IIII"), Kind.RECORD, "série de 4 après un record de 3")
+    assertEq(reactionAfter("IIIMIIII", "I"), nil, "une seule fois par record")
+    assertEq(reactionAfter("IIM", "III"), nil, "record trop court (2)")
+    assertEq(reactionAfter("IIIMBB", "B"), Kind.BULLSEYES, "trois centres sans record")
+    assertEq(reactionAfter("BBBMBBB", "B"), Kind.RECORD, "le record passe avant les centres")
+end
+
+function T.reaction_when_a_long_streak_is_lost()
+    local Kind = BatmanTT.Reactions.Kind
+    assertEq(reactionAfter("IIIII", "M"), Kind.STREAK_LOST, "série de 5 perdue")
+    assertEq(reactionAfter("IIII", "M"), nil, "série de 4 : rien")
+    assertEq(reactionAfter("IIIIIM", "M"), nil, "deuxième raté : rien")
 end
 
 function T.session_expires_after_timeout()

@@ -8,10 +8,17 @@
 -- taille et dans la couleur « cible » des options, quand un tir compterait.
 -- Souris : au curseur. Manette : sur la cible (la position du réticule de la
 -- manette n'est pas lisible depuis Lua).
+-- Cercle de visée (souris seulement) : sans zombie visé, le moteur le laisse
+-- gris et règle l'écart des branches à la portée maximale du viseur. Le mod le
+-- redessine par-dessus dans la couleur que le moteur donne sur un zombie,
+-- d'après la chance réelle du tir d'entraînement (HitContext). Le shader
+-- vanilla ne fait que remplir la forme de la texture d'une couleur unie.
+-- L'écart des branches reste celui du moteur (non modifiable depuis Lua).
 -- ============================================================================
 
 require "ISUI/ISUIElement"
 require "TrainingTarget/Aim"
+require "TrainingTarget/HitContext"
 
 BatmanTT_AimReticle = ISUIElement:derive("BatmanTT_AimReticle")
 
@@ -40,7 +47,20 @@ local function reticleSize(playerNum)
     return aim:getWidth() / TEXTURE_SCALE * zoom, aim:getHeight() / TEXTURE_SCALE * zoom
 end
 
---- Position écran du réticule rouge pour ce joueur, ou nil.
+local function colorTable(color)
+    return { color:getR(), color:getG(), color:getB() }
+end
+
+--- Couleur du cercle de visée pour la chance réelle du tir, comme sur un zombie.
+local function aimColor(player, weapon, target, definition)
+    local core = getCore()
+    local chance = BatmanTT.HitContext.trainingChance(player, weapon, target, definition)
+    return BatmanTT.HitResolver.aimColor(chance, colorTable(core:getBadHighlitedColor()),
+        colorTable(core:getGoodHighlitedColor()))
+end
+
+--- Position écran du réticule rouge pour ce joueur, ou nil. À la souris,
+--- renvoie aussi la couleur du cercle de visée.
 local function reticlePosition(player)
     if player:isDead() or not player:isAiming() then
         return nil
@@ -54,7 +74,7 @@ local function reticlePosition(player)
         return nil
     end
     if not Aim.usesGamepad(player) then
-        return getMouseX(), getMouseY()
+        return getMouseX(), getMouseY(), aimColor(player, weapon, target, definition)
     end
     local square = target:getSquare()
     local playerNum = player:getPlayerNum()
@@ -64,24 +84,30 @@ end
 
 function BatmanTT_AimReticle:render()
     local core = getCore()
-    if not core:getOptionShowValidTargetReticleTexture() then
-        return
-    end
-    local image = texture("targetReticle", core:getOptionValidTargetReticleTextureIndex())
-    if not image then
+    local image = core:getOptionShowValidTargetReticleTexture()
+        and texture("targetReticle", core:getOptionValidTargetReticleTextureIndex())
+    local circle = core:getOptionShowAimTexture() and texture("aimCircle", core:getOptionAimTextureIndex())
+    if not image and not circle then
         return
     end
     local color = core:getTargetColor()
     for playerNum = 0, getNumActivePlayers() - 1 do
         local player = getSpecificPlayer(playerNum)
-        local x, y = nil, nil
+        local x, y, circleColor = nil, nil, nil
         if player and player:isLocalPlayer() then
-            x, y = reticlePosition(player)
+            x, y, circleColor = reticlePosition(player)
         end
         if x then
             local width, height = reticleSize(playerNum)
-            self:drawTextureScaled(image, x - width / 2, y - height / 2, width, height,
-                ALPHA, color:getR(), color:getG(), color:getB())
+            -- Même ordre que le moteur : cercle de visée, puis réticule « cible valide ».
+            if circle and circleColor then
+                self:drawTextureScaled(circle, x - width / 2, y - height / 2, width, height,
+                    core:getIsoCursorAlpha(), circleColor[1], circleColor[2], circleColor[3])
+            end
+            if image then
+                self:drawTextureScaled(image, x - width / 2, y - height / 2, width, height,
+                    ALPHA, color:getR(), color:getG(), color:getB())
+            end
         end
     end
 end

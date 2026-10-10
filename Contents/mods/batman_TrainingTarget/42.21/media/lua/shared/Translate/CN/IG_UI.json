@@ -19,5 +19,14 @@
     "IGUI_BatmanTT_State_Cans": "锡罐: %1/%2",
     "IGUI_BatmanTT_State_Dummy": "状态: %1%%",
     "IGUI_BatmanTT_Job_ReplaceSheet": "正在更换靶纸",
-    "IGUI_BatmanTT_Job_RepairDummy": "正在修理假人"
+    "IGUI_BatmanTT_Job_RepairDummy": "正在修理假人",
+    "IGUI_BatmanTT_React_bullseyes_1": "连续三发正中靶心!",
+    "IGUI_BatmanTT_React_bullseyes_2": "又是靶心.",
+    "IGUI_BatmanTT_React_bullseyes_3": "这弹着点真集中.",
+    "IGUI_BatmanTT_React_record_1": "我最好的连中纪录!",
+    "IGUI_BatmanTT_React_record_2": "新纪录. 保持冷静.",
+    "IGUI_BatmanTT_React_record_3": "从没打得这么好过.",
+    "IGUI_BatmanTT_React_streakLost_1": "该死, 走神了...",
+    "IGUI_BatmanTT_React_streakLost_2": "深呼吸. 集中.",
+    "IGUI_BatmanTT_React_streakLost_3": "连中就这么断了."
 }

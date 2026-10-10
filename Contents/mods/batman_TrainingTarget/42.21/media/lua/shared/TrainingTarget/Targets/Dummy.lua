@@ -1,7 +1,11 @@
 -- ============================================================================
 -- Training Target — mannequin de mêlée (sprites 12 à 27 : 4 états × S, E, N, W)
 --
--- Chaque coup reçu use le mannequin (ModData). L'état dessiné suit l'usure :
+-- Chaque coup reçu use le mannequin (ModData) selon l'arme : ses dégâts aux
+-- meubles (DoorDamage, la valeur que le moteur retire à la santé de l'objet)
+-- divisés par ceux d'une batte de baseball (5), bornés entre 0,2 et 3. Couteau
+-- (1) : 0,2 ; batte : 1 ; hache (35) et masse (40) : 3. La durabilité se compte
+-- donc en coups de batte. L'état dessiné suit l'usure :
 -- intact, usé, très usé, puis en lambeaux (plus d'entraînement jusqu'à la
 -- réparation). La santé vanilla de l'IsoThumpable est maintenue au maximum
 -- par le service d'entraînement : les coups de joueur ne le cassent pas.
@@ -15,6 +19,26 @@ local Dummy = BatmanTT.Dummy
 local FIRST = 12
 Dummy.TIERS = 4
 local LAST_TIER = Dummy.TIERS - 1
+
+--- Dégâts aux meubles d'un coup de référence (batte de baseball vanilla).
+Dummy.REFERENCE_DOOR_DAMAGE = 5
+Dummy.MIN_WEAR = 0.2
+Dummy.MAX_WEAR = 3
+--- Usure arrondie au centième : la somme de coups légers retombe juste.
+local WEAR_PRECISION = 100
+
+--- Usure d'un coup pour des dégâts aux meubles donnés (1 sans arme connue).
+function Dummy.wearFor(doorDamage)
+    if doorDamage == nil then
+        return 1
+    end
+    local wear = (tonumber(doorDamage) or 0) / Dummy.REFERENCE_DOOR_DAMAGE
+    return math.max(Dummy.MIN_WEAR, math.min(Dummy.MAX_WEAR, wear))
+end
+
+local function roundWear(wear)
+    return math.floor(wear * WEAR_PRECISION + 0.5) / WEAR_PRECISION
+end
 
 function Dummy.durability()
     return math.max(1, math.floor(tonumber(BatmanTT.option("DummyDurability")) or 1))
@@ -71,9 +95,10 @@ BatmanTT.registerTarget({
         return nil
     end,
 
-    --- Autorité : un coup de plus. Renvoie vrai si le sprite a changé.
-    applyHit = function(object, facing)
-        BatmanTT.setWear(object, BatmanTT.getWear(object) + 1)
+    --- Autorité : un coup de `weapon` de plus. Renvoie vrai si le sprite a changé.
+    applyHit = function(object, facing, _, weapon)
+        local wear = Dummy.wearFor(weapon and weapon:getDoorDamage())
+        BatmanTT.setWear(object, roundWear(BatmanTT.getWear(object) + wear))
         return updateSprite(object, facing)
     end,
 

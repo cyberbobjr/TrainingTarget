@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "Solidité de la feuille-cible",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "Nombre d'impacts qu'encaisse une feuille-cible avant de devoir être changée.",
     "Sandbox_BatmanTT_DummyDurability": "Solidité du mannequin",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "Nombre de coups qu'encaisse le mannequin avant de devoir être réparé.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Nombre de coups qu'encaisse le mannequin avant de devoir être réparé, comptés en coups de batte de baseball. Les armes lourdes comme les haches l'usent jusqu'à 3 fois plus vite, les couteaux 5 fois moins vite.",
     "Sandbox_BatmanTT_MaxCans": "Conserves sur le support",
     "Sandbox_BatmanTT_MaxCans_tooltip": "Nombre maximal de conserves vides sur le support (1 à 6).",
     "Sandbox_BatmanTT_MeleeTraining": "Entraînement à la mêlée",

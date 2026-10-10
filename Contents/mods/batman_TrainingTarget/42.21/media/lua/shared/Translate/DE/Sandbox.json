@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "Haltbarkeit des Zielblatts",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "Treffer, die ein Zielblatt aushält, bevor es gewechselt werden muss.",
     "Sandbox_BatmanTT_DummyDurability": "Haltbarkeit der Trainingspuppe",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "Schläge, die die Trainingspuppe aushält, bevor sie repariert werden muss.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Schläge, die die Trainingspuppe aushält, bevor sie repariert werden muss, gezählt in Baseballschläger-Schlägen. Schwere Waffen wie Äxte nutzen sie bis zu 3-mal schneller ab, Messer 5-mal langsamer.",
     "Sandbox_BatmanTT_MaxCans": "Dosen auf dem Gestell",
     "Sandbox_BatmanTT_MaxCans_tooltip": "Maximale Anzahl leerer Blechdosen auf dem Dosengestell (1 bis 6).",
     "Sandbox_BatmanTT_MeleeTraining": "Nahkampftraining",

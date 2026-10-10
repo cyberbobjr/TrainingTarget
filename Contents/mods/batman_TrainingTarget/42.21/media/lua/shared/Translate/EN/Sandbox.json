@@ -11,7 +11,7 @@
     "Sandbox_BatmanTT_SheetDurability": "Target sheet durability",
     "Sandbox_BatmanTT_SheetDurability_tooltip": "Hits a target sheet takes before it must be replaced.",
     "Sandbox_BatmanTT_DummyDurability": "Dummy durability",
-    "Sandbox_BatmanTT_DummyDurability_tooltip": "Blows the training dummy takes before it must be repaired.",
+    "Sandbox_BatmanTT_DummyDurability_tooltip": "Blows the training dummy takes before it must be repaired, counted in baseball bat blows. Heavy weapons such as axes wear it up to 3 times faster, knives 5 times slower.",
     "Sandbox_BatmanTT_MaxCans": "Cans on the stand",
     "Sandbox_BatmanTT_MaxCans_tooltip": "Maximum number of empty cans on the can stand (1 to 6).",
     "Sandbox_BatmanTT_MeleeTraining": "Melee training",

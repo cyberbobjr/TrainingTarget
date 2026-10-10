@@ -46,7 +46,7 @@ end
 
 --- Compétences : objets avec identifiant et nom affiché, comme PerkFactory.Perk.
 Perks = {}
-for _, id in ipairs({ "Aiming", "Axe", "Blunt", "Spear", "LongBlade", "SmallBlade", "SmallBlunt", "Woodwork" }) do
+for _, id in ipairs({ "Aiming", "Nimble", "Axe", "Blunt", "Spear", "LongBlade", "SmallBlade", "SmallBlunt", "Woodwork" }) do
     Perks[id] = { id = id, getId = function(self) return self.id end, getName = function(self) return "perk:" .. self.id end }
 end
 function Perks.FromString(id)
@@ -63,7 +63,22 @@ function getMouseX() return World.mouse.x end
 function getMouseY() return World.mouse.y end
 WeaponCategory = { AXE = "Axe", BLUNT = "Blunt", SPEAR = "Spear", LONG_BLADE = "LongBlade",
                    SMALL_BLADE = "SmallBlade", SMALL_BLUNT = "SmallBlunt" }
-ItemTag = { EMPTY_CAN = "EmptyCan", PEN = "Pen", WRITE = "Write", HAMMER = "Hammer" }
+ItemTag = { EMPTY_CAN = "EmptyCan", PEN = "Pen", WRITE = "Write", HAMMER = "Hammer", THERMAL = "Thermal" }
+
+-- Chance de toucher (HitContext) : registres et climat.
+MoodleType = { PANIC = "Panic", STRESS = "Stress", TIRED = "Tired", ENDURANCE = "Endurance", DRUNK = "Drunk" }
+CharacterTrait = { MARKSMAN = "Marksman" }
+--- Ordre de BodyPartType : Hand_L (0) à UpperArm_R (5) pour les bras.
+BodyPartType = { Hand_L = 0, Hand_R = 1, ForeArm_L = 2, ForeArm_R = 3, UpperArm_L = 4, UpperArm_R = 5, MAX = 17 }
+function BodyPartType.ToIndex(value) return value end
+World.climate = { wind = 0, rain = 0, fog = 0 }
+function getClimateManager()
+    return {
+        getWindIntensity = function() return World.climate.wind end,
+        getRainIntensity = function() return World.climate.rain end,
+        getFogIntensity = function() return World.climate.fog end,
+    }
+end
 
 function instanceof(object, class)
     return type(object) == "table" and object.classes ~= nil and object.classes[class] == true
@@ -96,6 +111,8 @@ function newSquare(x, y, z)
     function square:getObjects() return self.objects end
     function square:isWallTo() return false end
     function square:isDoorTo() return false end
+    function square:isOutside() return self.outside == true end
+    function square:getLightLevel() return self.light or 1 end
     World.squares[key(x, y, square.z)] = square
     return square
 end
@@ -240,6 +257,12 @@ function newWeapon(options)
     function weapon:isRanged() return self.ranged end
     function weapon:getHitChance() return self.hitChance end
     function weapon:getAimingPerkHitChanceModifier() return self.aimingModifier end
+    weapon.minSight = options.minSight or 5
+    weapon.maxSight = options.maxSight or 15
+    function weapon:getMinSightRange() return self.minSight end
+    function weapon:getMaxSightRange() return self.maxSight end
+    function weapon:getActiveSight() return nil end
+    function weapon:getLowLightBonus() return 0 end
     function weapon:getMaxRange() return self.range end
     function weapon:getDoorDamage() return self.doorDamage end
     function weapon:getScriptItem()
@@ -272,6 +295,29 @@ function newPlayer(options)
         if perk == Perks.Aiming then return self.aiming end
         return 0
     end
+    player.aimingDelay = options.aimingDelay or 0
+    player.moodles = options.moodles or {}
+    player.traits = options.traits or {}
+    function player:getAimingDelay() return self.aimingDelay end
+    function player:getBeenMovingFor() return self.moving and 20 or 0 end
+    function player:hasTrait(trait) return self.traits[trait] == true end
+    function player:getWornItemsVisionModifier() return 1 end
+    player.said = {}
+    function player:Say(text) table.insert(self.said, text) end
+    function player:getCharacterTraits()
+        return { getTraitWeatherPenaltyModifier = function() return 1 end }
+    end
+    function player:getMoodles()
+        local levels = self.moodles
+        return { getMoodleLevel = function(_, moodle) return levels[moodle] or 0 end }
+    end
+    function player:getBodyDamage()
+        local parts = {}
+        for i = 1, BodyPartType.MAX do
+            parts[i] = { getPain = function() return 0 end }
+        end
+        return { getBodyParts = function() return newList(parts) end }
+    end
     function player:isPlayerMoving() return self.moving end
     function player:getUsername() return self.username end
     function player:getOnlineID() return self.onlineId end
@@ -293,7 +339,9 @@ end
 function loadTrainingTarget()
     loadMod("shared/TrainingTarget/BatmanTT.lua")
     loadMod("shared/TrainingTarget/HitResolver.lua")
+    loadMod("shared/TrainingTarget/HitContext.lua")
     loadMod("shared/TrainingTarget/Session.lua")
+    loadMod("shared/TrainingTarget/Reactions.lua")
     loadMod("shared/TrainingTarget/TargetRegistry.lua")
     loadMod("shared/TrainingTarget/Targets/SheetTarget.lua")
     loadMod("shared/TrainingTarget/Targets/SheetTargets.lua")

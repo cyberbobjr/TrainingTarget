@@ -19,15 +19,16 @@ Chaque balle compte dans le comté de Knox... alors apprenez à viser avant que 
 
 [list]
 [*]Posez une cible, reculez d'au moins 3 cases et tirez dessus avec n'importe quelle arme à feu.
-[*]La chance de toucher dépend de la précision de l'arme et de votre niveau de Visée, moins la distance et le mouvement. Les cibles plus difficiles rapportent plus d'expérience : cible sur pied x1,25, conserves x1,5.
+[*]La chance de toucher suit les règles du jeu, comme sur un zombie : temps de visée, portée du viseur, déplacement, obscurité, météo, états d'humeur et douleur comptent. Le cercle de visée prend aussi les couleurs du zombie sur les cibles d'entraînement. Les cibles plus difficiles rapportent plus d'expérience : cible sur pied x1,25, conserves x1,5.
 [*]L'expérience est fixe à chaque touche : la courbe d'XP du jeu, les livres de compétence et les traits font le reste.
 [*]Une feuille s'use après 30 impacts. Clic droit sur la cible, [b]Changer la feuille[/b], avec une feuille de papier et un stylo.
 [*]Chaque conserve touchée tombe du support. [b]Poser des conserves vides sur le support[/b] pour continuer à tirer (jusqu'à 6).
+[*]Votre personnage réagit à voix haute : trois centres d'affilée, une nouvelle meilleure série, ou une longue série perdue sur un raté.
 [/list]
 
 [h2]Corps à corps[/h2]
 
-Frappez le [b]mannequin d'entraînement[/b] avec une hache, une arme contondante, une lance ou une arme tranchante pour entraîner la compétence de l'arme. Le mannequin ne casse jamais, mais il part en lambeaux : après 150 coups, [b]Réparer le mannequin[/b] avec un marteau, une planche et 2 clous.
+Frappez le [b]mannequin d'entraînement[/b] avec une hache, une arme contondante, une lance ou une arme tranchante pour entraîner la compétence de l'arme. Le mannequin ne casse jamais, mais il part en lambeaux : après l'équivalent de 150 coups de batte de baseball (les armes lourdes comme les haches l'usent jusqu'à 3 fois plus vite, les couteaux 5 fois moins vite), [b]Réparer le mannequin[/b] avec un marteau, une planche et 2 clous.
 
 [h2]Fabrication (Menuiserie)[/h2]
 

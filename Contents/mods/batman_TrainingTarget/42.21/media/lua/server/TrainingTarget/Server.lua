@@ -4,13 +4,16 @@
 -- * OnWeaponHitThumpable : coups de mêlée sur les meubles d'entraînement
 --   (déclenché par le moteur sur l'autorité seulement).
 -- * Commandes client (MP) :
---     shot         { pos }  tir d'arme à feu sur la cible de la case `pos`
+--     shot         { pos, chance }  tir d'arme à feu sur la cible de la case
+--                  `pos`, avec la chance vanilla relevée par le tireur
 --     refreshCans  { pos }  conserves ajoutées ou retirées du support
 --     resetStats   {}       nouvelle séance de tir
 -- Le serveur ne voit pas le tir lui-même (aucun événement pour un tir sans
 -- personnage touché) : il revérifie arme à feu en main, cible réelle, portée,
 -- côté du mur, orientation du tireur, ligne de vue, cadence et nombre de tirs
--- par minute. Les munitions ne sont pas contrôlées (état serveur non vérifié).
+-- par minute. Les munitions ne sont pas contrôlées (état serveur non vérifié),
+-- ni la chance envoyée (seulement bornée) : comme pour un zombie, le moteur la
+-- calcule sur le client du tireur, seul à suivre son temps de visée.
 -- ============================================================================
 
 require "TrainingTarget/Training"
@@ -178,7 +181,7 @@ function Commands.shot(player, args)
         return
     end
     local weapon = player:getPrimaryHandItem()
-    BatmanTT.tell(player, Training.shoot(player, weapon, target, definition, facing))
+    BatmanTT.tell(player, Training.shoot(player, weapon, target, definition, facing, args.chance))
 end
 
 --- Le recomptage différé est toujours reprogrammé (le dernier transfert d'une

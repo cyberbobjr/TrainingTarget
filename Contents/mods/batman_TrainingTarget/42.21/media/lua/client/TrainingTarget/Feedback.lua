@@ -6,12 +6,15 @@
 -- la cible : sur un client MP, le moteur le relaie aux joueurs proches.
 -- Coup sur le mannequin : bref éclair rouge sur l'objet (surbrillance vanilla,
 -- faute d'effet de tremblement accessible depuis Lua) et texte flottant.
+-- Réaction de la séance (série de centres, record, série perdue) : phrase dite
+-- par le personnage (player:Say : bulle locale, rien n'est envoyé au réseau).
 -- Garde la dernière séance reçue pour le menu contextuel.
 -- ============================================================================
 
 require "TrainingTarget/BatmanTT"
 require "TrainingTarget/HitResolver"
 require "TrainingTarget/Session"
+require "TrainingTarget/Reactions"
 
 BatmanTT.Feedback = {}
 local Feedback = BatmanTT.Feedback
@@ -137,6 +140,12 @@ local function playImpactSound(result)
     end
 end
 
+--- Le personnage dit une des phrases de la réaction, au hasard.
+local function react(player, kind)
+    local index = ZombRand(BatmanTT.Reactions.VARIANTS) + 1
+    player:Say(getText(BatmanTT.Reactions.textKey(kind, index)))
+end
+
 function Feedback.show(player, result)
     if not player or not result then
         return
@@ -163,6 +172,9 @@ function Feedback.show(player, result)
     end
     if result.stats then
         HaloTextHelper.addText(player, Feedback.statsLine(result.stats))
+    end
+    if result.reaction then
+        react(player, result.reaction)
     end
 end
 

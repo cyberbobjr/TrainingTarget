@@ -32,45 +32,52 @@ end
 function T.server_resolves_a_client_shot()
     loadServer()
     World.rand = { 0, 0 }
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter(), { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter(), { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 1, "résultat envoyé")
     assertEq(World.sent[1].args.outcome, BatmanTT.Outcome.HIT, "touché")
     assertEq(#World.xp, 1, "XP donnée par le serveur")
 end
 
+function T.server_ignores_a_shot_without_a_chance()
+    loadServer()
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter(), { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter({ username = "b" }), { pos = "10,10,0", chance = "x" })
+    assertEq(#World.sent, 0, "aucun résultat")
+end
+
 function T.server_rejects_shots_without_firearm_or_target()
     loadServer()
     local player = shooter({ primary = newWeapon({ ranged = false }) })
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0", chance = 50 })
     World.clock = 1000
     triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter({ username = "b" }), { pos = "99,99,0" })
     World.clock = 2000
     triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter({ username = "c" }), { pos = "not a pos" })
-    triggerEvent("OnClientCommand", "OtherMod", "shot", shooter({ username = "d" }), { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "OtherMod", "shot", shooter({ username = "d" }), { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 0, "rien n'est décidé")
 end
 
 function T.server_limits_the_shot_rate()
     loadServer()
     local player = shooter()
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0" })
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0", chance = 50 })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 1, "second tir trop rapproché ignoré")
     World.clock = 500
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 2, "tir suivant accepté")
 end
 
 function T.server_rejects_a_shooter_facing_away()
     loadServer()
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter({ forward = { 0, 1 } }), { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter({ forward = { 0, 1 } }), { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 0, "dos tourné à la cible")
 end
 
 function T.server_rejects_shots_blocked_by_a_wall()
     loadServer()
     LosUtil = { lineClear = function() return "Blocked" end }
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter(), { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", shooter(), { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 0, "ligne de vue bloquée")
 end
 
@@ -79,11 +86,11 @@ function T.server_caps_shots_per_minute()
     local player = shooter()
     for i = 1, 125 do
         World.clock = i * 150
-        triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0" })
+        triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0", chance = 50 })
     end
     assertEq(#World.sent, 120, "plafond de 120 tirs par minute")
     World.clock = 60000 + 150 + 1
-    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "shot", player, { pos = "10,10,0", chance = 50 })
     assertEq(#World.sent, 121, "nouvelle minute")
 end
 
@@ -104,7 +111,7 @@ end
 
 function T.refresh_for_a_square_without_stand_is_ignored()
     loadServer()
-    triggerEvent("OnClientCommand", "BatmanTT", "refreshCans", shooter(), { pos = "10,10,0" })
+    triggerEvent("OnClientCommand", "BatmanTT", "refreshCans", shooter(), { pos = "10,10,0", chance = 50 })
     assertEq(listenerCount("OnTick"), 0, "rien de programmé")
 end
 
@@ -149,6 +156,8 @@ function T.mouse_shot_on_a_target_is_sent_to_the_server()
     triggerEvent("OnWeaponSwingHitPoint", player, player:getPrimaryHandItem())
     assertEq(clientSent[1].command, "shot", "commande envoyée")
     assertEq(clientSent[1].args.pos, "10,10,0", "position de la cible")
+    -- Tireur à 6 cases, portée du viseur 5 à 15 : 50 + 15 x exp(-16 / (20/7)²) ≈ 52,1.
+    assertEq(clientSent[1].args.chance, 52, "chance vanilla relevée par le tireur")
 end
 
 function T.mouse_shot_elsewhere_sends_nothing()
