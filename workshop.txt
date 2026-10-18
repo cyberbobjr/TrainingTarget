@@ -50,6 +50,10 @@ description=[h2]Sandbox options[/h2]
 description=
 description=Aiming and melee XP per hit, minimum shooting distance, hit chance bonus, sheet and dummy durability, cans on the stand, melee training, vanilla targets, session timeout.
 description=
+description=[h2]Project Viewpoint[/h2]
+description=
+description=This item also contains the optional mod [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint): 3D models of the targets, the can stand, the training dummy and its wear states, bullet holes and cans for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]. Enable it only if you use Project Viewpoint.
+description=
 description=[h2]Support the project[/h2]
 description=
 description=Enjoying the mod? A coffee helps fund new features and translations.

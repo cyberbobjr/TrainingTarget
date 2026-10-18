@@ -47,6 +47,10 @@ Le serveur décide de chaque touche, donne l'expérience et conserve les statist
 
 XP de Visée et de mêlée par touche, distance de tir minimale, bonus de chance de toucher, solidité de la feuille et du mannequin, conserves sur le support, entraînement à la mêlée, cibles du jeu, fin de séance.
 
+[h2]Project Viewpoint[/h2]
+
+Cet objet contient aussi le mod facultatif [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint) : modèles 3D des cibles, du support à canettes, du mannequin et de ses états d'usure, des impacts et des canettes pour [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]. À activer seulement si vous utilisez Project Viewpoint.
+
 [h2]Soutenir le projet[/h2]
 
 Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et des traductions.

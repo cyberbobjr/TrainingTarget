@@ -3,6 +3,10 @@
 Each `## <version> — <date>` section is published as the Steam Workshop change note
 (`.claude/tools/steam_workshop_publish.py`). The top version must match `modversion=` in `mod.info`.
 
+## 0.3.0 — 2026-10-18
+
+- New optional mod in the same item, "Training Target - Viewpoint models": 3D models of the wall target, the target stand, the can stand, the training dummy in its four wear states, the bullet holes and the cans for Project Viewpoint. Enable it only if you use Project Viewpoint.
+
 ## 0.2.0 — 2026-10-10
 
 - The chance to hit a training target now follows the game's own firearm rules, as on a zombie: time spent aiming, the sight's range, movement, Marksman, arm pain, weather and darkness, moodles, headgear and point blank all count. Target difficulty and the sandbox hit chance bonus still apply on top.

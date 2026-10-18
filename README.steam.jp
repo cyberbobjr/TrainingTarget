@@ -47,6 +47,10 @@
 
 命中ごとの射撃・近接XP、最小射撃距離、命中率ボーナス、用紙とダミーの耐久度、台に置ける缶、近接訓練、ゲーム内の的、セッション終了。
 
+[h2]Project Viewpoint[/h2]
+
+このアイテムには任意MOD [b]Training Target - Viewpoint models[/b]（batman_TrainingTargetViewpoint）も含まれ、[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url] 用に的、缶スタンド、訓練用ダミーとその損耗状態、弾痕、缶の3Dモデルを提供します。Project Viewpoint を使う場合のみ有効にしてください。
+
 [h2]プロジェクトを応援[/h2]
 
 このMODを気に入っていただけましたか?コーヒー1杯が新機能や翻訳の資金になります。

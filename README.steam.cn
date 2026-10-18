@@ -47,6 +47,10 @@
 
 每次命中的瞄准经验和近战经验, 最小射击距离, 命中率加成, 靶纸和假人的耐久度, 架子上的锡罐, 近战训练, 原版靶子, 训练超时.
 
+[h2]Project Viewpoint[/h2]
+
+本物品还包含可选模组 [b]Training Target - Viewpoint models[/b]（batman_TrainingTargetViewpoint），为 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url] 提供靶子、易拉罐架、训练假人及其磨损状态、弹孔和易拉罐的 3D 模型。仅在使用 Project Viewpoint 时启用。
+
 [h2]支持本项目[/h2]
 
 喜欢这个模组吗? 一杯咖啡就能帮助开发新功能和翻译.

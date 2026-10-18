@@ -41,6 +41,10 @@ Full rewrite for Build 42.21 of the Build 41 mod *Training Target* (Workshop 305
 
 Sprites: `docs/assets-spec.md` (tileset `batman_training_01`, tiledef 7173) and `source/training_targets/` (Blender recipe).
 
+## Project Viewpoint
+
+The Workshop item also contains the optional mod **Training Target - Viewpoint models** (`batman_TrainingTargetViewpoint`): 3D models of the wall target, the target stand, the can stand, the training dummy in its four wear states, the bullet holes and the cans for [Project Viewpoint](https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528). Enable it only if you use Project Viewpoint; without it, the mod does nothing. The models are exported from the same Blender geometry as the tiles: `blender -b --factory-startup -P source/viewpoint/export_viewpoint.py -- .` (with `PZ_FORGE` set as for the tiles).
+
 ## Checks
 
 ```

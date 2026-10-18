@@ -47,6 +47,10 @@
 
 명중당 조준 및 근접 경험치, 최소 사격 거리, 명중 확률 보너스, 과녁 종이와 인형의 내구도, 받침대 위 깡통, 근접 훈련, 기본 게임 과녁, 훈련 종료 시간.
 
+[h2]Project Viewpoint[/h2]
+
+이 아이템에는 선택 모드 [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint)도 포함되어 있으며, [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]용 표적, 깡통 받침대, 훈련용 더미와 마모 상태, 탄흔, 깡통의 3D 모델을 제공합니다. Project Viewpoint를 사용할 때만 활성화하세요.
+
 [h2]프로젝트 후원[/h2]
 
 모드가 마음에 드셨나요? 커피 한 잔이 새로운 기능과 번역에 도움이 됩니다.

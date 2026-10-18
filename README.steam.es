@@ -47,6 +47,10 @@ El servidor decide cada impacto, otorga la experiencia y guarda las estadística
 
 XP de Puntería y cuerpo a cuerpo por impacto, distancia de tiro mínima, bonificación a la probabilidad de impacto, resistencia de la hoja y del maniquí, latas en el soporte, entrenamiento cuerpo a cuerpo, dianas del juego, fin de sesión.
 
+[h2]Project Viewpoint[/h2]
+
+Este objeto incluye también el mod opcional [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint): modelos 3D de las dianas, el soporte de latas, el muñeco de entrenamiento y su desgaste, los impactos y las latas para [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]. Actívalo solo si usas Project Viewpoint.
+
 [h2]Apoya el proyecto[/h2]
 
 ¿Te gusta el mod? Un café ayuda a financiar nuevas funciones y traducciones.

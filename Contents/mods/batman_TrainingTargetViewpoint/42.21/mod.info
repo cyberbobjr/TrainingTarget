@@ -1,0 +1,8 @@
+name=batman_Training Target - Viewpoint models
+id=batman_TrainingTargetViewpoint
+description=Optional: 3D models of the Training Target objects (wall target, target stand, can stand, training dummy in its four wear states, bullet holes and cans) for Project Viewpoint. Enable it only if you use Project Viewpoint; it does nothing without it.
+require=\batman_TrainingTarget
+poster=poster.png
+icon=icon.png
+versionMin=42.21
+modversion=0.3.0
