@@ -4,6 +4,8 @@
 -- Chaque coup réussi use la feuille (ModData) et, si la cible a des calques
 -- d'impact, perce un trou dans la zone touchée (12 emplacements par
 -- orientation : 0-3 centre, 4-7 anneau intérieur, 8-11 anneau extérieur).
+-- Les emplacements percés sont enregistrés avec l'usure (TargetRegistry) et
+-- redessinés dans la nouvelle orientation après un ramassage puis une pose.
 -- Feuille usée : plus d'entraînement jusqu'à « Changer la feuille ».
 -- ============================================================================
 
@@ -35,13 +37,34 @@ function SheetTarget.wallFront(object, facing, character)
     return true
 end
 
---- Index d'un calque d'impact libre dans la zone, ou nil si la zone est pleine.
-local function freeHoleIndex(object, holesBase, zone)
-    local used = BatmanTT.overlayIndices(object)
+--- Emplacements percés (0 à 11) : état enregistré, sinon relevé sur les calques
+--- (cible d'avant l'enregistrement des trous).
+function SheetTarget.holeSlots(object, holesBase)
+    local recorded = BatmanTT.getHoles(object)
+    if recorded then
+        return recorded
+    end
+    local slots = {}
+    for index in pairs(BatmanTT.overlayIndices(object)) do
+        local slot = index - holesBase
+        if slot >= 0 and slot < SheetTarget.HOLES_PER_FACING then
+            table.insert(slots, slot)
+        end
+    end
+    table.sort(slots)
+    return slots
+end
+
+--- Emplacement libre de la zone tiré au hasard, ou nil si la zone est pleine.
+local function freeHoleSlot(slots, zone)
+    local used = {}
+    for _, slot in ipairs(slots) do
+        used[slot] = true
+    end
     local free = {}
     for _, slot in ipairs(HOLE_SLOTS[zone] or {}) do
-        if not used[holesBase + slot] then
-            table.insert(free, holesBase + slot)
+        if not used[slot] then
+            table.insert(free, slot)
         end
     end
     if #free == 0 then
@@ -78,11 +101,39 @@ function SheetTarget.new(spec)
     function definition.applyHit(object, facing, zone)
         BatmanTT.setWear(object, BatmanTT.getWear(object) + 1)
         local holesBase = spec.holesBase and spec.holesBase(facing)
-        local index = holesBase and freeHoleIndex(object, holesBase, zone)
-        if not index then
+        if not holesBase then
             return false
         end
-        object:addAttachedAnimSpriteByName(BatmanTT.spriteName(index))
+        local slots = SheetTarget.holeSlots(object, holesBase)
+        local slot = freeHoleSlot(slots, zone)
+        if not slot then
+            BatmanTT.setHoles(object, slots)
+            return false
+        end
+        local updated = { slot }
+        for _, value in ipairs(slots) do
+            table.insert(updated, value)
+        end
+        BatmanTT.setHoles(object, updated)
+        object:addAttachedAnimSpriteByName(BatmanTT.spriteName(holesBase + slot))
+        return true
+    end
+
+    --- Autorité, après une pose : calques des trous enregistrés dans l'orientation
+    --- de l'objet posé. Renvoie vrai si les calques ont été reposés.
+    function definition.restore(object, facing)
+        BatmanTT.setWear(object, BatmanTT.getWear(object))
+        local holesBase = spec.holesBase and spec.holesBase(facing)
+        if not holesBase then
+            return false
+        end
+        local slots = SheetTarget.holeSlots(object, holesBase)
+        BatmanTT.setHoles(object, slots)
+        local indices = {}
+        for _, slot in ipairs(slots) do
+            table.insert(indices, holesBase + slot)
+        end
+        BatmanTT.setOverlays(object, indices)
         return true
     end
 
@@ -96,6 +147,7 @@ function SheetTarget.new(spec)
         if not spec.holesBase then
             return false
         end
+        BatmanTT.setHoles(object, {})
         object:clearAttachedAnimSprite()
         return true
     end

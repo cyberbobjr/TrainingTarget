@@ -112,6 +112,12 @@ BatmanTT.registerTarget({
         return updateSprite(object, facing)
     end,
 
+    --- Autorité, après une pose : sprite de l'état d'usure dans l'orientation posée.
+    restore = function(object, facing)
+        BatmanTT.setWear(object, BatmanTT.getWear(object))
+        return updateSprite(object, facing)
+    end,
+
     condition = function(object)
         return Dummy.condition(object)
     end,

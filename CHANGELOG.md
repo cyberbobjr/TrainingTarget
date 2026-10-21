@@ -5,6 +5,7 @@ Each `## <version> — <date>` section is published as the Steam Workshop change
 
 ## Unreleased
 
+- Fixed: picking up a target and placing it again (or rotating it) gave a fresh sheet or erased its bullet holes. Targets now keep their wear and holes, in single player and multiplayer, and the training dummy keeps its wear state.
 - Fixed: in single player, shots through a wall or a closed door, or with your back to the target, counted and gave Aiming XP. They are now ignored, as in multiplayer, and the aim circle no longer shows a valid target in that case.
 
 ## 0.3.0 — 2026-10-18

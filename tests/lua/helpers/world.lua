@@ -200,6 +200,12 @@ function newObject(spriteName, square, options)
     function object:getSprite() return self.sprite end
     function object:getSquare() return self.square end
     function object:getModData() return self.modData end
+    --- Comme IsoObject.hasModData : vrai si la table existe et n'est pas vide.
+    function object:hasModData()
+        local count = 0
+        for _ in pairs(self.modData) do count = count + 1 end
+        return count > 0
+    end
     function object:getAttachedAnimSprite() return self.attached end
     function object:addAttachedAnimSpriteByName(name)
         self.attached = self.attached or newList()

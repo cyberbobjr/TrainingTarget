@@ -22,6 +22,7 @@ for _, t in ipairs({ "Base.Pistol", "Base.Bullets9mmBox", "Base.Axe", "Base.Hamm
 8. **Cible vanilla** : console `local it = instanceItem("Moveables.Moveable"); it:ReadFromWorldSprite("location_military_generic_01_68"); getPlayer():getInventory():AddItem(it)`, puis poser la cible sur un mur nord ; tir compté, sans trou dessiné ; `VanillaTargets = false` : ignorée.
 9. **Manette** : viser la cible avec le stick droit et tirer : même résultat qu'à la souris.
 10. **Statistiques** : menu → Statistiques de la séance (infobulle), Commencer une nouvelle séance → compteurs à zéro.
+11. **Ramasser puis reposer (C02)** : cible papier et cible sur pied percées de quelques trous, mannequin usé (sprite changé) : ramasser chacun puis le reposer, la cible sur pied et le mannequin dans une autre orientation (et une rotation sur place). Attendu : même usure (menu « État »), mêmes trous redessinés sur la nouvelle face, mannequin dans le même état d'usure ; une feuille criblée reste criblée.
 
 ## Multijoueur (serveur dédié ou hébergé, deux clients)
 
@@ -29,7 +30,8 @@ for _, t in ipairs({ "Base.Pistol", "Base.Bullets9mmBox", "Base.Axe", "Base.Hamm
 2. Les conserves posées par A apparaissent chez B (recomptage immédiat puis à 1 s) ; une conserve touchée disparaît chez les deux.
 3. Changer la feuille et réparer le mannequin sur A : l'état change chez B ; ressources consommées côté serveur (reconnexion : l'état reste).
 4. Statistiques propres à chaque joueur ; reconnexion dans le délai : séance conservée par le serveur.
-5. Journal serveur : aucune erreur `BatmanTT`.
+5. Ramasser puis reposer une cible percée et le mannequin usé sur A : B voit les mêmes trous et le même état d'usure (C02).
+6. Journal serveur : aucune erreur `BatmanTT`.
 
 ## Test automatique en jeu (pz-autotest)
 
@@ -53,7 +55,9 @@ Déroulé, sur l'autorité (client solo, ou serveur MP avec le premier joueur co
    usure +1) ; cible derrière le mur **refusée** (C01 : statistiques, XP et usure inchangées) ; support jusqu'à un
    touché (une conserve de moins) ; cible papier jusqu'à un touché.
 4. Statistiques de séance comparées sur l'autorité (`Training.stats`) et côté client (`Feedback.stats`).
-5. Cible dégagée ramassée (`pickUpMoveableInternal` : objet dans l'inventaire, cible retirée), puis reposée.
+5. Cible dégagée ramassée (`pickUpMoveableInternal` : objet dans l'inventaire, cible retirée), puis reposée dans
+   l'orientation suivante, et cible papier ramassée puis reposée (C02) : usure et nombre de trous identiques, trous
+   dessinés dans l'orientation de la cible posée.
 
 Solo : tir par `Training.shoot` puis `BatmanTT.tell`, comme `ShotDetector` en solo. MP : le serveur demande au
 client 1 (`clientRun`) de se tourner vers la cible et d'envoyer la vraie commande `shot` ; le client compare à la fin

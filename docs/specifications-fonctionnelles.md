@@ -15,7 +15,7 @@ Comportement de Training Target 0.3.0 (Build 42.21) du point de vue du joueur et
 | Support à conserves | Au sol, 4 orientations | Tir sur jusqu'à 6 conserves vides ; plus difficile (−15 %), XP × 1,5, sans zones. |
 | Mannequin d'entraînement | Au sol, 4 orientations | Mêlée ; s'use, quatre états visibles, se répare. |
 
-Ce sont des meubles déplaçables vanilla : ils se ramassent, se déplacent et se démontent comme les autres.
+Ce sont des meubles déplaçables vanilla : ils se ramassent, se déplacent et se démontent comme les autres. Une cible ramassée puis reposée, ou tournée, garde son usure et ses trous (redessinés dans la nouvelle orientation) ; le mannequin garde son état d'usure.
 
 ### F02 — Recettes de menuiserie
 

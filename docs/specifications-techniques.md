@@ -72,6 +72,7 @@ Réparation du mannequin : son vanilla `Hammering` sur l'émetteur du personnage
 | `applyHit(object, facing, zone, weapon)` | autorité | Applique un coup ; rend vrai si sprite ou calques ont changé |
 | `needsMaintenance(object)`, `describe(object)` | — | Menu contextuel |
 | `resetSheet(object)` / `repair(object, facing)` / `condition(object)` | selon le type | Entretien, état |
+| `restore(object, facing)` | autorité, facultatif | Après une pose : calques et sprite reconstruits d'après l'état ; rend vrai si sprite ou calques ont changé (`paper`, `stand`, `vanilla`, `dummy`) |
 
 Valeurs par type :
 
@@ -123,12 +124,15 @@ Durée 1 si `isTimedActionInstant()`. Sur un client MP, les objets reçus sont r
 
 | Clé / état | Objet | Format |
 |---|---|---|
-| `batmanTTWear` | cible du monde (`getModData()`) | nombre : impacts sur la feuille (entier) ou usure du mannequin (centièmes) ; absent = 0 |
+| `movableData.batmanTT` | cible du monde (`getModData()`) | `{ wear = n, holes = { … } }` : `wear` = impacts sur la feuille (entier) ou usure du mannequin (centièmes), absent = 0 ; `holes` = emplacements percés (0-11, relatifs à l'orientation, triés) des cibles à calques |
+| `batmanTTWear` (versions 0.3.0 et antérieures) | racine de la ModData | ancienne usure : lue en repli, retirée à la première écriture (coup, entretien, pose) |
 | calques `attachedAnimSprite` | cibles à feuille, support | sprites `batman_training_01_<index>` |
 | sprite de base | mannequin | index 12-27 selon l'état |
 | conteneur `batmanTTCans` | support à conserves | `AcceptItemFunction = "BatmanTT.acceptCan"` (tag `ItemTag.EMPTY_CAN` et moins de `MaxCans` objets), reposée au chargement |
 
 Synchronisation : `transmitModData()` et `transmitUpdatedSpriteToClients()` sur le serveur ; retrait d'objets par `sendRemoveItemFromContainer`.
+
+Ramassage puis pose (C02) : l'état est rangé dans `movableData`, seule partie de la ModData que le ramassage vanilla garde pour un `IsoObject` (cible murale, cibles vanilla, `ISMoveableSpriteProps.lua:1403-1404`) ; pour une `IsoThumpable` (cible sur pied, mannequin), `saveThumpableParameters` copie toute la ModData (`:1330-1332`) et `restoreThumpableParameters` la remet (`:1347-1355`). Les calques et le sprite d'usure, eux, ne suivent pas. `shared/TrainingTarget/Placement.lua` enveloppe donc `ISMoveableSpriteProps:placeMoveableInternal(_character, _square, _item, _spriteName)` (pose, rotation, poses par script ; arguments et objet rendu transmis tels quels, enveloppe posée une fois) : sur l'autorité, `BatmanTT.restoreTarget(objet, item)` reprend l'état de l'objet d'inventaire s'il manque, appelle `definition.restore` puis `syncObject`. Les trous sont redessinés dans l'orientation de l'objet posé. Une cible usée en 0.3.0 ou avant garde son ancienne clé jusqu'au premier coup ou entretien, qui relève aussi ses trous.
 
 ## Options sandbox (`media/sandbox-options.txt`, page `BatmanTT`)
 
@@ -163,4 +167,4 @@ Table globale `BatmanTT` : `registerTarget`, `targetOf`, `findTargetOnSquare`, `
 | Project Viewpoint (Workshop 3809306528) | `Viewpoint.ModelPacks.register` depuis le mod `batman_TrainingTargetViewpoint` | Manifeste `training.properties` généré par `source/viewpoint/export_viewpoint.py`. |
 | Tank Water | Coexistence des menus et de l'entretien | À confirmer en jeu (protocole, section 0.1.1). |
 
-Enveloppes vanilla : `ISInventoryTransferAction.perform` (appel de l'original puis recomptage). Événements : `OnWeaponSwingHitPoint`, `OnWeaponHitThumpable`, `OnClientCommand`, `OnServerCommand`, `OnFillWorldObjectContextMenu`, `LoadGridsquare`, `OnObjectAdded`, `OnGameStart`, `OnTick` (temporaire).
+Enveloppes vanilla : `ISInventoryTransferAction.perform` (appel de l'original puis recomptage), `ISMoveableSpriteProps:placeMoveableInternal` (appel de l'original puis reconstruction de la cible posée, autorité seulement). Événements : `OnWeaponSwingHitPoint`, `OnWeaponHitThumpable`, `OnClientCommand`, `OnServerCommand`, `OnFillWorldObjectContextMenu`, `LoadGridsquare`, `OnObjectAdded`, `OnGameStart`, `OnTick` (temporaire).

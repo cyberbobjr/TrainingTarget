@@ -70,7 +70,8 @@ Chemins relatifs à `Contents/mods/batman_TrainingTarget/42.21/media/lua/`.
 | Fichier | Responsabilité | `require` |
 |---|---|---|
 | `TrainingTarget/BatmanTT.lua` | Espace de noms global `BatmanTT`, constantes (`NET_MODULE`, `TILESET`, `CONTAINER_TYPE`, `WEAR_KEY`, `FACINGS`, `Zone`, `Outcome`), lecture des options sandbox avec valeurs par défaut, noms et index de sprites, positions `"x,y,z"`, distance, clé de séance. | — |
-| `TrainingTarget/TargetRegistry.lua` | Registre des types de cible (`registerTarget`, `targetOf`, `findTargetOnSquare`), usure en ModData, calques `attachedAnimSprite`, `syncObject`. | BatmanTT |
+| `TrainingTarget/TargetRegistry.lua` | Registre des types de cible (`registerTarget`, `targetOf`, `findTargetOnSquare`), état (usure, trous) dans `movableData`, calques `attachedAnimSprite`, `syncObject`, `restoreTarget` après une pose. | BatmanTT |
+| `TrainingTarget/Placement.lua` | Enveloppe de `ISMoveableSpriteProps:placeMoveableInternal` : après chaque pose, l'autorité reconstruit la cible (calques, sprite d'usure) d'après son état. | TargetRegistry |
 | `TrainingTarget/Targets/SheetTarget.lua` | Fabrique des cibles à feuille : usure, trou dans la zone touchée, remplacement de la feuille, côté du mur. | TargetRegistry |
 | `TrainingTarget/Targets/SheetTargets.lua` | Enregistre `paper`, `stand` et `vanilla`. | SheetTarget |
 | `TrainingTarget/Targets/CanStand.lua` | Support à conserves : `AcceptItemFunction` du conteneur, calques par conserve, retrait d'une conserve touchée ; s'abonne à `LoadGridsquare` et `OnObjectAdded` pour reposer la restriction du conteneur. | TargetRegistry |
@@ -133,8 +134,8 @@ Le remplissage du support utilise les transferts vanilla (`ISInventoryTransferAc
 
 | Donnée | Support | Durée de vie |
 |---|---|---|
-| Usure d'une cible (`batmanTTWear`) | ModData de l'objet du monde | Sauvegardée avec l'objet. |
-| Trous et conserves dessinés | Calques `attachedAnimSprite` de l'objet | Sauvegardés avec l'objet. Les conserves sont recomptées depuis le conteneur. |
+| Usure et trous d'une cible (`movableData.batmanTT`) | ModData de l'objet du monde | Sauvegardés avec l'objet ; suivent la cible ramassée dans l'objet d'inventaire. |
+| Trous et conserves dessinés | Calques `attachedAnimSprite` de l'objet | Sauvegardés avec l'objet ; redessinés après une pose d'après l'état. Les conserves sont recomptées depuis le conteneur. |
 | État du mannequin | Sprite de l'objet (index 12 à 27) | Sauvegardé avec l'objet. |
 | Conserves | Conteneur `batmanTTCans` de l'objet | Sauvegardé par le moteur ; la restriction `AcceptItemFunction`, non sauvegardée, est reposée à `LoadGridsquare` et `OnObjectAdded`. |
 | Statistiques de séance | Table Lua en mémoire de l'autorité (`Session`) ; dernière copie reçue côté client (`Feedback`) | Perdues au redémarrage du serveur ou à la fermeture de la partie solo ; expirent après `SessionTimeout` minutes réelles sans tir. |

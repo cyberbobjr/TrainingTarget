@@ -15,7 +15,7 @@ Papiers acceptés : feuille de papier, papier millimétré, brochure, prospectus
 
 ## Pose
 
-Ce sont des meubles déplaçables ordinaires : posez-les depuis l'inventaire, ramassez-les et déplacez-les comme les autres meubles.
+Ce sont des meubles déplaçables ordinaires : posez-les depuis l'inventaire, ramassez-les et déplacez-les comme les autres meubles. Une cible ramassée puis reposée, ou tournée, garde son usure et ses impacts ; le mannequin garde son état d'usure.
 
 - **Cible papier** : sur un mur nord ou ouest. On tire depuis le côté où elle est tournée.
 - **Cible sur pied**, **support à conserves**, **mannequin** : au sol, quatre orientations.

@@ -12,7 +12,9 @@ Scenario, run on the authority (solo client, or the mp server with the first con
      clear stand until a hit (statistics counted, Aiming XP gained, sheet wear +1), walled stand refused (C01:
      statistics, XP and wear unchanged), can stand until a hit (one can less), paper target until a hit;
   4. session statistics checked on the authority (Training.stats) and on the client (Feedback.stats);
-  5. clear stand picked up (pickUpMoveableInternal, item in the inventory, target gone) then placed again.
+  5. clear stand picked up (pickUpMoveableInternal, item in the inventory, target gone) then placed again with the
+     next facing, and the paper target picked up and placed again (C02): wear and holes come back, holes drawn in the
+     facing of the placed target.
 Solo: shots through Training.shoot then BatmanTT.tell, as ShotDetector does in solo. Multiplayer: the server asks
 client 1 (--client-run, "clientRun": true) to face the target and send the real "shot" command; the client checks at
 the end that the statistics received by OnServerCommand match the server ones.
@@ -358,31 +360,74 @@ local function stepStats(S, R)
     return true
 end
 
-local function stepPickReplace(S, R)
-    local sq = S.sq.stand
-    local target = sq and targetOn(sq, "stand")
+--- Number of hole overlays of a sheet target, and whether they all belong to the holes of `facing`.
+local function holesOf(target, holesBase)
+    local count, inFacing = 0, true
+    for index in pairs(BatmanTT.overlayIndices(target)) do
+        count = count + 1
+        if index < holesBase or index >= holesBase + BatmanTT.SheetTarget.HOLES_PER_FACING then
+            inFacing = false
+        end
+    end
+    return count, inFacing
+end
+
+local STAND_FIRST, STAND_HOLES_FIRST, PAPER_HOLES = 2, 56, { S = 32, E = 44 }
+
+local function holesBaseOf(id, facing)
+    if id == "paper" then
+        return PAPER_HOLES[facing]
+    end
+    return STAND_HOLES_FIRST + (BatmanTT.facingSlot(facing) - 1) * BatmanTT.SheetTarget.HOLES_PER_FACING
+end
+
+--- C02: picks a shot target up (pickUpMoveableInternal, item in the inventory, target gone), places it again with
+--- `newSprite` (another facing for the stand) and checks that wear and holes came back, holes drawn in the new facing.
+local function pickReplace(S, R, id, newSprite)
+    local sq = S.sq[id]
+    local target = sq and targetOn(sq, id)
     if not target then
-        rec(R, "SKIP", "pickup.stand", "target not placed")
-        return true
+        rec(R, "SKIP", "pickup." .. id, "target not placed")
+        return
     end
     local p = S.player
+    local _, facing0 = BatmanTT.targetOf(target)
+    local wear0 = BatmanTT.getWear(target)
+    local holes0 = holesOf(target, holesBaseOf(id, facing0))
     local name = BatmanTT.objectSpriteName(target)
     local props = ISMoveableSpriteProps.new(getSprite(name))
     local item = props:pickUpMoveableInternal(p, sq, target, nil, name, true, true)
     local inInv = item ~= nil and p:getInventory():contains(item)
-    check(R, "pickup.stand", item ~= nil and inInv and targetOn(sq, "stand") == nil,
+    check(R, "pickup." .. id, item ~= nil and inInv and targetOn(sq, id) == nil,
         "item=" .. tostring(item and item:getFullType()) .. " inInventory=" .. tostring(inInv))
     if not item then
-        return true
+        return
     end
-    place(S, sq, name, item)
+    place(S, sq, newSprite or name, item)
     p:getInventory():Remove(item)
     if isServer() then
         sendRemoveItemFromContainer(p:getInventory(), item)
     end
-    local again = targetOn(sq, "stand")
-    check(R, "replace.stand", again ~= nil and not p:getInventory():contains(item),
-        again and ("wear after replace=" .. BatmanTT.getWear(again)) or "not found")
+    local again = targetOn(sq, id)
+    check(R, "replace." .. id, again ~= nil and not p:getInventory():contains(item), again and "placed" or "not found")
+    if not again then
+        return
+    end
+    local _, facing1 = BatmanTT.targetOf(again)
+    local wear1 = BatmanTT.getWear(again)
+    local holes1, inFacing = holesOf(again, holesBaseOf(id, facing1))
+    check(R, "replace." .. id .. ".wear", wear0 >= 1 and wear1 == wear0, "wear " .. wear0 .. " -> " .. wear1)
+    check(R, "replace." .. id .. ".holes", holes0 >= 1 and holes1 == holes0 and inFacing,
+        "holes " .. holes0 .. " (" .. facing0 .. ") -> " .. holes1 .. " (" .. facing1 .. ")")
+end
+
+local function stepPickReplace(S, R)
+    -- Stand (IsoThumpable) placed back with the next facing; wall paper target (IsoObject) on the same wall.
+    local stand = S.sq.stand and targetOn(S.sq.stand, "stand")
+    local index = stand and BatmanTT.spriteIndex(BatmanTT.objectSpriteName(stand), BatmanTT.TILESET)
+    local rotated = index and BatmanTT.spriteName(STAND_FIRST + (index - STAND_FIRST + 1) % #BatmanTT.FACINGS)
+    pickReplace(S, R, "stand", rotated)
+    pickReplace(S, R, "paper", nil)
     return true
 end
 

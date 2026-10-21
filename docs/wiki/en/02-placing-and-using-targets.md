@@ -15,7 +15,7 @@ Accepted paper: sheet of paper, graph paper, brochure, flier, paperwork, handwri
 
 ## Placing
 
-They are regular movable furniture: place them from the inventory, pick them up and move them like any other furniture.
+They are regular movable furniture: place them from the inventory, pick them up and move them like any other furniture. A target keeps its wear and its bullet holes when you pick it up and place it again or rotate it, and the dummy keeps its wear state.
 
 - **Paper Target**: on a north or west wall. You must shoot from the side it faces.
 - **Target Stand**, **Can Stand**, **Training Dummy**: on the floor, four facings.
