@@ -30,7 +30,7 @@ Les chemins `Contents/...` sont relatifs à `Contents/mods/batman_TrainingTarget
 - **Point voisin** : `hasLineOfSight` accepte `ClearThroughWindow`. Selon la base moteur (`perception.md`), `lineClear` rend ce résultat pour une vitre **fermée** comme ouverte, alors qu'un tir vanilla sur un zombie brise une vitre fermée (`smashWindow`). Un tir d'entraînement à travers une vitre fermée compte donc sans la casser (à vérifier en jeu).
 - **Risque** : bug de gameplay (XP à travers un mur), solo et MP qui jugent différemment le même tir.
 - **Correction** : déplacer `facesTarget` et `hasLineOfSight` de `Server.lua` vers `Training.canShoot` (fichier partagé), avec le même sens de parcours qu'aujourd'hui (de la case de la cible vers le tireur, comme `CombatManager.getResultLOS`). Le réticule en profite. Option : refuser `ClearThroughWindow` quand la fenêtre du parcours est fermée et intacte, ou la briser comme le vanilla (sur l'autorité). Ajouter un test `lupa` en solo.
-- **Statut** : confirmé statiquement. **Priorité** : haute. **Effort** : S.
+- **Statut : corrigé (commit 3f20b46), à vérifier en jeu** : `facesTarget` et `hasLineOfSight` déplacés dans `Training.canShoot` (même parcours cible → tireur), donc solo, serveur et réticule jugent pareil ; tests `lupa` solo et réticule ajoutés. Point voisin (vitre fermée traversée sans la briser) non traité. **Priorité** : haute. **Effort** : S.
 
 ### C02 — Usure et impacts perdus ou incohérents quand on ramasse puis repose une cible
 
@@ -42,6 +42,7 @@ Les chemins `Contents/...` sont relatifs à `Contents/mods/batman_TrainingTarget
 - **Risque** : persistance, exploitation mineure (entretien gratuit), affichage incohérent.
 - **Correction** : (1) ranger l'état de toutes les cibles dans `modData.movableData` (`{ wear = …, holes = { … } }`, migration : lire l'ancienne clé si elle existe) ; (2) à `OnObjectAdded` (déjà écouté par `CanStand.lua:135-142`), reconstruire calques et sprite d'après cet état, sur l'autorité, puis `syncObject(object, true)`. Le support à conserves se recompte déjà (`refreshOverlays`).
 - **Statut** : confirmé statiquement (mécanisme vanilla) ; rendu du mannequin reposé à vérifier en jeu. **Priorité** : haute. **Effort** : M.
+- **Note (2026-10-21)** : `OnObjectAdded` n'est déclenché que par `AddItemToMapPacket.java:90`, donc seulement sur un client MP qui reçoit l'objet, jamais en solo ni sur le serveur (`placeMoveableInternal` appelle `AddSpecialObject` sans l'événement). La reconstruction sur l'autorité doit passer par une enveloppe de `ISMoveableSpriteProps:placeMoveableInternal` (quatre arguments en 42.21, `_character` en tête) suivie de `syncObject(object, true)`, et non par `OnObjectAdded`. Ranger les trous par emplacement relatif (0-11) et non par index absolu : l'orientation peut changer entre le ramassage et la pose.
 
 ### C03 — Tir depuis un véhicule : la chance vanilla est surestimée
 
