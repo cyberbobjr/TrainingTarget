@@ -1,7 +1,7 @@
 # Training Target — spécification des sprites (Build 42.21)
 
 Tileset unique `batman_training_01`, `tiledef` **7173** (libre au 2026-09-29), cases 128×256 (2x), 8 colonnes.
-Le code Lua du mod (`shared/TrainingTarget/Config.lua`) référence ces index : **ne pas les changer**.
+Le code Lua du mod (`shared/TrainingTarget/BatmanTT.lua` et `shared/TrainingTarget/Targets/*.lua`) référence ces index : **ne pas les changer**.
 
 ## Index des sprites
 

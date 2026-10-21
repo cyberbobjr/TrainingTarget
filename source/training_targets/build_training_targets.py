@@ -1,6 +1,6 @@
 """Training Target tiles (batman_training_01, tiledef 7173) for Build 42.21.
 
-Contract: docs/assets-spec.md (the Lua code uses these indices; never renumber).
+Contract: docs/annexes/conception/assets-spec.md (the Lua code uses these indices; never renumber).
 
   0-1     paper target on a wall (S = north wall, E = west wall), MoveType=WallObject
   2-5     target stand (easel), S E N W
@@ -728,7 +728,7 @@ def build_dummy(k: Kit, state: int):
 
 
 # --------------------------------------------------------------------------- #
-# Tile groups (contract with docs/assets-spec.md)
+# Tile groups (contract with docs/annexes/conception/assets-spec.md)
 # --------------------------------------------------------------------------- #
 
 def _builder(key: str):

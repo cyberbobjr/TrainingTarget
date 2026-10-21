@@ -2,7 +2,7 @@
 -- Training Target — espace de noms, constantes, options sandbox, positions
 --
 -- Tileset unique `batman_training_01` (tiledef 7173) : index des sprites dans
--- docs/assets-spec.md. Les définitions de cibles (Targets/*.lua) s'y réfèrent.
+-- docs/annexes/conception/assets-spec.md. Les définitions de cibles (Targets/*.lua) s'y réfèrent.
 -- ============================================================================
 
 BatmanTT = BatmanTT or {}
@@ -31,7 +31,7 @@ BatmanTT.Outcome = {
     DUMMY_REPAIRED = "dummyRepaired",
 }
 
---- Emplacements de conserve dessinés par orientation (docs/assets-spec.md).
+--- Emplacements de conserve dessinés par orientation (docs/annexes/conception/assets-spec.md).
 BatmanTT.CAN_SLOTS = 6
 
 local DEFAULTS = {
