@@ -13,3 +13,6 @@ __pycache__/
 _cells/
 _styled/
 .env
+
+# pz-autotest results
+runs/

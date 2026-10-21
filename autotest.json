@@ -1,0 +1,36 @@
+// pz-autotest configuration of Training Target (.claude/tools/pz-autotest/README.md). Nominal in-game path,
+// hooks autotest/tt_hooks.lua (docs/annexes/tests/test-protocol.md, section "Automatic in-game test"):
+//   python .claude/tools/pz-autotest/pz_autotest.py check TrainingTarget
+//   python .claude/tools/pz-autotest/pz_autotest.py sp TrainingTarget --wait-idle 3600
+//   python .claude/tools/pz-autotest/pz_autotest.py mp TrainingTarget --clients 1 --client-run --wait-idle 3600
+{
+  "name": "TrainingTarget",
+  "gameVersion": "42.21",
+  "mods": [
+    {"path": "Contents/mods/batman_TrainingTarget"}
+  ],
+  "hooks": "autotest/tt_hooks.lua",
+  "params": {},
+  "sp": {
+    // Sandbox save already used by the other autotest projects (most targets need walls near the player).
+    "save": "2026-10-17_17-50-04",
+    "gameMode": "Sandbox",
+    "saveMods": "replace",
+    "timeoutSec": 900,
+    "startDelaySec": 5
+  },
+  "mp": {
+    "serverName": "ttest_pzat_mp",
+    "port": 17411,
+    // Medium house of Muldraugh (media/maps/Muldraugh, KY/spawnpoints.lua): walls around the spawn.
+    "spawn": "10656,10137,0",
+    "clients": 1,
+    "clientXmx": "4096m",
+    "serverRun": true,
+    // Client 1 faces the targets, sends the real "shot" command and checks the statistics it receives.
+    "clientRun": true,
+    "timeoutSec": 1800,
+    "joinTimeoutSec": 600,
+    "ini": {"Map": "Muldraugh, KY", "MaxPlayers": 4}
+  }
+}

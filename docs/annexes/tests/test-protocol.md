@@ -31,6 +31,36 @@ for _, t in ipairs({ "Base.Pistol", "Base.Bullets9mmBox", "Base.Axe", "Base.Hamm
 4. Statistiques propres à chaque joueur ; reconnexion dans le délai : séance conservée par le serveur.
 5. Journal serveur : aucune erreur `BatmanTT`.
 
+## Test automatique en jeu (pz-autotest)
+
+Parcours nominal sans personne devant le PC : `autotest.json` et `autotest/tt_hooks.lua` (outil
+`.claude/tools/pz-autotest`, skill `pz-autotest`). Depuis `C:\Users\cyber\Zomboid\Workshop` :
+
+```powershell
+python .claude/tools/pz-autotest/pz_autotest.py check TrainingTarget                                  # config et hooks
+python .claude/tools/pz-autotest/pz_autotest.py sp TrainingTarget --wait-idle 3600                    # solo
+python .claude/tools/pz-autotest/pz_autotest.py mp TrainingTarget --clients 1 --client-run --wait-idle 3600   # serveur + 1 client
+```
+
+Déroulé, sur l'autorité (client solo, ou serveur MP avec le premier joueur connecté), sans déplacer le joueur :
+
+1. Pistolet en main, séance remise à zéro.
+2. Pose par le code vanilla des meubles (`ISMoveableSpriteProps:instanceItem` + `placeMoveableInternal`) à 4-8 cases :
+   cible sur pied en vue dégagée, cible sur pied derrière un mur (`LosUtil.lineClear` cible → joueur = `Blocked`),
+   support à conserves garni de 3 conserves, mannequin, et cible papier sur un mur nord en vue si la pose vanilla
+   l'accepte (sinon SKIP).
+3. Tirs à la chance 100, tireur tourné vers la cible : cible dégagée jusqu'à un touché (tir compté, XP de Visée,
+   usure +1) ; cible derrière le mur **refusée** (C01 : statistiques, XP et usure inchangées) ; support jusqu'à un
+   touché (une conserve de moins) ; cible papier jusqu'à un touché.
+4. Statistiques de séance comparées sur l'autorité (`Training.stats`) et côté client (`Feedback.stats`).
+5. Cible dégagée ramassée (`pickUpMoveableInternal` : objet dans l'inventaire, cible retirée), puis reposée.
+
+Solo : tir par `Training.shoot` puis `BatmanTT.tell`, comme `ShotDetector` en solo. MP : le serveur demande au
+client 1 (`clientRun`) de se tourner vers la cible et d'envoyer la vraie commande `shot` ; le client compare à la fin
+les statistiques reçues par `OnServerCommand` à celles du serveur. Lire `runs/<date>-<mode>-<jeton>/summary.txt` (lignes
+`PASS`/`FAIL`/`SKIP`/`INFO`). Non couverts : visée à la souris ou à la manette, réticule, rendu, son, mêlée sur le
+mannequin, entretien.
+
 ## Points à confirmer en jeu
 
 ### Régression 0.1.1 : menus et entretien
