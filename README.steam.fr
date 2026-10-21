@@ -51,6 +51,11 @@ XP de Visée et de mêlée par touche, distance de tir minimale, bonus de chance
 
 Cet objet contient aussi le mod facultatif [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint) : modèles 3D des cibles, du support à canettes, du mannequin et de ses états d'usure, des impacts et des canettes pour [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]. À activer seulement si vous utilisez Project Viewpoint.
 
+[h2]Discord[/h2]
+
+Questions, bugs ou idées ? Rejoignez le Discord :
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
 [h2]Soutenir le projet[/h2]
 
 Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et des traductions.

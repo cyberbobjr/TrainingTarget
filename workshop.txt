@@ -54,6 +54,11 @@ description=[h2]Project Viewpoint[/h2]
 description=
 description=This item also contains the optional mod [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint): 3D models of the targets, the can stand, the training dummy and its wear states, bullet holes and cans for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]. Enable it only if you use Project Viewpoint.
 description=
+description=[h2]Discord[/h2]
+description=
+description=Questions, bug reports or ideas? Join the Discord:
+description=[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+description=
 description=[h2]Support the project[/h2]
 description=
 description=Enjoying the mod? A coffee helps fund new features and translations.

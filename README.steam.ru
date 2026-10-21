@@ -51,6 +51,11 @@
 
 В этот предмет также входит необязательный мод [b]Training Target - Viewpoint models[/b] (batman_TrainingTargetViewpoint): 3D-модели мишеней, подставки для банок, тренировочного манекена и его износа, пробоин и банок для [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url]. Включайте его только с Project Viewpoint.
 
+[h2]Discord[/h2]
+
+Вопросы, ошибки или идеи? Присоединяйтесь к Discord:
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
 [h2]Поддержите проект[/h2]
 
 Нравится мод? Чашка кофе помогает оплачивать новые функции и переводы.
