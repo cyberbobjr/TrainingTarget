@@ -84,6 +84,14 @@ end
 -- World helpers (authority)
 -- ---------------------------------------------------------------------------
 
+local function info(R, text)
+    R.lines[#R.lines + 1] = "INFO " .. text
+end
+
+local function itemId(item)
+    return item and item:getID() or nil
+end
+
 local function los(target, player)
     local sq = target
     return tostring(LosUtil.lineClear(getCell(), sq:getX(), sq:getY(), sq:getZ(),
@@ -264,14 +272,6 @@ end
 -- ---------------------------------------------------------------------------
 -- Scenario steps (authority)
 -- ---------------------------------------------------------------------------
-
-local function info(R, text)
-    R.lines[#R.lines + 1] = "INFO " .. text
-end
-
-local function itemId(item)
-    return item and item:getID() or nil
-end
 
 local function stepSetup(S, R)
     local p = S.player
