@@ -60,7 +60,10 @@ Déroulé, sur l'autorité (client solo, ou serveur MP avec le premier joueur co
    dessinés dans l'orientation de la cible posée.
 
 Solo : tir par `Training.shoot` puis `BatmanTT.tell`, comme `ShotDetector` en solo. MP : le serveur demande au
-client 1 (`clientRun`) de se tourner vers la cible et d'envoyer la vraie commande `shot` ; le client compare à la fin
+client 1 (`clientRun`) de se tourner vers la cible et d'envoyer la vraie commande `shot`. Avant tout tir, le serveur
+attend le `ready` de l'agent client (il démarre quelques secondes après le serveur : une commande envoyée avant serait
+perdue), donne le pistolet, puis attend la réponse `equipped` (objet retrouvé par son id, en main) et vérifie qu'il voit
+la même arme en main (`mp.equip.answer`, `mp.server.weaponInHand`). Le client compare à la fin
 les statistiques reçues par `OnServerCommand` à celles du serveur. Lire `runs/<date>-<mode>-<jeton>/summary.txt` (lignes
 `PASS`/`FAIL`/`SKIP`/`INFO`). Non couverts : visée à la souris ou à la manette, réticule, rendu, son, mêlée sur le
 mannequin, entretien.

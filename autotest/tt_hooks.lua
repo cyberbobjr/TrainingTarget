@@ -30,6 +30,12 @@ local SHOT_TIMEOUT_MS = 8000
 local REFUSED_WAIT_MP_MS = 5000
 local REFUSED_WAIT_SP_MS = 500
 local FACE_DELAY_MS = 1500
+-- mp handshake: the client agent starts a few seconds after the server run ("go" read later), so commands sent before
+-- it registered OnServerCommand are lost. The server waits for its "ready", then for its "equipped" answer.
+local READY_TIMEOUT_MS = 30000
+local EQUIP_TIMEOUT_MS = 15000
+local READY_REPEAT_MS = 1000
+local EQUIP_REPEAT_MS = 3000
 
 local SPRITES = {
     paper = "batman_training_01_0",
@@ -233,6 +239,9 @@ local function shotStep(name, key, valid, after)
             return true
         end
         if c.fired == 0 then
+            local held = S.player:getPrimaryHandItem()
+            info(R, "shot." .. name .. " weapon=" .. tostring(held and held:getFullType()) .. " id="
+                .. tostring(itemId(held)) .. " expected=" .. tostring(S.gunId))
             local target = targetOn(sq, key)
             if target and BatmanTT.Training.facesTarget then
                 -- Diagnostic: the authority sees the shooter facing the target (refusal due to the wall only).
@@ -256,8 +265,26 @@ end
 -- Scenario steps (authority)
 -- ---------------------------------------------------------------------------
 
+local function info(R, text)
+    R.lines[#R.lines + 1] = "INFO " .. text
+end
+
+local function itemId(item)
+    return item and item:getID() or nil
+end
+
 local function stepSetup(S, R)
     local p = S.player
+    if S.remote and not S.clientReady then
+        local c = S.cur
+        c.readyDeadline = c.readyDeadline or now() + READY_TIMEOUT_MS
+        if now() < c.readyDeadline then
+            return false
+        end
+        check(R, "mp.server.clientReady", false, "no ready from the client agent in " .. READY_TIMEOUT_MS .. " ms")
+    elseif S.remote then
+        info(R, "mp.server.clientReady after " .. tostring(S.readyAfterMs) .. " ms")
+    end
     BatmanTT.Training.resetStats(p)
     if not S.remote and BatmanTT.Feedback then
         BatmanTT.Feedback.forgetStats(p)
@@ -266,11 +293,45 @@ local function stepSetup(S, R)
     local gun = inv:AddItem("Base.Pistol")
     sendInv(inv, gun)
     p:setPrimaryHandItem(gun)
+    S.gunId = itemId(gun)
     if S.remote then
-        sendServerCommand(p, MODULE, "equip", { id = gun:getID() })
+        sendEquip(p)
+        sendServerCommand(p, MODULE, "equip", { id = S.gunId })
+        S.equipSentAt = now()
+        info(R, "mp.server.equip sent id=" .. tostring(S.gunId))
     end
     check(R, "setup.weapon", gun ~= nil and gun:isAimedFirearm(), gun and gun:getFullType() or "nil")
-    S.waitUntil = now() + (S.remote and 3000 or 200)
+    S.waitUntil = now() + 200
+    return true
+end
+
+--- mp: waits for the client answer to "equip" (item found by id and in its hand), then checks that the server sees
+--- that same weapon in the primary hand before any shot (Server.lua reads the server-side primary hand item).
+local function stepEquip(S, R)
+    if not S.remote then
+        return true
+    end
+    local c = S.cur
+    c.deadline = c.deadline or now() + EQUIP_TIMEOUT_MS
+    local answer = S.clientEquip
+    if not answer or answer.id ~= S.gunId then
+        if now() < c.deadline then
+            if now() - S.equipSentAt >= EQUIP_REPEAT_MS then
+                sendServerCommand(S.player, MODULE, "equip", { id = S.gunId })
+                S.equipSentAt = now()
+            end
+            return false
+        end
+        check(R, "mp.equip.answer", false, "no equipped answer for id=" .. tostring(S.gunId) .. " in "
+            .. EQUIP_TIMEOUT_MS .. " ms")
+    else
+        check(R, "mp.equip.answer", answer.found == true and answer.inHand == true, "client found="
+            .. tostring(answer.found) .. " inHand=" .. tostring(answer.inHand) .. " after " .. tostring(answer.ms)
+            .. " ms")
+    end
+    local held = S.player:getPrimaryHandItem()
+    check(R, "mp.server.weaponInHand", held ~= nil and itemId(held) == S.gunId,
+        "server primary hand id=" .. tostring(itemId(held)) .. " expected " .. tostring(S.gunId))
     return true
 end
 
@@ -442,6 +503,7 @@ end
 
 local STEPS = {
     { "setup", stepSetup },
+    { "equip", stepEquip },
     { "place", stepPlace },
     { "shot.stand", shotStep("stand", "stand", true, afterStand) },
     { "shot.wall", shotStep("wall", "stand", false) },
@@ -484,7 +546,12 @@ end
 -- Client hooks: solo scenario, or the mp client agent
 -- ---------------------------------------------------------------------------
 
-local Agent = { lastShotSent = 0 }
+local Agent = { lastShotSent = 0, info = {}, readyAt = 0 }
+
+local function agentInfo(text)
+    Agent.info[#Agent.info + 1] = "INFO " .. text
+    print("[BatmanTTAutotest] " .. text)
+end
 
 local function onAgentCommand(module, command, args)
     if module ~= MODULE then
@@ -492,6 +559,11 @@ local function onAgentCommand(module, command, args)
     end
     args = args or {}
     if command == "equip" then
+        if Agent.equipId ~= args.id then
+            agentInfo("mp.client.equip asked id=" .. tostring(args.id))
+            Agent.equipAnswered = nil
+        end
+        Agent.equipAskedAt = Agent.equipAskedAt or now()
         Agent.equipId = args.id
     elseif command == "shoot" then
         local sq = BatmanTT.squareFromPos(args.pos)
@@ -507,12 +579,32 @@ end
 
 local function agentPoll()
     local p = getPlayer()
-    if Agent.equipId and p then
-        local gun = p:getInventory():getItemById(Agent.equipId)
+    if not p then
+        return
+    end
+    if not Agent.equipAskedAt and now() >= Agent.readyAt then
+        sendClientCommand(p, MODULE, "ready", { at = now() })
+        Agent.readyAt = now() + READY_REPEAT_MS
+    end
+    if Agent.equipId and not Agent.equipAnswered then
+        -- The item travels by AddInventoryItemToContainer, independently of the "equip" command: wait for it.
+        local gun = p:getInventory():getItemWithIDRecursiv(Agent.equipId)
+        local waited = now() - Agent.equipAskedAt
         if gun then
-            p:setPrimaryHandItem(gun)
-            Agent.equipId = nil
-            Agent.equipped = true
+            if p:getPrimaryHandItem() ~= gun then
+                p:setPrimaryHandItem(gun)
+            end
+            local inHand = p:getPrimaryHandItem() == gun
+            Agent.equipped = inHand
+            Agent.equipAnswered = true
+            agentInfo("mp.client.equip id=" .. tostring(Agent.equipId) .. " found after " .. waited .. " ms inHand="
+                .. tostring(inHand))
+            sendClientCommand(p, MODULE, "equipped", { id = Agent.equipId, found = true, inHand = inHand, ms = waited })
+        elseif waited > EQUIP_TIMEOUT_MS then
+            Agent.equipAnswered = true
+            agentInfo("mp.client.equip id=" .. tostring(Agent.equipId) .. " not in the inventory after " .. waited
+                .. " ms")
+            sendClientCommand(p, MODULE, "equipped", { id = Agent.equipId, found = false, inHand = false, ms = waited })
         end
     end
     local keep = {}
@@ -541,6 +633,8 @@ function H.client.start(ctx)
     end
     if isClient() then
         Agent.queue = {}
+        Agent.info = {}
+        Agent.readyAt = 0
         BatmanTT.Feedback.forgetStats(p)
         Events.OnServerCommand.Add(onAgentCommand)
         return true
@@ -567,6 +661,9 @@ end
 function H.client.result()
     if isClient() then
         local R = newReport()
+        for _, line in ipairs(Agent.info) do
+            R.lines[#R.lines + 1] = line
+        end
         local e = Agent.expect
         local cs = BatmanTT.Feedback.stats(getPlayer())
         check(R, "mp.client.equipped", Agent.equipped == true, "weapon id received and equipped")
@@ -594,6 +691,24 @@ function H.server.start(ctx)
     end
     H.server.R = newReport()
     H.server.S = newScenario(player, true)
+    H.server.startedAt = now()
+    if not H.server.onCommand then
+        H.server.onCommand = function(module, command, from, args)
+            local S = H.server.S
+            if module ~= MODULE or not S or not from or from:getUsername() ~= S.player:getUsername() then
+                return
+            end
+            if command == "ready" then
+                if not S.clientReady then
+                    S.clientReady = true
+                    S.readyAfterMs = now() - H.server.startedAt
+                end
+            elseif command == "equipped" then
+                S.clientEquip = args or {}
+            end
+        end
+        Events.OnClientCommand.Add(H.server.onCommand)
+    end
     return true
 end
 
@@ -602,6 +717,10 @@ function H.server.done()
 end
 
 function H.server.result()
+    if H.server.onCommand then
+        Events.OnClientCommand.Remove(H.server.onCommand)
+        H.server.onCommand = nil
+    end
     return resultOf(H.server.R, "TrainingTarget mp server")
 end
 
