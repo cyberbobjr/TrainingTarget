@@ -3,6 +3,10 @@
 Each `## <version> — <date>` section is published as the Steam Workshop change note
 (`.claude/tools/steam_workshop_publish.py`). The top version must match `modversion=` in `mod.info`.
 
+## Unreleased
+
+- Fixed: in single player, shots through a wall or a closed door, or with your back to the target, counted and gave Aiming XP. They are now ignored, as in multiplayer, and the aim circle no longer shows a valid target in that case.
+
 ## 0.3.0 — 2026-10-18
 
 - New optional mod in the same item, "Training Target - Viewpoint models": 3D models of the wall target, the target stand, the can stand, the training dummy in its four wear states, the bullet holes and the cans for Project Viewpoint. Enable it only if you use Project Viewpoint.

@@ -109,11 +109,11 @@ Chemins relatifs à `Contents/mods/batman_TrainingTarget/42.21/media/lua/`.
 
 1. Le moteur déclenche `OnWeaponSwingHitPoint` sur la machine du tireur pour chaque tir (en MP, le serveur ne le reçoit que si un personnage est touché).
 2. `ShotDetector.onShot` vérifie un joueur local et une arme `isAimedFirearm`, appelle `Aim.findTarget`, puis `HitContext.vanillaChance` : la chance est calculée chez le tireur, comme le moteur le fait pour un zombie (temps de visée et lumière connus de cette machine seulement).
-3. MP : `sendClientCommand(player, "BatmanTT", "shot", { pos, chance })`. Le serveur (`Commands.shot`) applique la cadence, retrouve la cible de la case, vérifie l'orientation du tireur et la ligne de vue, le plafond par minute, puis appelle `Training.shoot`.
-4. `Training.shoot` revérifie arme, étage, portée et côté (`canShoot`), la distance minimale et l'état de la cible, calcule la chance d'entraînement, tire `ZombRand(100) <= chance`, tire la zone, met à jour la séance, applique le coup (`applyHit`), synchronise l'objet, donne l'XP de Visée par `addXp`.
+3. MP : `sendClientCommand(player, "BatmanTT", "shot", { pos, chance })`. Le serveur (`Commands.shot`) applique la cadence, retrouve la cible de la case, le plafond par minute, puis appelle `Training.shoot`.
+4. `Training.shoot` revérifie arme, étage, portée, côté, orientation du tireur (écart ≤ 60°) et ligne de vue `LosUtil.lineClear` de la case de la cible vers le tireur (`canShoot`, partagé : même jugement en solo, sur le serveur et pour le réticule), la distance minimale et l'état de la cible, calcule la chance d'entraînement, tire `ZombRand(100) <= chance`, tire la zone, met à jour la séance, applique le coup (`applyHit`), synchronise l'objet, donne l'XP de Visée par `addXp`.
 5. `BatmanTT.tell` renvoie le résultat : `sendServerCommand(player, "BatmanTT", "result", result)` en MP (avec `playerOnlineId` pour l'écran partagé), appel direct de `Feedback.show` en solo.
 
-En solo, l'orientation, la ligne de vue, la cadence et le plafond par minute ne sont pas contrôlés (ils sont dans `Server.lua`).
+En solo, la cadence et le plafond par minute ne sont pas contrôlés (ils sont dans `Server.lua`).
 
 ### Coup de mêlée
 

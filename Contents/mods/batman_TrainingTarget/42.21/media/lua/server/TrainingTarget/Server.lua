@@ -10,10 +10,11 @@
 --     resetStats   {}       nouvelle séance de tir
 -- Le serveur ne voit pas le tir lui-même (aucun événement pour un tir sans
 -- personnage touché) : il revérifie arme à feu en main, cible réelle, portée,
--- côté du mur, orientation du tireur, ligne de vue, cadence et nombre de tirs
--- par minute. Les munitions ne sont pas contrôlées (état serveur non vérifié),
--- ni la chance envoyée (seulement bornée) : comme pour un zombie, le moteur la
--- calcule sur le client du tireur, seul à suivre son temps de visée.
+-- côté du mur, orientation du tireur, ligne de vue (Training.canShoot, le
+-- même jugement qu'en solo), cadence et nombre de tirs par minute. Les
+-- munitions ne sont pas contrôlées (état serveur non vérifié), ni la chance
+-- envoyée (seulement bornée) : comme pour un zombie, le moteur la calcule
+-- sur le client du tireur, seul à suivre son temps de visée.
 -- ============================================================================
 
 require "TrainingTarget/Training"
@@ -31,8 +32,6 @@ local SHOT_COOLDOWN_MS = 100
 --- Plafond de tirs comptés par minute réelle (plusieurs chargeurs d'arme automatique).
 local MAX_SHOTS_PER_MINUTE = 120
 local MS_PER_MINUTE = 60000
---- Cosinus de l'écart maximal entre le regard du tireur et la cible (60°).
-local MIN_FACING_DOT = 0.5
 local REFRESH_COOLDOWN_MS = 250
 --- Les transferts MP passent par des transactions serveur : un second
 --- recomptage, un peu plus tard, rattrape une transaction encore en cours.
@@ -66,31 +65,6 @@ local function underShotCap(player)
     end
     shotWindows[key] = { start = window.start, count = window.count + 1 }
     return true
-end
-
---- Le tireur regarde vers la cible (écart de moins de 60°).
-local function facesTarget(player, target)
-    local square = target:getSquare()
-    local dx = square:getX() + 0.5 - player:getX()
-    local dy = square:getY() + 0.5 - player:getY()
-    local length = math.sqrt(dx * dx + dy * dy)
-    local forward = player:getForwardDirection()
-    if length <= 0 or not forward then
-        return true
-    end
-    return (dx * forward:getX() + dy * forward:getY()) / length >= MIN_FACING_DOT
-end
-
---- Aucun mur ni porte fermée entre la cible et le tireur (test vanilla de
---- CombatManager.getResultLOS, de la case de la cible vers le personnage).
-local function hasLineOfSight(player, target)
-    if not LosUtil or not LosUtil.lineClear then
-        return true
-    end
-    local square = target:getSquare()
-    local result = tostring(LosUtil.lineClear(getCell(), square:getX(), square:getY(), square:getZ(),
-        math.floor(player:getX()), math.floor(player:getY()), math.floor(player:getZ()), false))
-    return result ~= "Blocked" and result ~= "ClearThroughClosedDoor"
 end
 
 -- ----------------------------------------------------------------------------
@@ -174,7 +148,7 @@ function Commands.shot(player, args)
         return
     end
     local target, definition, facing = BatmanTT.findTargetOnSquare(BatmanTT.squareFromPos(args.pos), BatmanTT.isRangedTarget)
-    if not target or not facesTarget(player, target) or not hasLineOfSight(player, target) then
+    if not target then
         return
     end
     if not underShotCap(player) then

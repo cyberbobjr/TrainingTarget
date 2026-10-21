@@ -102,7 +102,7 @@ Module `BatmanTT` (`BatmanTT.NET_MODULE`). Position `pos` : chaîne `"x,y,z"` en
 
 | Commande | Arguments | Contrôles du serveur (`server/TrainingTarget/Server.lua`) |
 |---|---|---|
-| `shot` | `{ pos, chance }` | joueur vivant ; 100 ms entre deux commandes ; cible de tir sur la case ; tireur tourné vers la cible (écart ≤ 60°) ; ligne de vue `LosUtil.lineClear` ni `Blocked` ni `ClearThroughClosedDoor` ; au plus 120 tirs par minute ; puis `Training.canShoot` (arme `isAimedFirearm` en main principale, même étage, distance ≤ portée + 1,5), `chance` numérique et non NaN, distance minimale, `blockReason`. Munitions non contrôlées. |
+| `shot` | `{ pos, chance }` | joueur vivant ; 100 ms entre deux commandes ; cible de tir sur la case ; au plus 120 tirs par minute ; puis `Training.canShoot`, partagé avec le solo et le réticule (arme `isAimedFirearm` en main principale, même étage, distance ≤ portée + 1,5, côté, tireur tourné vers la cible (écart ≤ 60°), ligne de vue `LosUtil.lineClear` ni `Blocked` ni `ClearThroughClosedDoor`), `chance` numérique et non NaN, distance minimale, `blockReason`. Munitions non contrôlées. |
 | `refreshCans` | `{ pos }` | support à conserves sur la case ; recomptage immédiat au plus un par 250 ms et par joueur, recomptage différé toujours reprogrammé à +1 s. |
 | `resetStats` | `{}` | aucun (efface la séance du joueur). |
 

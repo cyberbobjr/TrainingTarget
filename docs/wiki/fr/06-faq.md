@@ -1,7 +1,7 @@
 # FAQ
 
 **Mon tir ne compte pas.**
-Vérifiez que vous tenez une arme à feu visée, que vous êtes à au moins 3 cases (option), au même étage, à portée de l'arme et devant une cible murale. Une feuille criblée ou un support vide bloque l'entraînement jusqu'à l'entretien ([Poser et utiliser une cible](02-poser-et-utiliser-une-cible.md)).
+Vérifiez que vous tenez une arme à feu visée, que vous êtes à au moins 3 cases (option), au même étage, à portée de l'arme, tourné vers la cible sans mur ni porte fermée entre vous, et devant une cible murale. Une feuille criblée ou un support vide bloque l'entraînement jusqu'à l'entretien ([Poser et utiliser une cible](02-poser-et-utiliser-une-cible.md)).
 
 **Le cercle de visée reste gris.**
 Le cercle coloré n'est dessiné qu'à la souris, quand le tir compterait, et seulement si le cercle de visée est activé dans les options du jeu. À la manette, seul le réticule « cible valide » s'affiche.

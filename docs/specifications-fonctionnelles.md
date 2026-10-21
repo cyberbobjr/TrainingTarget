@@ -148,7 +148,7 @@ L'XP passe par `addXp` : la courbe de niveaux, les livres de compétence et les 
 ## Limites connues
 
 - Les munitions ne sont pas contrôlées par le serveur, et la chance envoyée par le client n'est que bornée.
-- En solo, l'orientation du tireur, la ligne de vue et la cadence ne sont pas revérifiées (seuls arme, étage, portée et côté le sont).
+- En solo, la cadence et le plafond de tirs par minute ne sont pas contrôlés (arme, étage, portée, côté, orientation du tireur et ligne de vue le sont, comme en MP).
 - Les statistiques de séance sont perdues au redémarrage du serveur ou en quittant la partie.
 - L'écart des branches du réticule n'est pas modifiable depuis Lua : il reste réglé sur la portée maximale du viseur.
 - Les flèches de ClassicBows sont jugées au moment du tir, sans suivre leur trajectoire.

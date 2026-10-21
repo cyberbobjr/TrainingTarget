@@ -55,7 +55,37 @@ function Training.resetStats(player)
     Session.reset(BatmanTT.playerKey(player))
 end
 
---- Cible encore valable pour un tir de `player` (arme, portée, côté, étage).
+--- Cosinus de l'écart maximal entre le regard du tireur et la cible (60°).
+local MIN_FACING_DOT = 0.5
+
+--- Le tireur regarde vers la cible (écart de moins de 60°).
+function Training.facesTarget(player, target)
+    local square = target:getSquare()
+    local dx = square:getX() + 0.5 - player:getX()
+    local dy = square:getY() + 0.5 - player:getY()
+    local length = math.sqrt(dx * dx + dy * dy)
+    local forward = player:getForwardDirection()
+    if length <= 0 or not forward then
+        return true
+    end
+    return (dx * forward:getX() + dy * forward:getY()) / length >= MIN_FACING_DOT
+end
+
+--- Aucun mur ni porte fermée entre la cible et le tireur (test vanilla de
+--- CombatManager.getResultLOS, de la case de la cible vers le personnage).
+function Training.hasLineOfSight(player, target)
+    if not LosUtil or not LosUtil.lineClear then
+        return true
+    end
+    local square = target:getSquare()
+    local result = tostring(LosUtil.lineClear(getCell(), square:getX(), square:getY(), square:getZ(),
+        math.floor(player:getX()), math.floor(player:getY()), math.floor(player:getZ()), false))
+    return result ~= "Blocked" and result ~= "ClearThroughClosedDoor"
+end
+
+--- Cible encore valable pour un tir de `player` (arme, étage, portée, côté,
+--- orientation du tireur, ligne de vue). Même jugement en solo, sur le
+--- serveur MP et pour le réticule du client.
 function Training.canShoot(player, weapon, target, definition, facing)
     if not weapon or not instanceof(weapon, "HandWeapon") or not weapon:isAimedFirearm() then
         return false
@@ -69,7 +99,10 @@ function Training.canShoot(player, weapon, target, definition, facing)
     if BatmanTT.distanceTo(player, target) > weapon:getMaxRange(player) + RANGE_MARGIN then
         return false
     end
-    return not definition.canBeShotFrom or definition.canBeShotFrom(target, facing, player)
+    if definition.canBeShotFrom and not definition.canBeShotFrom(target, facing, player) then
+        return false
+    end
+    return Training.facesTarget(player, target) and Training.hasLineOfSight(player, target)
 end
 
 --- Tir sur une cible, avec la chance vanilla relevée par le tireur

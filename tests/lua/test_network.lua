@@ -205,6 +205,27 @@ function T.valid_shot_requires_range_and_distance()
     assertEq(BatmanTT.Aim.isValidShot(close, close:getPrimaryHandItem(), paper, definition, facing), false, "trop près")
 end
 
+--- C01 : le réticule « cible valide » suit le même jugement que l'autorité.
+function T.valid_shot_requires_line_of_sight_and_facing()
+    loadClient()
+    local definition, facing = BatmanTT.targetOf(paper)
+    local away = clientShooter({ forward = { 0, 1 } })
+    assertEq(BatmanTT.Aim.isValidShot(away, away:getPrimaryHandItem(), paper, definition, facing), false, "dos tourné")
+    LosUtil = { lineClear = function() return "Blocked" end }
+    local player = clientShooter()
+    assertEq(BatmanTT.Aim.isValidShot(player, player:getPrimaryHandItem(), paper, definition, facing), false, "mur")
+end
+
+function T.solo_shot_behind_a_wall_is_not_counted()
+    loadClient()
+    World.client = false
+    LosUtil = { lineClear = function() return "Blocked" end }
+    local player = clientShooter({ target = square })
+    triggerEvent("OnWeaponSwingHitPoint", player, player:getPrimaryHandItem())
+    assertEq(#clientSent, 0, "rien envoyé")
+    assertEq(#World.xp, 0, "pas d'XP en solo")
+end
+
 function T.melee_swings_are_not_sent()
     loadClient()
     local player = clientShooter({ target = square })

@@ -41,6 +41,32 @@ function T.behind_the_wall_is_ignored()
     assertEq(shoot(newPlayer({ x = 10.5, y = 2.5 })), nil, "tir derrière le mur ignoré")
 end
 
+--- C01 : en solo aussi, un mur, une porte fermée ou un dos tourné annulent le tir.
+function T.solo_shot_through_a_wall_or_closed_door_is_ignored()
+    local calls = {}
+    LosUtil = { lineClear = function(_, x0, y0, z0, x1, y1, z1, special)
+        table.insert(calls, { x0, y0, z0, x1, y1, z1, special })
+        return "Blocked"
+    end }
+    assertEq(shoot(newPlayer({ x = 10.5, y = 16.5 })), nil, "mur entre le tireur et la cible")
+    assertEq(#World.xp, 0, "pas d'XP")
+    -- Parcours vanilla de CombatManager.getResultLOS : de la cible vers le tireur.
+    assertEq(calls[1][1], 10, "départ x = case de la cible")
+    assertEq(calls[1][2], 10, "départ y = case de la cible")
+    assertEq(calls[1][4], 10, "arrivée x = case du tireur")
+    assertEq(calls[1][5], 16, "arrivée y = case du tireur")
+    assertEq(calls[1][7], false, "sans test spécial")
+    LosUtil = { lineClear = function() return "ClearThroughClosedDoor" end }
+    assertEq(shoot(newPlayer({ x = 10.5, y = 16.5, username = "b" })), nil, "porte fermée")
+    LosUtil = { lineClear = function() return "Clear" end }
+    assertTrue(shoot(newPlayer({ x = 10.5, y = 16.5, username = "c" })) ~= nil, "ligne dégagée")
+end
+
+function T.solo_shooter_facing_away_is_ignored()
+    assertEq(shoot(newPlayer({ x = 10.5, y = 16.5, forward = { 0, 1 } })), nil, "dos tourné à la cible")
+    assertEq(#World.xp, 0, "pas d'XP")
+end
+
 function T.out_of_range_is_ignored()
     weapon.range = 5
     assertEq(shoot(newPlayer({ x = 10.5, y = 20.5 })), nil, "hors de portée")
