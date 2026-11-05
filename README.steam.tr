@@ -1,0 +1,70 @@
+[h1]Training Target — Atış Poligonu ve Antrenman Mankeni[/h1]
+
+[b]Build 42.21 · Tek oyunculu ve çok oyunculu[/b]
+
+Knox County'de her mermi önemli... o yüzden sürü kapıya dayanmadan önce nişan almayı öğren. Üssünde bir atış poligonu kur: kâğıt hedefler, bir hedef standı, bir teneke standı ve yakın dövüş antrenman mankeni.
+
+[h2]Kısaca[/h2]
+
+[list]
+[*][b]Dört yeni mobilya[/b], elle 3B olarak yapılmış: duvara asılan kâğıt hedef, hedef standı, teneke standı ve antrenman mankeni.
+[*][b]İsabet bölgeleri[/b]: tam isabet (on ortası), iç halka ya da dış halka. Nişan Alma seviyen yükseldikçe merkeze yaklaşırsın. Delikler nereye vurduğunu gösterir.
+[*][b]Oturum istatistikleri[/b]: atışlar, isabetler, doğruluk, tam isabetler ve en iyi seri.
+[*][b]Bakım[/b]: delinen kâğıdı değiştir, manken onar, boş tenekeleri standa geri koy.
+[*][b]Vanilla hedefler[/b]: dünyada bulunan askerî atış hedefleri de çalışır.
+[*][b]Oyun kumandası desteği[/b], [b]çok oyunculu[/b] ve [b]sandbox seçenekleri[/b].
+[/list]
+
+[h2]Atış[/h2]
+
+[list]
+[*]Bir hedef yerleştir, en az 3 kare geri çekil ve herhangi bir ateşli silahla ateş et.
+[*]İsabet şansın, zombiye karşı olduğu gibi oyunun kendi kurallarını izler: nişan alma için harcanan zaman, dürbünün menzili, hareket, karanlık, hava, moodle'lar ve ağrı etkilidir. Nişan dairesi antrenman hedeflerinde de zombi renklerini alır. Zor hedefler daha fazla tecrübe verir: hedef standı x1,25, tenekeler x1,5.
+[*]Her isabet için sabit bir tecrübe verilir: kalanını oyunun kendi tecrübe eğrisi, beceri kitapları ve özellikler belirler.
+[*]Bir kâğıt sayfa 30 isabetten sonra yıpranır. Hedefe sağ tıkla, [b]Sayfayı değiştir[/b]; bir kâğıt ve bir tükenmez kalemle.
+[*]Vurduğun her teneke standdan düşer. Ateş etmeye devam etmek için [b]Boş tenekeleri standa koy[/b] (en fazla 6).
+[*]Karakterin sesli tepki verir: üst üste üç tam isabet, yeni bir en iyi seri ya da bir ıskalamayla kaybedilen uzun bir seri.
+[/list]
+
+[h2]Yakın dövüş[/h2]
+
+Bir balta, künt bir silah, bir mızrak ya da bir bıçakla [b]antrenman mankenine[/b] vurarak o silahın becerisini geliştir. Manken hiç kırılmaz, ama parçalanır: 150 beyzbol sopası vuruşundan sonra (Balta gibi ağır silahlar 3 kata kadar daha hızlı, bıçaklar 5 kat daha yavaş aşındırır) bir çekiç, bir kalas ve 2 çivi ile [b]Mankeni onar[/b].
+
+[h2]Üretim (Marangozluk)[/h2]
+
+[list]
+[*][b]Kâğıt Hedef[/b]: 1 kalas, 2 çivi, 1 kâğıt sayfa, çekiç ve tükenmez kalem.
+[*][b]Hedef Standı[/b]: 3 kalas, 4 çivi, 1 kâğıt sayfa, çekiç, testere ve tükenmez kalem.
+[*][b]Teneke Standı[/b]: 3 kalas, 4 çivi, çekiç ve testere.
+[*][b]Antrenman Mankeni[/b]: 4 kalas, 6 çivi, 1 sayfa, 10 saman, çim kesintisi ya da bez parçası, çekiç ve testere.
+[/list]
+
+[h2]Çok oyunculu[/h2]
+
+Her isabete sunucu karar verir, tecrübeyi sunucu verir ve her oyuncunun oturum istatistiklerini sunucu tutar. Herkes aynı delikleri, tenekeleri ve manken aşınmasını görür.
+
+[h2]Sandbox seçenekleri[/h2]
+
+İsabet başına nişan alma ve yakın dövüş tecrübesi, minimum atış mesafesi, isabet şansı bonusu, sayfa ve manken dayanıklılığı, standdaki teneke sayısı, yakın dövüş antrenmanı, vanilla hedefler, oturum zaman aşımı.
+
+[h2]Project Viewpoint[/h2]
+
+Bu öğe ayrıca isteğe bağlı [b]Training Target - Viewpoint models[/b] modunu (batman_TrainingTargetViewpoint) içerir: hedeflerin, teneke standının, antrenman mankeninin ve aşınma durumlarının, mermi deliklerinin ve tenekelerin 3B modelleri, [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809306528]Project Viewpoint[/url] için. Yalnızca Project Viewpoint kullanıyorsan etkinleştir.
+
+[h2]Discord[/h2]
+
+Soru, hata bildirimi ya da fikrin mi var? Discord'a katıl:
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
+[h2]Yapay zekâ hakkında bir not[/h2]
+
+Yıllardır geliştiriciyim ve kodlama ajanları ortaya çıkmadan çok önce mod yapıyordum; bu da çoğu zaman ailemle geçirdiğim zamandan çalıyordu. Claude Code ve Codex'i açıkça kullanıyorum: her özellik hâlâ tartışılıyor, tasarlanıyor ve planlanıyor; körü körüne "vibe coding" yapılmıyor. Yapay zekâ kalıcı; direnmek yerine uyum sağlamayı seçtim. Kişisel saldırılara karşı duran herkese teşekkür ederim.
+
+[h2]Projeye destek ol[/h2]
+
+Modu beğendin mi? Bir kahve yeni özelliklerin ve çevirilerin finanse edilmesine yardımcı olur.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
+
+[h2]Katkıda bulunanlar[/h2]
+
+Training Target'ın (Build 41) Build 42.21 için aynı yazar tarafından baştan yazılmış hâli. Modeller Blender ile yapıldı. Kaynak kodu MIT lisansıyla: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
