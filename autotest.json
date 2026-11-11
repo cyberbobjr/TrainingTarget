@@ -1,8 +1,8 @@
-// pz-autotest configuration of Training Target (.claude/tools/pz-autotest/README.md). Nominal in-game path,
+// pzdev configuration of Training Target (PZDevKit/docs/wiki/fr/01-tests-automatiques.md). Nominal in-game path,
 // hooks autotest/tt_hooks.lua (docs/annexes/tests/test-protocol.md, section "Automatic in-game test"):
-//   python .claude/tools/pz-autotest/pz_autotest.py check TrainingTarget
-//   python .claude/tools/pz-autotest/pz_autotest.py sp TrainingTarget --wait-idle 3600
-//   python .claude/tools/pz-autotest/pz_autotest.py mp TrainingTarget --clients 1 --client-run --wait-idle 3600
+//   python PZDevKit/pzdev.py check TrainingTarget
+//   python PZDevKit/pzdev.py sp TrainingTarget --wait-idle 3600
+//   python PZDevKit/pzdev.py mp TrainingTarget --clients 1 --client-run --wait-idle 3600
 {
   "name": "TrainingTarget",
   "gameVersion": "42.21",

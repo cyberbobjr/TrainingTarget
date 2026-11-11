@@ -1,6 +1,6 @@
 --[[
-Training Target in-game nominal test (pz-autotest, .claude/tools/pz-autotest). Configuration: TrainingTarget/autotest.json.
-Loaded by batman_PZAutoTestDriver with loadstring (global environment, the mod already loaded).
+Training Target in-game nominal test (pzdev, PZDevKit). Configuration: TrainingTarget/autotest.json.
+Loaded by batman_PZDevKit with loadstring (global environment, the mod already loaded).
 
 Scenario, run on the authority (solo client, or the mp server with the first connected player), one step per poll:
   1. weapon (Base.Pistol) in the primary hand, session statistics reset;

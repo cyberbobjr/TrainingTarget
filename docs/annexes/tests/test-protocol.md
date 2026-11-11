@@ -33,15 +33,15 @@ for _, t in ipairs({ "Base.Pistol", "Base.Bullets9mmBox", "Base.Axe", "Base.Hamm
 5. Ramasser puis reposer une cible percée et le mannequin usé sur A : B voit les mêmes trous et le même état d'usure (C02).
 6. Journal serveur : aucune erreur `BatmanTT`.
 
-## Test automatique en jeu (pz-autotest)
+## Test automatique en jeu (pzdev)
 
 Parcours nominal sans personne devant le PC : `autotest.json` et `autotest/tt_hooks.lua` (outil
-`.claude/tools/pz-autotest`, skill `pz-autotest`). Depuis `C:\Users\cyber\Zomboid\Workshop` :
+`PZDevKit`, skill `pzdev`). Depuis `C:\Users\cyber\Zomboid\Workshop` :
 
 ```powershell
-python .claude/tools/pz-autotest/pz_autotest.py check TrainingTarget                                  # config et hooks
-python .claude/tools/pz-autotest/pz_autotest.py sp TrainingTarget --wait-idle 3600                    # solo
-python .claude/tools/pz-autotest/pz_autotest.py mp TrainingTarget --clients 1 --client-run --wait-idle 3600   # serveur + 1 client
+python PZDevKit/pzdev.py check TrainingTarget                                  # config et hooks
+python PZDevKit/pzdev.py sp TrainingTarget --wait-idle 3600                    # solo
+python PZDevKit/pzdev.py mp TrainingTarget --clients 1 --client-run --wait-idle 3600   # serveur + 1 client
 ```
 
 Déroulé, sur l'autorité (client solo, ou serveur MP avec le premier joueur connecté), sans déplacer le joueur :
