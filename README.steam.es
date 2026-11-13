@@ -30,7 +30,9 @@ Cada bala cuenta en el condado de Knox... así que aprende a apuntar antes de qu
 
 Golpea el [b]maniquí de entrenamiento[/b] con un hacha, un arma contundente, una lanza o un arma de hoja para entrenar esa habilidad. El maniquí nunca se rompe, pero acaba hecho jirones: tras el equivalente a 150 golpes de bate de béisbol (las armas pesadas como las hachas lo desgastan hasta 3 veces más rápido; los cuchillos, 5 veces más despacio), [b]Reparar el maniquí[/b] con un martillo, un tablón y 2 clavos.
 
-[h2]Fabricación (Carpintería)[/h2]
+[h2]Fabricación (categoría Entrenamiento)[/h2]
+
+Abre la ventana de fabricación, no el menú de construcción: las cuatro recetas están en la categoría [b]Entrenamiento[/b]. Fabrica el objeto y colócalo desde el inventario como un mueble.
 
 [list]
 [*][b]Diana de papel[/b]: 1 tablón, 2 clavos, 1 hoja de papel, martillo y bolígrafo.

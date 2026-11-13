@@ -2,7 +2,7 @@
 
 ## Fabrication
 
-Les quatre recettes sont dans la catégorie **Menuiserie** et se font sur n'importe quelle surface. Le marteau, la scie et l'outil d'écriture sont conservés.
+Les quatre recettes sont dans la fenêtre d'artisanat (pas le menu de construction), catégorie **Entraînement**, et se font sur n'importe quelle surface. Le marteau, la scie et l'outil d'écriture sont conservés.
 
 | Recette | Ingrédients |
 |---|---|

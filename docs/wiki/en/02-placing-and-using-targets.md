@@ -2,7 +2,7 @@
 
 ## Crafting
 
-All four recipes are in the **Carpentry** category and can be made on any surface. The hammer, saw and writing tool are kept.
+All four recipes are in the crafting window (not the Build menu), in the **Training** category, and can be made on any surface. The hammer, saw and writing tool are kept.
 
 | Recipe | Ingredients |
 |---|---|

@@ -15,7 +15,7 @@ Build a shooting range in your base: a wall paper target, a target stand, a can 
 
 ## At a glance
 
-- Four pieces of furniture, crafted with Carpentry.
+- Four pieces of furniture, crafted in the **Training** category of the crafting window.
 - Your chance to hit follows the game's own firearm rules, as on a zombie.
 - Bullseye, inner ring and outer ring, with holes drawn where you hit.
 - Fixed experience per hit: the game's XP curve, skill books and traits do the rest.

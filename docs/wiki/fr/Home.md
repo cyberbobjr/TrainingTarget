@@ -15,7 +15,7 @@ Installez un stand de tir dans votre base : cible papier murale, cible sur pied,
 
 ## En bref
 
-- Quatre meubles fabriqués en Menuiserie.
+- Quatre meubles fabriqués dans la catégorie **Entraînement** de la fenêtre d'artisanat.
 - La chance de toucher suit les règles du jeu pour une arme à feu, comme sur un zombie.
 - Dans le mille, anneau intérieur, anneau extérieur, avec les trous dessinés là où vous touchez.
 - Expérience fixe par touche : la courbe d'expérience, les livres et les traits du jeu font le reste.

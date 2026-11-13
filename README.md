@@ -9,7 +9,7 @@ Player guide: [docs/wiki/en/Home.md](docs/wiki/en/Home.md). Developer documentat
 
 ## Features
 
-- **Targets**: wall paper target, target stand, can stand (up to 6 empty cans) and training dummy, crafted with Carpentry.
+- **Targets**: wall paper target, target stand, can stand (up to 6 empty cans) and training dummy, crafted in the crafting window (Training category, Carpentry XP).
 - **Precision zones**: bullseye, inner ring, outer ring. The bullseye gets more likely with Aiming. Holes are drawn where you hit.
 - **Fixed XP per hit**: Aiming for firearms, the weapon skill for the dummy. The vanilla XP curve, skill books and traits apply on top.
 - **Session statistics**: shots, hits, accuracy, bullseyes, current and best streak.

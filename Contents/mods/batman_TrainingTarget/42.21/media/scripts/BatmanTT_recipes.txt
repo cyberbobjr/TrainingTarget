@@ -8,7 +8,7 @@ module Base
     {
         timedAction = Making,
         time = 150,
-        category = Carpentry,
+        category = TrainingTarget,
         Tags = AnySurfaceCraft,
         xpAward = Woodwork:5,
         inputs
@@ -29,7 +29,7 @@ module Base
     {
         timedAction = Making,
         time = 300,
-        category = Carpentry,
+        category = TrainingTarget,
         Tags = AnySurfaceCraft,
         xpAward = Woodwork:10,
         inputs
@@ -51,7 +51,7 @@ module Base
     {
         timedAction = Making,
         time = 250,
-        category = Carpentry,
+        category = TrainingTarget,
         Tags = AnySurfaceCraft,
         xpAward = Woodwork:10,
         inputs
@@ -71,7 +71,7 @@ module Base
     {
         timedAction = Making,
         time = 400,
-        category = Carpentry,
+        category = TrainingTarget,
         Tags = AnySurfaceCraft,
         xpAward = Woodwork:15,
         inputs

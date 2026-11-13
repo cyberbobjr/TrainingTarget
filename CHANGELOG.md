@@ -5,6 +5,7 @@ Each `## <version> — <date>` section is published as the Steam Workshop change
 
 ## Unreleased
 
+- The four recipes now have their own **Training** category in the crafting window, so they are easier to find (they are not in the Build menu).
 - Fixed: the message shown when you hit the training dummy now gives the experience you really gained, after the game's multipliers (skill, traits, skill books, server settings), instead of the raw sandbox value.
 
 ## 0.3.1 — 2026-10-21
