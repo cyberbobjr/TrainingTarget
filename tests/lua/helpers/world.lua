@@ -32,8 +32,11 @@ function getText(key, ...)
     return key .. "(" .. table.concat(args, ",") .. ")"
 end
 
+-- Comme le vanilla : le montant passe par les multiplicateurs du personnage
+-- (xpFactor : compétence sans bonus x0,25, traits, livres, serveur) avant d'être cumulé.
 function addXp(player, perk, amount)
     table.insert(World.xp, { player = player, perk = perk, amount = amount })
+    player.xpMap[perk] = (player.xpMap[perk] or 0) + amount * player.xpFactor
 end
 
 function sendServerCommand(player, module, command, args)
@@ -294,6 +297,12 @@ function newPlayer(options)
         primary = options.primary, dead = false, forward = options.forward or { 0, -1 },
     }
     player.inventory = newContainer("none", player)
+    player.xpMap = {}
+    player.xpFactor = options.xpFactor or 1
+    function player:getXp()
+        local map = self.xpMap
+        return { getXP = function(_, perk) return map[perk] or 0 end }
+    end
     function player:getX() return self.x end
     function player:getY() return self.y end
     function player:getZ() return self.z end

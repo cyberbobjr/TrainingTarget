@@ -3,6 +3,10 @@
 Each `## <version> — <date>` section is published as the Steam Workshop change note
 (`.claude/tools/steam_workshop_publish.py`). The top version must match `modversion=` in `mod.info`.
 
+## Unreleased
+
+- Fixed: the message shown when you hit the training dummy now gives the experience you really gained, after the game's multipliers (skill, traits, skill books, server settings), instead of the raw sandbox value.
+
 ## 0.3.1 — 2026-10-21
 
 - Fixed: picking up a target and placing it again (or rotating it) gave a fresh sheet or erased its bullet holes. Targets now keep their wear and holes, in single player and multiplayer, and the training dummy keeps its wear state.

@@ -188,6 +188,16 @@ function Training.meleePerk(weapon)
     return nil
 end
 
+--- Donne l'XP par le système vanilla (multiplicateurs de compétence, traits, livres,
+--- serveur) et renvoie le gain réel, à afficher au joueur. Autorité seulement : sur un
+--- client MP, addXp ne fait rien.
+function Training.grantXp(player, perk, amount)
+    local xp = player:getXp()
+    local before = xp:getXP(perk)
+    addXp(player, perk, amount)
+    return xp:getXP(perk) - before
+end
+
 --- Coup de mêlée reçu par un objet d'entraînement (autorité, avant les dégâts vanilla).
 --- Renvoie le résultat à montrer au joueur, ou nil.
 function Training.strike(player, weapon, target, definition, facing)
@@ -209,8 +219,7 @@ function Training.strike(player, weapon, target, definition, facing)
     end
     local spriteChanged = definition.applyHit(target, facing, nil, weapon)
     BatmanTT.syncObject(target, spriteChanged)
-    local xp = BatmanTT.option("MeleeXpPerHit")
-    addXp(player, perk, xp)
+    local xp = Training.grantXp(player, perk, BatmanTT.option("MeleeXpPerHit"))
     if definition.blockReason and definition.blockReason(target, facing) then
         return { outcome = Outcome.DUMMY_BROKE, pos = BatmanTT.encodePos(target) }
     end

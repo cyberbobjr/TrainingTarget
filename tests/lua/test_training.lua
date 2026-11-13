@@ -225,6 +225,18 @@ function T.melee_on_stand_protects_it_without_xp()
     assertEq(#World.xp, 0, "pas d'XP sur une cible de tir")
 end
 
+--- Retour joueur (Steam) : le message affichait le réglage brut (+5) alors que le jeu
+--- n'en donnait qu'une partie (x0,25 sans bonus de compétence, traits, livres, serveur).
+function T.melee_hit_reports_the_xp_really_gained()
+    SandboxVars.BatmanTT.MeleeXpPerHit = 5
+    local dummy = newObject("batman_training_01_12", square, { thumpable = true })
+    local definition, facing = BatmanTT.targetOf(dummy)
+    local bat = newWeapon({ ranged = false, categories = { WeaponCategory.BLUNT } })
+    local result = BatmanTT.Training.strike(newPlayer({ xpFactor = 0.5 }), bat, dummy, definition, facing)
+    assertEq(World.xp[1].amount, 5, "le réglage est transmis au jeu")
+    assertEq(result.xp, 2.5, "le message montre l'XP vraiment gagnée")
+end
+
 function T.last_blow_reports_the_broken_dummy()
     SandboxVars.BatmanTT.DummyDurability = 1
     local dummy = newObject("batman_training_01_12", square, { thumpable = true })
