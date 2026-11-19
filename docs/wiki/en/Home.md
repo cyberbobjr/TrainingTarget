@@ -1,6 +1,6 @@
 # Training Target
 
-Build a shooting range in your base: a wall paper target, a target stand, a can stand and a melee training dummy. Train Aiming and your melee skills safely, in singleplayer and multiplayer (Project Zomboid Build 42.21).
+Build a shooting range in your base: a wall paper target, a target stand, a can stand and a melee training dummy. Train Aiming and your melee skills safely, in singleplayer and multiplayer (Project Zomboid Build 42.22).
 
 ![Training range: dummy, can stand and target stand](../../images/screenshots/range-overview.png)
 

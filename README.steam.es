@@ -1,6 +1,6 @@
 [h1]Training Target — Galería de tiro y maniquí de entrenamiento[/h1]
 
-[b]Build 42.21 · Un jugador y multijugador[/b]
+[b]Build 42.22 · Un jugador y multijugador[/b]
 
 Cada bala cuenta en el condado de Knox... así que aprende a apuntar antes de que la horda llame a tu puerta. Monta una galería de tiro en tu base: dianas de papel, diana con soporte, soporte para latas y maniquí de entrenamiento cuerpo a cuerpo.
 
@@ -69,4 +69,4 @@ Soy desarrollador desde hace años y creaba mods mucho antes de que existieran l
 
 [h2]Créditos[/h2]
 
-Reescritura completa para la Build 42.21 de Training Target (Build 41), del mismo autor. Modelos hechos con Blender. Código fuente bajo licencia MIT: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
+Reescritura completa para la Build 42.22 de Training Target (Build 41), del mismo autor. Modelos hechos con Blender. Código fuente bajo licencia MIT: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

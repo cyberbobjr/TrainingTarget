@@ -1,6 +1,6 @@
 [h1]Training Target — Stand de tir et mannequin d'entraînement[/h1]
 
-[b]Build 42.21 · Solo et multijoueur[/b]
+[b]Build 42.22 · Solo et multijoueur[/b]
 
 Chaque balle compte dans le comté de Knox... alors apprenez à viser avant que la horde ne frappe à la porte. Montez un stand de tir dans votre base : cibles papier, cible sur pied, support à conserves et mannequin d'entraînement au corps à corps.
 
@@ -69,4 +69,4 @@ Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et des tra
 
 [h2]Crédits[/h2]
 
-Réécriture complète pour la Build 42.21 de Training Target (Build 41), par le même auteur. Modèles réalisés avec Blender. Code source sous licence MIT : [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
+Réécriture complète pour la Build 42.22 de Training Target (Build 41), par le même auteur. Modèles réalisés avec Blender. Code source sous licence MIT : [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

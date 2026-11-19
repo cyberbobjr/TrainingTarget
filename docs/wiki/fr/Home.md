@@ -1,6 +1,6 @@
 # Training Target
 
-Installez un stand de tir dans votre base : cible papier murale, cible sur pied, support à conserves et mannequin d'entraînement à la mêlée. Entraînez la Visée et vos compétences de mêlée sans risque, en solo comme en multijoueur (Project Zomboid Build 42.21).
+Installez un stand de tir dans votre base : cible papier murale, cible sur pied, support à conserves et mannequin d'entraînement à la mêlée. Entraînez la Visée et vos compétences de mêlée sans risque, en solo comme en multijoueur (Project Zomboid Build 42.22).
 
 ![Stand de tir : mannequin, support à conserves et cible sur pied](../../images/screenshots/range-overview.png)
 

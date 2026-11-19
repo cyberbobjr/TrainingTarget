@@ -3,7 +3,7 @@ id=3810261246
 title=Training Target - Shooting Range & Training Dummy
 description=[h1]Training Target — Shooting Range & Training Dummy[/h1]
 description=
-description=[b]Build 42.21 · Singleplayer & Multiplayer[/b]
+description=[b]Build 42.22 · Singleplayer & Multiplayer[/b]
 description=
 description=Every bullet counts in Knox County... so learn to aim before the horde comes knocking. Build a shooting range in your base: paper targets, a target stand, a can stand and a melee training dummy.
 description=
@@ -72,6 +72,6 @@ description=[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/
 description=
 description=[h2]Credits[/h2]
 description=
-description=Full rewrite for Build 42.21 of Training Target (Build 41) by the same author. Models made with Blender. Source code under the MIT license: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
+description=Full rewrite for Build 42.22 of Training Target (Build 41) by the same author. Models made with Blender. Source code under the MIT license: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
 tags=Build 42;Multiplayer;Skills;Weapons;Models
 visibility=public

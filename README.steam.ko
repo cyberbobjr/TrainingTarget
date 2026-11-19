@@ -1,6 +1,6 @@
 [h1]Training Target — 사격장과 훈련용 인형[/h1]
 
-[b]Build 42.21 · 싱글플레이 & 멀티플레이[/b]
+[b]Build 42.22 · 싱글플레이 & 멀티플레이[/b]
 
 녹스 카운티에서는 총알 한 발 한 발이 소중합니다... 그러니 좀비 무리가 문을 두드리기 전에 조준하는 법을 익히세요. 기지에 사격장을 만들 수 있습니다: 종이 과녁, 스탠드 과녁, 깡통 받침대, 그리고 근접 훈련용 인형.
 
@@ -69,4 +69,4 @@
 
 [h2]제작진[/h2]
 
-같은 제작자의 Training Target (Build 41)을 Build 42.21용으로 완전히 새로 작성했습니다. 모델은 Blender로 만들었습니다. 소스 코드는 MIT 라이선스입니다: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
+같은 제작자의 Training Target (Build 41)을 Build 42.22용으로 완전히 새로 작성했습니다. 모델은 Blender로 만들었습니다. 소스 코드는 MIT 라이선스입니다: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

@@ -1,7 +1,7 @@
-# Training Target (Project Zomboid Build 42.21)
+# Training Target (Project Zomboid Build 42.22)
 
 Shooting targets, a can stand and a melee training dummy. Solo and multiplayer.
-Full rewrite for Build 42.21 of the Build 41 mod *Training Target* (Workshop 3055825016).
+Full rewrite for Build 42.22 of the Build 41 mod *Training Target* (Workshop 3055825016).
 
 ![Training range: dummy, can stand and target stand](docs/images/screenshots/range-overview.png)
 

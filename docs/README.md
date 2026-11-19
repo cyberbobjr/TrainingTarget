@@ -1,6 +1,6 @@
 # Training Target — documentation
 
-Cibles de tir, support à conserves et mannequin de mêlée pour Project Zomboid Build 42.21, en solo et en multijoueur (mod `batman_TrainingTarget`, Workshop 3810261246, avec le mod facultatif `batman_TrainingTargetViewpoint`).
+Cibles de tir, support à conserves et mannequin de mêlée pour Project Zomboid Build 42.22, en solo et en multijoueur (mod `batman_TrainingTarget`, Workshop 3810261246, avec le mod facultatif `batman_TrainingTargetViewpoint`).
 
 | Document | Rôle |
 |---|---|

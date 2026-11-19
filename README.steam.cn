@@ -1,6 +1,6 @@
 [h1]Training Target — 射击场与训练假人[/h1]
 
-[b]Build 42.21 · 单人游戏与多人游戏[/b]
+[b]Build 42.22 · 单人游戏与多人游戏[/b]
 
 在诺克斯郡, 每一颗子弹都很珍贵... 所以在尸潮敲门之前, 先学会瞄准吧. 在你的基地里建一座射击场: 纸靶, 立式靶, 锡罐架, 还有用于近战训练的训练假人.
 
@@ -69,4 +69,4 @@
 
 [h2]制作人员[/h2]
 
-由同一作者为 Build 42.21 完全重写的 Training Target (Build 41). 模型使用 Blender 制作. 源代码采用 MIT 许可证: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
+由同一作者为 Build 42.22 完全重写的 Training Target (Build 41). 模型使用 Blender 制作. 源代码采用 MIT 许可证: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].

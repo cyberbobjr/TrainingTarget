@@ -1,6 +1,6 @@
 [h1]Training Target — 射撃場と訓練用ダミー[/h1]
 
-[b]Build 42.21 · シングルプレイ&マルチプレイ[/b]
+[b]Build 42.22 · シングルプレイ&マルチプレイ[/b]
 
 ノックス郡では弾丸一発が命取り……大群が押し寄せてくる前に、狙いの付け方を身につけましょう。拠点に射撃場を作れます:紙の的、スタンド式の的、缶置き台、そして近接戦闘用の訓練用ダミー。
 
@@ -69,4 +69,4 @@
 
 [h2]クレジット[/h2]
 
-同じ作者による Training Target (Build 41) を Build 42.21 向けに全面的に書き直したものです。モデルは Blender で制作しました。ソースコードは MIT ライセンスです: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
+同じ作者による Training Target (Build 41) を Build 42.22 向けに全面的に書き直したものです。モデルは Blender で制作しました。ソースコードは MIT ライセンスです: [url=https://github.com/cyberbobjr/TrainingTarget]GitHub[/url].
